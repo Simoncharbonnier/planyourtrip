@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :subscriptions, only: [:create, :update, :destroy]
     resources :availabilities, only: :create
     resources :places, only: :update
-    resources :placeproposals, only: :create
+    resources :place_proposals, only: :create
     resources :messages, only: :create
     resources :tasks, only: [:create, :update]
   end
