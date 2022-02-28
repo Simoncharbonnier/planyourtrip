@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :tasks
   has_many :messages
   has_many :trips, through: :subscriptions
+
+  validates :username, presence: true, uniqueness: true, length: { minimum: 3 }
 end

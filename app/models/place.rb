@@ -1,3 +1,5 @@
 class Place < ApplicationRecord
-  has_many :placeProposals
+  has_many :place_proposals
+
+  validates :city, presence: true, uniqueness: true
 end
