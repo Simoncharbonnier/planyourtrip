@@ -91,3 +91,7 @@ p "Subscriptions seed done !"
 # message3 = Message.create(content: "J'espère que tu y as pensé !", user: fabien, trip: trip1)
 # message4 = Message.create(content: "J'ai pris ma combinaison !", user: herve, trip: trip1)
 # p "Messages seed done !"
+
+
+
+p "ALL SEEDS DONE !"
