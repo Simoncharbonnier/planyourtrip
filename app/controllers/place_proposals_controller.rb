@@ -1,0 +1,2 @@
+class PlaceProposalsController < ApplicationController
+end
