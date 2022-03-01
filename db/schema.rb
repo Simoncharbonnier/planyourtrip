@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2022_03_01_105015) do
     t.date "start_at"
     t.date "end_at"
     t.integer "duration"
-    t.boolean "subscription_lock", default: false
+    t.string "status", default: "created"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["place_proposal_id"], name: "index_trips_on_place_proposal_id"
