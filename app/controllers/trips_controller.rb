@@ -1,9 +1,14 @@
 class TripsController < ApplicationController
   def index
     @my_trips = current_user.trips
-    @my_unlocked_trips = @my_trips.select { |trip| trip.subscription_lock == false }
-    @my_locked_trips = @my_trips.select { |trip| trip.subscription_lock == true }
-    @my_passed_trips = @my_locked_trips.select { |trip| trip.end_at.to_date < Date.today }
-    @my_future_trips = @my_locked_trips.select { |trip| trip.start_at >= Date.today }
+    @my_pending_trips = @my_trips.select { |trip| trip.status == "pending" }
+    @my_confirmed_trips = @my_trips.select { |trip| trip.status == "confirmed" }
+    @my_passed_trips = @my_trips.select { |trip| trip.status == "passed" }
+  end
+
+  def new
+    @availabilities = Availability.new
+    @place_proposal = PlaceProposal.new
+    @trip = Trip.new
   end
 end

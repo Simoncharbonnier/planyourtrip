@@ -5,7 +5,7 @@ class CreateTrips < ActiveRecord::Migration[6.1]
       t.date :start_at
       t.date :end_at
       t.integer :duration
-      t.boolean :subscription_lock, default: false
+      t.string :status, default: "created"
 
       t.timestamps
     end
