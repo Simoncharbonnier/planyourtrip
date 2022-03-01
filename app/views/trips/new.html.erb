@@ -1,6 +1,26 @@
 <div class="container">
+  <h1 class="form-title">Crée ton meilleur trip !</h1>
+  <form action="" method="POST" class="form-trip">
+    <div class="form-element">
+      <label for="name">Nom</label>
+      <input type="text" name="name" placeholder="Vacances 2022.." required>
+    </div>
+    <div class="form-element">
+      <label for="duration">Durée (en jours)</label>
+      <input type="text" name="duration" placeholder="8.." required>
+    </div>
+    <input class="form-element" type="submit" value="Done !">
 
-
-
-
+    <div class="form-element flatpickr" data-controller="availabilities">
+      <label for="availabilities">Disponibilités</label>
+      <input type="text" class="datepicker" placeholder="Select Date.." data-availabilities-target="input">
+      <a class="input-button" title="toggle" data-action="click->availabilities#add">
+        <i class="fa-solid fa-check"></i>
+      </a>
+      <a class="input-button" title="clear" data-action="click->availabilities#remove">
+        <i class="fa-solid fa-xmark"></i>
+      </a>
+      <p class="" data-availabilities-target="availabilities"></p>
+    </div>
+  </form>
 </div>

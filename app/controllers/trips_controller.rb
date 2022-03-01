@@ -5,4 +5,10 @@ class TripsController < ApplicationController
     @my_confirmed_trips = @my_trips.select { |trip| trip.status == "confirmed" }
     @my_passed_trips = @my_trips.select { |trip| trip.status == "passed" }
   end
+
+  def new
+    @availabilities = Availability.new
+    @place_proposal = PlaceProposal.new
+    @trip = Trip.new
+  end
 end
