@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :availabilities, only: :create
     resources :places, only: :update
     resources :place_proposals, only: :create
+    resources :votes, only: :create
     resources :messages, only: :create
     resources :tasks, only: [:create, :update]
   end
