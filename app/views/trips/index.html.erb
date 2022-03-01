@@ -1,11 +1,12 @@
 <div class="container">
-  <h1>My trips</h1>
-  <div class="flex index">
+  <h1 class="index-trips-title">My trips</h1>
+  <div class="flex index-trips">
     <% @my_trips.each do |trip| %>
-      <div class="card-index">
+      <div class="index-trips-card">
         <div class="img"></div>
         <div class="infos">
-          <%= trip.place %>
+          <h5><strong><%= Place.where(id: PlaceProposal.where(id: trip.place_proposal_id).first.place_id).first.city.upcase %></strong></h5>
+          <p><%= "#{trip.start_at} / #{trip.end_at}" %></p>
         </div>
       </div>
     <% end %>
