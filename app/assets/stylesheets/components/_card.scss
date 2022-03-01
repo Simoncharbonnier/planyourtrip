@@ -1,46 +1,71 @@
-
+.container {
+  border-radius: 10px;
+  border: none;
+}
 .card {
   width: 300px;
   height: 400px;
   box-shadow: 0 4px 8px 0 rgba(138,151,254,0.5);
   transition: 0.3s;
   border-radius: 10px;
+  display: flex;
+
 }
 
-/* On mouse-over, add a deeper shadow */
+.card-infos {
+  justify-content: space-around;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-/* Add some padding inside the card container */
-.container {
-  padding: 2px 16px;
-}
-
 .btn-ghost {
-
   border: 1px solid;
+  background: white;
   border-radius: 10px;
-
   opacity: 0.6;
-  position: relative;
+  width: 15rem;
+  margin-left: 10px;
+
 }
 
 .btn-ghost:hover {
   opacity: 1;
 }
 
-.card-image {
-  height: 250px;
-  position: relative;
+// Affichage et redimensionnement image pour fit la card
+.card-img {
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-// Mise à l'échelle de l'image dans la card
-.card-image img {
-  width: 150%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: aquamarine;
+.card-img > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
+}
+
+h2 {
+font-size: 24px;
+}
+
+.fa {
+color: blue;
+}
+
+.card-footer {
+  background-color: rgba(113, 113, 233, 0.856);
+  border: none;
 }
