@@ -40,9 +40,9 @@ fabien = User.create(username: "fabien", email: "fabien.alexandre@gmail.com", pa
 p "Users seed done !"
 
 # trips
-trip1 = Trip.create(start_at: "2022-4-4", end_at: "2022-4-10", status: "lock", duration: 7)
-trip2 = Trip.create(start_at: "2021-9-20", end_at: "2021-9-26", status: "lock", duration: 7)
-trip3 = Trip.create(start_at: "2021-2-4", end_at: "2021-2-14", status: "lock", duration: 11)
+trip1 = Trip.create(start_at: "2022-4-4", end_at: "2022-4-10", status: "confirmed", duration: 7)
+trip2 = Trip.create(start_at: "2021-9-20", end_at: "2021-9-26", status: "passed", duration: 7)
+trip3 = Trip.create(start_at: "2021-2-4", end_at: "2021-2-14", status: "passed", duration: 11)
 p "Trips seed done !"
 
 # place_proposals

@@ -1,14 +1,51 @@
 <div class="container">
-  <h1 class="index-trips-title">My trips</h1>
-  <div class="flex index-trips">
-    <% @my_trips.each do |trip| %>
-      <div class="index-trips-card">
-        <div class="img"></div>
-        <div class="infos">
-          <h5><strong><%= Place.where(id: PlaceProposal.where(id: trip.place_proposal_id).first.place_id).first.city.upcase %></strong></h5>
-          <p><%= "#{trip.start_at} / #{trip.end_at}" %></p>
-        </div>
+  <div class="layout">
+    <input name="nav" type="radio" class="nav home-radio" id="pending" checked="checked" />
+    <div class="page pending-page">
+      <div class="page-contents flex">
+        <% @my_pending_trips.each do |trip| %>
+          <div class="index-trips-card">
+            <div class="img"></div>
+            <div class="infos">
+              <h5><strong><%= Place.where(id: PlaceProposal.where(id: trip.place_proposal_id).first.place_id).first.city.upcase %></strong></h5>
+              <p><%= "#{trip.start_at.day}/#{trip.start_at.month}/#{trip.start_at.year} - #{trip.end_at.day}/#{trip.end_at.month}/#{trip.end_at.year}" %></p>
+            </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+    <label class="nav" for="pending"><span>En attente</span></label>
+
+    <input name="nav" type="radio" class="confirmed-radio" id="confirmed" />
+    <div class="page confirmed-page">
+      <div class="page-contents flex">
+        <% @my_confirmed_trips.each do |trip| %>
+          <div class="index-trips-card">
+            <div class="img"></div>
+            <div class="infos">
+              <h5><strong><%= Place.where(id: PlaceProposal.where(id: trip.place_proposal_id).first.place_id).first.city.upcase %></strong></h5>
+              <p><%= "#{trip.start_at.day}/#{trip.start_at.month}/#{trip.start_at.year} - #{trip.end_at.day}/#{trip.end_at.month}/#{trip.end_at.year}" %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <label class="nav" for="confirmed"><span>Confirmés</span></label>
+
+    <input name="nav" type="radio" class="passed-radio" id="passed" />
+    <div class="page passed-page">
+      <div class="page-contents flex">
+        <% @my_passed_trips.each do |trip| %>
+          <div class="index-trips-card">
+            <div class="img"></div>
+            <div class="infos">
+              <h5><strong><%= Place.where(id: PlaceProposal.where(id: trip.place_proposal_id).first.place_id).first.city.upcase %></strong></h5>
+              <p><%= "#{trip.start_at.day}/#{trip.start_at.month}/#{trip.start_at.year} - #{trip.end_at.day}/#{trip.end_at.month}/#{trip.end_at.year}" %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <label class="nav" for="passed"><span>Passés</span></label>
   </div>
 </div>
