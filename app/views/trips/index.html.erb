@@ -1,5 +1,21 @@
 <div class="container">
   <h1 class="index-trips-title">My trips</h1>
+  <div class="tabs">
+    <ul class="list-inline tabs-underlined">
+      <li>
+        <a href="#" class="tab-underlined active">All</a>
+      </li>
+      <li>
+        <a href="#" class="tab-underlined">En attente de votes</a>
+      </li>
+      <li>
+        <a href="#" class="tab-underlined">A venir</a>
+      </li>
+      <li>
+        <a href="#" class="tab-underlined">Passés</a>
+      </li>
+    </ul>
+  </div>
   <div class="flex index-trips">
     <% @my_trips.each do |trip| %>
       <div class="index-trips-card">
