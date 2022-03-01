@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_28_115408) do
+ActiveRecord::Schema.define(version: 2022_03_01_105015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2022_02_28_115408) do
   create_table "place_proposals", force: :cascade do |t|
     t.bigint "trip_id", null: false
     t.bigint "place_id", null: false
+    t.integer "votes", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["place_id"], name: "index_place_proposals_on_place_id"
@@ -47,7 +48,6 @@ ActiveRecord::Schema.define(version: 2022_02_28_115408) do
 
   create_table "places", force: :cascade do |t|
     t.string "city"
-    t.integer "votes", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2022_02_28_115408) do
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.boolean "status", default: false
+    t.boolean "done", default: false
     t.bigint "user_id", null: false
     t.bigint "trip_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -75,13 +75,14 @@ ActiveRecord::Schema.define(version: 2022_02_28_115408) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.string "place"
+    t.bigint "place_proposal_id"
     t.date "start_at"
     t.date "end_at"
     t.integer "duration"
     t.boolean "subscription_lock", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["place_proposal_id"], name: "index_trips_on_place_proposal_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -97,6 +98,15 @@ ActiveRecord::Schema.define(version: 2022_02_28_115408) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.bigint "place_proposal_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["place_proposal_id"], name: "index_votes_on_place_proposal_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
   add_foreign_key "availabilities", "trips"
   add_foreign_key "availabilities", "users"
   add_foreign_key "messages", "trips"
@@ -107,4 +117,6 @@ ActiveRecord::Schema.define(version: 2022_02_28_115408) do
   add_foreign_key "subscriptions", "users"
   add_foreign_key "tasks", "trips"
   add_foreign_key "tasks", "users"
+  add_foreign_key "votes", "place_proposals"
+  add_foreign_key "votes", "users"
 end

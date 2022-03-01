@@ -40,9 +40,9 @@ p "Users seed done !"
 
 
 # trips
-trip1 = Trip.create(start_at: "2022-4-4", end_at: "2022-4-10", place: paris.city, duration: 7)
-trip2 = Trip.create(start_at: "2021-9-20", end_at: "2021-9-26", place: rome.city, subscription_lock: true, duration: 7)
-trip3 = Trip.create(start_at: "2021-2-4", end_at: "2021-2-14", place: copenhague.city, subscription_lock: true, duration: 11)
+# trip1 = Trip.create(start_at: "2022-4-4", end_at: "2022-4-10", place: paris.city, duration: 7)
+# trip2 = Trip.create(start_at: "2021-9-20", end_at: "2021-9-26", place: rome.city, subscription_lock: true, duration: 7)
+# trip3 = Trip.create(start_at: "2021-2-4", end_at: "2021-2-14", place: copenhague.city, subscription_lock: true, duration: 11)
 p "Trips seed done !"
 
 #subscriptions
