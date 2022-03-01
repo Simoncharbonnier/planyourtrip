@@ -1,5 +1,7 @@
-<div class="container">
+<div class="container flex index">
   <% @my_trips.each do |trip| %>
-    <%= trip.place %>
+    <div class="card-index">
+      <%= trip.place %>
+    </div>
   <% end %>
 </div>
