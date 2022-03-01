@@ -51,9 +51,12 @@ place_proposal2 = PlaceProposal.create(place: paris, trip: trip2)
 place_proposal3 = PlaceProposal.create(place: rome, trip: trip3)
 p "Place proposals seed done !"
 
-trip1.place_proposal_id = place_proposal1
-trip2.place_proposal_id = place_proposal2
-trip3.place_proposal_id = place_proposal3
+trip1.place_proposal_id = place_proposal1.id
+trip1.save
+trip2.place_proposal_id = place_proposal2.id
+trip2.save
+trip3.place_proposal_id = place_proposal3.id
+trip3.save
 
 #subscriptions
 subscription1 = Subscription.create(status: "accepted", user: simon, trip: trip1)
