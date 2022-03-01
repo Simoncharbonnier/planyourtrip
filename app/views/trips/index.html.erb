@@ -6,7 +6,7 @@
         <div class="img"></div>
         <div class="infos">
           <h5><strong><%= Place.where(id: PlaceProposal.where(id: trip.place_proposal_id).first.place_id).first.city.upcase %></strong></h5>
-          <p><%= "#{trip.start_at} / #{trip.end_at}" %></p>
+          <p><%= "#{trip.start_at.day}/#{trip.start_at.month}/#{trip.start_at.year} - #{trip.end_at.day}/#{trip.end_at.month}/#{trip.end_at.year}" %></p>
         </div>
       </div>
     <% end %>
