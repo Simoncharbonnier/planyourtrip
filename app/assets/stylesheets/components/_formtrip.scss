@@ -2,3 +2,17 @@
   justify-content: space-between;
   align-items: center;
 }
+.form-global {
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  margin-top: 2rem;
+  width: 800px;
+  height: 500px;
+  background-color: #8A97FE;
+  text-align: center;
+  input {
+    width: 50%;
+  }
+}
