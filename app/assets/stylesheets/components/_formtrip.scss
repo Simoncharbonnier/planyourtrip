@@ -1,0 +1,21 @@
+form {
+  a {
+    text-decoration: none;
+    color:grey;
+  }
+  a:hover {
+    color: black;
+  }
+}
+.form-title {
+  margin-top: 2rem;
+}
+.form-element {
+  margin-top: 1rem;
+}
+label {
+  padding-right: 10px;
+}
+.hide {
+  display: none;
+}
