@@ -48,35 +48,4 @@
     </div>
     <label class="nav" for="passed"><span>Passés</span></label>
   </div>
-
-
-
-  <button id="myBtn">Crée ton voyage !</button>
-  <div id="myModal" class="modal">
-    <div class="modal-content">
-      <div class="form-trip-title flex">
-        <h1>Crée ton meilleur trip!</h1>
-        <i class="close far fa-times-circle"></i>
-      </div>
-      <%= simple_form_for(@trip) do |f| %>
-        <%= f.input :name %>
-        <%= f.input :duration %>
-        <%= f.submit %>
-      <% end %>
-    </div>
-  </div>
 </div>
-
-
-<script>
-  var modal = document.getElementById("myModal");
-  var btn = document.getElementById("myBtn");
-  var span = document.getElementsByClassName("close")[0];
-
-  btn.onclick = function() {
-    modal.style.display = "block";
-  }
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
-</script>
