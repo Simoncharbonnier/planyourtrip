@@ -1,22 +1,26 @@
-
 <div class="container">
   <div class="card" href="">
     <div class=card-img>
-      <img src="https://picsum.photos/500/300/?image=10" alt="What's this picture ?"/>
+      <p class="text-bloc">
+        <i class="fas fa-plane"> 40 €</i>
+      </p>
+      <%= image_tag "https://picsum.photos/500/300/?image=10", alt: "What's this picture ?" %>
     </div>
 
     <div class="card-infos">
-      <h2>CITY</h2>
-      <div class="left">
-        <p><i class="fa fa-plane"></i> Price €</p>
-        <p><i class="fa fa-bed"></i> Price €</p>
-      </div>
-      <div class="right">
-        <p><i class="fa fa-beer"></i> Loyer € </p>
-        <p><i class="fa fa-temperature"></i> °C</p>
+      <h2>CITY, country</h2>
+      <div class="card-totem">
+        <div class="mini-card">
+          <p><i class="fas fa-bed"></i> 75€</p>
+        </div>
+        <div class="mini-card">
+          <p><i class="fas fa-thermometer-half"></i> 10°C</p>
+        </div>
+        <div class="mini-card">
+          <p><i class="fas fa-beer"></i><br>6€</p>
+        </div>
       </div>
     </div>
-
     <div class="card-footer">
     <a class="btn btn-ghost" href="#">Voter</a>
     </div>
