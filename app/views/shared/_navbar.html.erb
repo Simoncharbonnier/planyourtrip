@@ -9,14 +9,26 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav me-auto flex">
         <% if user_signed_in? %>
           <li class="nav-item active">
-
             <%= link_to "Dashboard", trips_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Crée ton voyage", new_trip_path, class: "nav-link" %>
+          <li class="nav-item active">
+            <a id="myBtn">Crée ton voyage &nbsp</a>
+            <div id="myModal" class="modal">
+              <div class="modal-content">
+                <div class="form-trip-title flex">
+                  <h1>Crée ton meilleur trip!</h1>
+                  <i class="close far fa-times-circle"></i>
+                </div>
+                <%= simple_form_for(@trip) do |f| %>
+                  <%= f.input :name %>
+                  <%= f.input :duration %>
+                  <%= f.submit %>
+                <% end %>
+              </div>
+            </div>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -35,3 +47,17 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  var modal = document.getElementById("myModal");
+  var btn = document.getElementById("myBtn");
+  var span = document.getElementsByClassName("close")[0];
+
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+</script>
