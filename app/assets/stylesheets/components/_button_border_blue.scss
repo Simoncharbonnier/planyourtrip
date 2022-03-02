@@ -1,0 +1,15 @@
+.button-border-blue {
+  color: $purple-blue;
+  text-decoration: none;
+  padding: 0px 4px 0px 4px;
+  border: 1px solid  $purple-blue;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.2em;
+
+
+  &:hover {
+    background-color: $purple-blue;
+    color: white;
+  }
+}
