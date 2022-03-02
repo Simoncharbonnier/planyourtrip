@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Donne nous ta destination de rêve et tes disponibilités !</h1>
+  <h3><%= "#{@trip.name} (#{@trip.duration} jours)" %></h3>
+  <%= simple_form_for([@trip, @place_proposal]) do |f| %>
+    <%= f.association :place %>
+    <%= f.submit %>
+  <% end %>
+  <% if Availability.where(user_id: current_user.id, trip_id: @trip.id) %>
+    <p>Dispos :</p>
+    <% Availability.where(user_id: current_user.id, trip_id: @trip.id).each do |av| %>
+      <%= "#{av.availability}" %><br>
+    <% end %>
+  <% end %>
+  <%= simple_form_for([@trip, @availabilities]) do |f| %>
+    <%= f.input :availability, as: :string, input_html: { class: "datepicker" } %>
+    <%= f.submit "Add" %>
+    <%= link_to "Next", trip_path(@trip) %>
+  <% end %>
+</div>
