@@ -16,8 +16,7 @@ ActiveRecord::Schema.define(version: 2022_03_02_112736) do
   enable_extension "plpgsql"
 
   create_table "availabilities", force: :cascade do |t|
-    t.date "start_at"
-    t.date "end_at"
+    t.string "availability"
     t.bigint "user_id", null: false
     t.bigint "trip_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -39,11 +38,13 @@ ActiveRecord::Schema.define(version: 2022_03_02_112736) do
   create_table "place_proposals", force: :cascade do |t|
     t.bigint "trip_id", null: false
     t.bigint "place_id", null: false
+    t.bigint "user_id"
     t.integer "votes", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["place_id"], name: "index_place_proposals_on_place_id"
     t.index ["trip_id"], name: "index_place_proposals_on_trip_id"
+    t.index ["user_id"], name: "index_place_proposals_on_user_id"
   end
 
   create_table "places", force: :cascade do |t|
@@ -78,6 +79,8 @@ ActiveRecord::Schema.define(version: 2022_03_02_112736) do
 
   create_table "trips", force: :cascade do |t|
     t.bigint "place_proposal_id"
+    t.bigint "user_id"
+    t.string "name"
     t.date "start_at"
     t.date "end_at"
     t.integer "duration"
@@ -85,6 +88,7 @@ ActiveRecord::Schema.define(version: 2022_03_02_112736) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["place_proposal_id"], name: "index_trips_on_place_proposal_id"
+    t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

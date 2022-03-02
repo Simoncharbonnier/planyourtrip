@@ -1,1 +1,70 @@
 // Specific CSS for your home-page
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.hero {
+  width: 100%;
+  height: 90vh;
+  background-color: white;
+  text-align: center;
+}
+
+.img {
+  margin: 0 auto;
+  background-image: url("test.jpeg");
+  width: 80%;
+  border-radius: 60px;
+  height: 480px;
+  background-size: cover;
+}
+
+#hero-title {
+  font-family: 'Vollkorn', serif;
+  color: white;
+  font-size: 40px;
+  font-weight: bolder;
+  padding-top: 90px;
+  padding-left: 400px;
+}
+
+button {
+  color: white;
+  background-color: #F78764;
+  padding: 10px 80px;
+  border: none;
+  border-radius: 10px;
+  margin: 10px auto;
+}
+
+.hero h3 {
+  font-family: 'Vollkorn', serif;
+  padding-top: 20px;
+}
+
+.infos {
+  height: 400px;
+  width : 100%;
+  background-color: #FFECE4;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.info-card {
+  background-color: white;
+  border-radius: 20px;
+  border: solid 2px #8A97FE;
+  height: 200px;
+  width: 280px;
+  padding: 20px;
+  box-shadow: 0 4px 4px -2px gray;
+}
+
+.info-text {
+  color: #8A97FE;
+  font-size: 20px;
+  text-align: center;
+}
