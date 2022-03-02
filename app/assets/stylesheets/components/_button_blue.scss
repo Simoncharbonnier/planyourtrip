@@ -1,0 +1,20 @@
+a {
+  text-decoration: none;
+  color: white;
+  &:hover{
+    color: black;
+  }
+}
+
+.button-blue {
+
+    color: white;
+    text-decoration: none;
+    background-color: #8A97FE;
+    padding: 0px 4px 0px 4px;
+    border-radius: 5px;
+    text-align: center;
+    width: 260px;
+    font-size: 20px;
+
+}
