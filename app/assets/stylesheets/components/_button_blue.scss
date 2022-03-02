@@ -1,10 +1,4 @@
-a {
-  text-decoration: none;
-  color: white;
-  &:hover{
-    color: black;
-  }
-}
+
 
 .button-blue {
 
@@ -16,5 +10,9 @@ a {
     text-align: center;
     width: 260px;
     font-size: 20px;
-
-}
+    &:hover {
+      background-color: white;
+      color: #8A97FE;
+      border: 1px solid  $purple-blue;
+    }
+  }
