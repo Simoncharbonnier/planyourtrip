@@ -1,13 +1,18 @@
 <div class="container flex form-global">
-  <div class="form">
+  <div class="form flex">
     <h1>Donne nous ta destination de rêve et tes disponibilités !</h1>
     <h3><%= "Trip : #{@trip.name} (#{@trip.duration} jours)" %></h3>
-    <%= simple_form_for([@trip, @place_proposal]) do |f| %>
-      <%= f.association :place, label: false, placeholder: "Destination" %>
-      <%= f.submit "Ajoute ta destination préférée !" %>
+    <% if PlaceProposal.where(user_id: current_user.id, trip_id: @trip.id).first %>
+      <%= "Ton choix de destination est #{PlaceProposal.where(user_id: current_user.id, trip_id: @trip.id).first.place.city}" %>
+    <% else %>
+      <%= simple_form_for([@trip, @place_proposal]) do |f| %>
+        <%= f.association :place, label: false, :label_method => lambda { |place| "#{place.city}" }, placeholder: "Destination" %>
+        <%= f.submit "Ajoute ta destination préférée !" %>
+      <% end %>
     <% end %>
-    <% if Availability.where(user_id: current_user.id, trip_id: @trip.id) %>
-      <p>Celles que tu as déjà enregistré :</p>
+    <hr>
+    <% if Availability.where(user_id: current_user.id, trip_id: @trip.id).first %>
+      <p>Tes dispos sont</p>
       <% Availability.where(user_id: current_user.id, trip_id: @trip.id).each do |av| %>
         <%= "#{av.availability}" %><br>
       <% end %>
@@ -15,7 +20,7 @@
     <%= simple_form_for([@trip, @availabilities]) do |f| %>
       <%= f.input :availability, as: :string, label: false, placeholder: "Dates", input_html: { class: "datepicker" } %>
       <%= f.submit "Ajoute tes disponibilités !" %>
-      <%= link_to "Next", trips_path %>
     <% end %>
+    <%= link_to "Next", trips_path %>
   </div>
 </div>
