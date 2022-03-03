@@ -45,7 +45,7 @@
                   <div class="img" style="background-image: url('https://photos.mandarinoriental.com/is/image/MandarinOriental/paris-2017-home?wid=2880&hei=1280&fmt=jpeg&crop=9,336,2699,1200&anchor=1358,936&qlt=75,0&fit=wrap&op_sharpen=0&resMode=sharp2&op_usm=0,0,0,0&iccEmbed=0&printRes=72')"></div>
                   <div class="body-trips-cards-confirmed">
                     <h5><strong><%= trip.place_proposals.first.place.city.upcase %></strong></h5>
-                    <p id="date"><i class="fas fa-calendar-alt"></i> <%= "#{trip.start_at.day}/#{trip.start_at.month}/#{trip.start_at.year} - #{trip.end_at.day}/#{trip.end_at.month}/#{trip.end_at.year}" %></p>
+                    <p id="date"><i class="fas fa-calendar-alt"></i> <%= "#{trip_availabilities.start_at.day}/#{trip_availabilities.start_at.month}/#{trip_availabilities.start_at.year} - #{trip_availabilities.end_at.day}/#{trip_availabilities.end_at.month}/#{trip_availabilities.end_at.year}" %></p>
                   </div>
                   <div class="footer-index-trips-cards-confirmed">
                     <%= link_to trip.place_proposals.first.place.city %>
@@ -69,7 +69,7 @@
                     <div class="img" style="background-image: url('https://photos.mandarinoriental.com/is/image/MandarinOriental/paris-2017-home?wid=2880&hei=1280&fmt=jpeg&crop=9,336,2699,1200&anchor=1358,936&qlt=75,0&fit=wrap&op_sharpen=0&resMode=sharp2&op_usm=0,0,0,0&iccEmbed=0&printRes=72')"></div>
                     <div class="body-trips-cards">
                       <h5><strong><%= trip.place_proposals.first.place.city.upcase %></strong></h5>
-                      <p id="date"><i class="fas fa-calendar-alt"></i> <%= "#{trip.start_at.day}/#{trip.start_at.month}/#{trip.start_at.year} - #{trip.end_at.day}/#{trip.end_at.month}/#{trip.end_at.year}" %></p>
+                      <p id="date"><i class="fas fa-calendar-alt"></i> <%= "#{trip_availabilities.start_at.day}/#{trip_availabilities.start_at.month}/#{trip_availabilities.start_at.year} - #{trip_availabilities.end_at.day}/#{trip_availabilities.end_at.month}/#{trip_availabilities.end_at.year}" %></p>
                     </div>
                   <div class="footer-index-trips-cards">
                     <%= link_to "Foobar" %>
