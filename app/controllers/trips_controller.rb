@@ -5,11 +5,11 @@ class TripsController < ApplicationController
     @my_pending_trips   = @my_trips.select { |trip| trip.status == "created" || trip.status == "voting" }
     @my_confirmed_trips = @my_trips.select { |trip| trip.status == "confirmed" }
     @my_passed_trips    = @my_trips.select { |trip| trip.status == "passed" }
-
     @markers = []
     @my_confirmed_trips.each do |trip|
-      place_proposal = PlaceProposal.where(id: trip.place_proposal_id).first
-      place = Place.where(id: place_proposal.place_id).first
+
+      place_proposal = PlaceProposal.where(id: trip.place_proposal).first
+      place = Place.where(id: place_proposal.place).first
       @markers << {
         lat: place.latitude,
         lng: place.longitude,

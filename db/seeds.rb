@@ -42,17 +42,17 @@ fabien = User.create!(username: "fabien", email: "fabien.alexandre@gmail.com", p
 p "Users seed done !"
 
 # trips
-# trip1 = Trip.create!(name: "trip 1", user_id: simon, month: 4, status: "confirmed", time_span: "week")
+trip1 = Trip.create!(name: "Voyage confirmé!", user_id: simon, month: 4, status: "confirmed", time_span: "weekend")
 # trip2 = Trip.create!(name: "trip 2", user_id: simon, month: 4, status: "passed", time_span: "week")
 trip3 = Trip.create!(name: "Weekend des familles", user_id: simon.id, month: 4, status: "voting", time_span: "weekend")
 trip4 = Trip.create!(name: "Voyage entre potes", user_id: simon.id, month: 4, status: "voting", time_span: "week")
 p "Trips seed done !"
 
 # subscriptions
-# subscription1 = Subscription.create!(status: "accepted", user: simon, trip: trip1)
-# subscription2 = Subscription.create!(status: "accepted", user: valentin, trip: trip1)
-# subscription3 = Subscription.create!(status: "accepted", user: herve, trip: trip1)
-# subscription4 = Subscription.create!(status: "accepted", user: fabien, trip: trip1)
+subscription1 = Subscription.create!(status: "accepted", user: simon, trip: trip1)
+subscription2 = Subscription.create!(status: "accepted", user: valentin, trip: trip1)
+subscription3 = Subscription.create!(status: "accepted", user: herve, trip: trip1)
+subscription4 = Subscription.create!(status: "accepted", user: fabien, trip: trip1)
 # subscription5 = Subscription.create!(status: "accepted", user: simon, trip: trip2)
 # subscription6 = Subscription.create!(status: "accepted", user: valentin, trip: trip2)
 # subscription7 = Subscription.create!(status: "accepted", user: herve, trip: trip2)
@@ -73,6 +73,10 @@ trip_availability_8 = TripAvailability.create!(trip: trip3, start_at: "2022-4-8"
 trip_availability_9 = TripAvailability.create!(trip: trip3, start_at: "2022-4-15", end_at: "2022-4-17")
 trip_availability_10 = TripAvailability.create!(trip: trip3, start_at: "2022-4-22", end_at: "2022-4-24")
 trip_availability_11 = TripAvailability.create!(trip: trip3, start_at: "2022-4-29", end_at: "2022-5-1")
+
+trip_availability_12 = TripAvailability.create!(trip: trip1, start_at: "2022-4-1", end_at: "2022-4-3")
+# trip1.trip_availability = trip_availability_12
+# trip1.save!
 
 trip_availability_3 = TripAvailability.create!(trip: trip4, start_at: "2022-4-4", end_at: "2022-4-10")
 trip_availability_4 = TripAvailability.create!(trip: trip4, start_at: "2022-4-11", end_at: "2022-4-17")
@@ -97,6 +101,11 @@ place_proposal1 = PlaceProposal.create!(place: copenhague, trip: trip4, user: va
 place_proposal2 = PlaceProposal.create!(place: paris, trip: trip4, user: fabien)
 place_proposal3 = PlaceProposal.create!(place: rome, trip: trip4, user: herve)
 place_proposal4 = PlaceProposal.create!(place: rome, trip: trip4, user: simon)
+
+place_proposal5 = PlaceProposal.create!(place: rome, trip: trip1, user: simon)
+trip1.place_proposal = place_proposal5
+trip1.save!
+
 # trip1.place_proposal = place_proposal1.id
 # trip1.save
 # trip2.place_proposal = place_proposal2.id
