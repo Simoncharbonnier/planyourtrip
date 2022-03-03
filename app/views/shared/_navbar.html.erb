@@ -23,6 +23,7 @@
                 <%= simple_form_for(@trip) do |f| %>
                   <%= f.input :name %>
                   <%= f.input :month %>
+                  <%= f.collection_check_boxes :time_span, [["WE", 'Week-end'], ["Week", 'Week']], :first, :last %>
                   <%= f.submit %>
                 <% end %>
               </div>

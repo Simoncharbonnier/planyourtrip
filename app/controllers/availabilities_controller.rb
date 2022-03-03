@@ -9,15 +9,11 @@ class AvailabilitiesController < ApplicationController
     redirect_to new_trip_trip_availability_path(@availability.trip_availability.trip)
   end
 
-  def update
+  def destroy
     @availability = Availability.find(params[:id])
-    if @availability.available == "false"
-      @availability.available = "true"
-    else
-      @availability.available = "false"
-    end
-    @availability.save
+    @trip_id = @availability.trip_availability.trip
+    @availability.destroy
 
-    redirect_to new_trip_trip_availability_path(@availability.trip_availability.trip)
+    redirect_to new_trip_trip_availability_path(@trip_id)
   end
 end

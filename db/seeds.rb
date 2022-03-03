@@ -50,17 +50,17 @@ p "Trips seed done !"
 
 
 # trip_availabilities
-trip_availability_1 = TripAvailability.create(trip_id: 1, start_at: "2022-4-4", end_at: "2022-4-10")
-trip_availability_2 = TripAvailability.create(trip_id: 2, start_at: "2021-9-20", end_at: "2021-9-26")
-trip_availability_3 = TripAvailability.create(trip_id: 3, start_at: "2021-2-4", end_at: "2021-2-14")
-trip_availability_4 = TripAvailability.create(trip_id: 4, start_at: "2022-4-12", end_at: "2022-4-18")
-trip_availability_5 = TripAvailability.create(trip_id: 4, start_at: "2022-4-8", end_at: "2022-4-25")
-trip_availability_6 = TripAvailability.create(trip_id: 4, start_at: "2022-4-10", end_at: "2022-4-22")
+trip_availability_1 = TripAvailability.create(trip_id: trip1.id, start_at: "2022-4-4", end_at: "2022-4-10")
+trip_availability_2 = TripAvailability.create(trip_id: trip2.id, start_at: "2021-9-20", end_at: "2021-9-26")
+trip_availability_3 = TripAvailability.create(trip_id: trip3.id, start_at: "2021-2-4", end_at: "2021-2-14")
+trip_availability_4 = TripAvailability.create(trip_id: trip4.id, start_at: "2022-4-12", end_at: "2022-4-18")
+trip_availability_5 = TripAvailability.create(trip_id: trip4.id, start_at: "2022-4-8", end_at: "2022-4-25")
+trip_availability_6 = TripAvailability.create(trip_id: trip4.id, start_at: "2022-4-10", end_at: "2022-4-22")
 
 # availabilities
-availabilities_1 = Availabilities.create(available: "true", user_id: fabien, trip_availability_id: 5)
-availabilities_1 = Availabilities.create(available: "true", user_id: valentin, trip_availability_id: 5)
-availabilities_1 = Availabilities.create(available: "true", user_id: herve, trip_availability_id: 5)
+availabilities_1 = Availability.create(available: "true", user_id: fabien, trip_availability_id: trip_availability_5)
+availabilities_1 = Availability.create(available: "true", user_id: valentin, trip_availability_id: trip_availability_5)
+availabilities_1 = Availability.create(available: "true", user_id: herve, trip_availability_id: trip_availability_5)
 # availabilities_1 = Availabilities.create(available: "true", user_id: fabien , trip_availability_id:)
 
 # place_proposals
