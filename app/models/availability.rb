@@ -1,6 +1,6 @@
 class Availability < ApplicationRecord
   belongs_to :user
-  belongs_to :trip
+  belongs_to :trip_availability
 
-  validates :availability, presence: true
+  validates :trip_availability, presence: true
 end
