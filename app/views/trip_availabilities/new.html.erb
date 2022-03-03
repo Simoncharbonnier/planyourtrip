@@ -13,7 +13,19 @@
     <hr>
     <% @trip_availabilities.each_with_index do |ta, index| %>
       <p>Créneau <%= index + 1 %></p>
-      <%= link_to "Voter", trip_availability_availabilities_path(ta), method: :post %>
+      <% av = Availability.where(user_id: current_user.id, trip_availability_id: ta.id).first %>
+      <% if av.is_a?(Availability) && av.available == "true" %>
+        <%= link_to "Pas dispo", trip_availability_availability_path(ta, av), method: :patch %>
+      <% else %>
+        <% if av.is_a?(Availability) && av.available == "false" %>
+          <%= link_to "Dispo", trip_availability_availability_path(ta, av), method: :patch %>
+        <% else %>
+          <%= link_to "Dispo", trip_availability_availabilities_path(ta), method: :post %>
+        <% end %>
+      <% end %>
+      <% if ta.availabilities.first %>
+        <%= Availability.where(user_id: current_user.id, trip_availability_id: ta.id).first.available %>
+      <% end %>
       <p><%= ta.start_at.strftime("%d-%m-%Y") %></p>
       <p><%= ta.end_at.strftime("%d-%m-%Y") %></p>
     <% end %>

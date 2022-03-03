@@ -9,6 +9,7 @@ PlaceProposal.destroy_all
 Place.destroy_all
 Task.destroy_all
 Message.destroy_all
+TripAvailability.destroy_all
 Trip.destroy_all
 User.destroy_all
 Vote.destroy_all
@@ -45,6 +46,8 @@ trip2 = Trip.create(name: "trip 2", user_id: simon, status: "passed")
 trip3 = Trip.create(name: "trip 3", user_id: simon, status: "passed")
 trip4 = Trip.create(name: "trip 4", user_id: simon, status: "voting")
 p "Trips seed done !"
+
+trip_availability = TripAvailability.create(trip: trip4, start_at: "2022-4-10", end_at: "2022-4-18")
 
 # place_proposals
 place_proposal1 = PlaceProposal.create(place: copenhague, trip: trip1, user: simon)
