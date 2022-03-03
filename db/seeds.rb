@@ -48,11 +48,20 @@ trip3 = Trip.create(name: "trip 3", user_id: simon, month: 4, status: "passed", 
 trip4 = Trip.create(name: "trip 4", user_id: simon, month: 4, status: "voting", time_span: 7)
 p "Trips seed done !"
 
+
 # trip_availabilities
 trip_availability_1 = TripAvailability.create(trip_id: 1, start_at: "2022-4-4", end_at: "2022-4-10")
-trip_availability_1 = TripAvailability.create(trip_id: 2, start_at: "2021-9-20", end_at: "2021-9-26")
-trip_availability_1 = TripAvailability.create(trip_id: 3, start_at: "2021-2-4", end_at: "2021-2-14")
-trip_availability_1 = TripAvailability.create(trip_id: 4, start_at: "2022-4-12", end_at: "2022-4-18")
+trip_availability_2 = TripAvailability.create(trip_id: 2, start_at: "2021-9-20", end_at: "2021-9-26")
+trip_availability_3 = TripAvailability.create(trip_id: 3, start_at: "2021-2-4", end_at: "2021-2-14")
+trip_availability_4 = TripAvailability.create(trip_id: 4, start_at: "2022-4-12", end_at: "2022-4-18")
+trip_availability_5 = TripAvailability.create(trip_id: 4, start_at: "2022-4-8", end_at: "2022-4-25")
+trip_availability_6 = TripAvailability.create(trip_id: 4, start_at: "2022-4-10", end_at: "2022-4-22")
+
+# availabilities
+availabilities_1 = Availabilities.create(available: "true", user_id: fabien, trip_availability_id: 5)
+availabilities_1 = Availabilities.create(available: "true", user_id: valentin, trip_availability_id: 5)
+availabilities_1 = Availabilities.create(available: "true", user_id: herve, trip_availability_id: 5)
+# availabilities_1 = Availabilities.create(available: "true", user_id: fabien , trip_availability_id:)
 
 # place_proposals
 place_proposal1 = PlaceProposal.create(place_id: copenhague, trip_id: trip1, user_id: simon)
