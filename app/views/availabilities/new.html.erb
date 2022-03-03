@@ -21,6 +21,6 @@
       <%= f.input :availability, as: :string, label: false, placeholder: "Dates", input_html: { class: "datepicker" } %>
       <%= f.submit "Ajoute tes disponibilités !", class: "btn button-border-blue" %>
     <% end %>
-    <%= link_to "Next", trips_path, class:"btn button-blue" %>
+    <%= link_to "Next", trip_subscriptions_path, method: "post", class:"btn button-blue" %>
   </div>
 </div>
