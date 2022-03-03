@@ -1,21 +1,18 @@
 class AvailabilitiesController < ApplicationController
-  def new
-    @trip = Trip.last
-    @place_proposal = PlaceProposal.new
-    @availabilities = Availability.new
-  end
-
   def create
-    @trip = Trip.last
-    @availabilities = Availability.new(params_availabilities)
-    @availabilities.trip_id = @trip.id
-    @availabilities.user_id = current_user.id
-    @availabilities.save
+    @availability = Availability.new
+    @availability.available = "true"
+    @availability.user_id = current_user.id
+    @availability.trip_availability_id = params[:trip_availability_id]
+    @availability.save
 
-    redirect_to new_trip_availability_path(@trip)
+    redirect_to new_trip_trip_availability_path(@availability.trip_availability.trip)
   end
 
-  def params_availabilities
-    params.require(:availability).permit(:availability)
+  def destroy
+    @availability = Availability.find(params[:id])
+    @availability.destroy
+
+    redirect_to new_trip_trip_availability_path(@availability.trip_availability.trip)
   end
 end

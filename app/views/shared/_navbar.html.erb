@@ -3,7 +3,6 @@
 
     <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag "logoPYT.png" %>
-
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,8 +12,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto flex">
         <% if user_signed_in? %>
-
           <li class="nav-item">
+
+            <div id="myBtn" class="nav-link">Nouveau trip</div>
 
             <div id="myModal" class="modal">
               <div class="modal-content">
@@ -23,8 +23,9 @@
                   <i class="close far fa-times-circle"></i>
                 </div>
                 <%= simple_form_for(@trip) do |f| %>
-                  <%= f.input :name %>
-                  <%= f.input :duration %>
+                  <%= f.input :name, label: false, placeholder: "Nom" %>
+                  <%= f.input :month, collection: (1..12), label: false, placeholder: "Mois" %>
+                  <%= f.input :time_span, collection: ["Week", "Weekend"], label: false %>
                   <%= f.submit %>
                 <% end %>
               </div>
@@ -36,7 +37,6 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
               <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>

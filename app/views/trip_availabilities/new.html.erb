@@ -1,0 +1,68 @@
+<div class="container flex form-global">
+  <div class="form flex">
+    <h3>Donne nous ta destination de rêve et tes disponibilités !</h3>
+    <h5><%= "Trip : #{@trip.name} (#{@trip.month} jours)" %></h5>
+    <% if PlaceProposal.where(user_id: current_user.id, trip_id: @trip.id).first %>
+      <%= "Ton choix de destination est #{PlaceProposal.where(user_id: current_user.id, trip_id: @trip.id).first.place.city}" %>
+    <% else %>
+      <%= simple_form_for([@trip, @place_proposal]) do |f| %>
+        <%= f.association :place, label: false, :label_method => lambda { |place| "#{place.city}" }, placeholder: "Destination" %>
+        <%= f.submit "Ajoute ta destination préférée !", class: "btn button-border-blue" %>
+      <% end %>
+    <% end %>
+    <hr>
+    <table>
+      <tr>
+        <td>Participants</td>
+        <% @trip.subscriptions.each do |sub| %>
+          <td><%= sub.user.username %></td>
+        <% end %>
+      </tr>
+      <% @trip_availabilities.each_with_index do |ta, index| %>
+        <tr>
+          <div class="week">
+            <td>
+              <p>Semaine <%= index + 1 %></p>
+              <p><%= ta.start_at.strftime("%d-%m-%Y") %>/<%= ta.end_at.strftime("%d-%m-%Y") %></p>
+            </td>
+          </div>
+          <% @trip.subscriptions.each do |sub| %>
+            <td>
+              <% av = Availability.where(user_id: sub.user.id, trip_availability_id: ta.id).first %>
+              <% if av.is_a?(Availability) && av.available == "true" %>
+                <% if current_user.id == sub.user.id %>
+                  <%= link_to "Pas dispo", trip_availability_availability_path(ta, av), method: :delete %>
+                <% else %>
+                  <p>Dispo</p>
+                <% end %>
+              <% else %>
+                <% if current_user.id == sub.user.id %>
+                  <%= link_to "Dispo", trip_availability_availabilities_path(ta), method: :post %>
+                <% else %>
+                  <p>Pas dispo</p>
+                <% end %>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+
+    <%= link_to "Next", trip_subscriptions_path, method: "post", class:"btn button-blue" %>
+
+    <% if current_user.id == @trip.user_id %>
+      <p>tu es le créateur de ce trip</p>
+      <% @trip_availabilities.each do |ta, index| %>
+        <div>
+          <p>Créneau <%= ta.start_at.strftime("%d-%m-%Y") %>/<%= ta.end_at.strftime("%d-%m-%Y") %></p>
+          <% avs = Availability.where(trip_availability_id: ta.id) %>
+          <% avs.each do |av| %>
+            <%= av.user.username %>
+          <% end %>
+          <%= link_to "BOOKER", set_availability_trip_path(@trip, ta_id: ta.id), method: :patch %>
+          <hr>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

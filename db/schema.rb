@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_02_112736) do
+ActiveRecord::Schema.define(version: 2022_03_03_145740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "availabilities", force: :cascade do |t|
-    t.string "availability"
+    t.string "available"
     t.bigint "user_id", null: false
-    t.bigint "trip_id", null: false
+    t.bigint "trip_availability_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["trip_id"], name: "index_availabilities_on_trip_id"
+    t.index ["trip_availability_id"], name: "index_availabilities_on_trip_availability_id"
     t.index ["user_id"], name: "index_availabilities_on_user_id"
   end
 
@@ -77,17 +77,27 @@ ActiveRecord::Schema.define(version: 2022_03_02_112736) do
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
+  create_table "trip_availabilities", force: :cascade do |t|
+    t.bigint "trip_id"
+    t.date "start_at"
+    t.date "end_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["trip_id"], name: "index_trip_availabilities_on_trip_id"
+  end
+
   create_table "trips", force: :cascade do |t|
     t.bigint "place_proposal_id"
     t.bigint "user_id"
+    t.integer "month"
     t.string "name"
-    t.date "start_at"
-    t.date "end_at"
-    t.integer "duration"
+    t.string "time_span"
     t.string "status", default: "created"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "trip_availability_id"
     t.index ["place_proposal_id"], name: "index_trips_on_place_proposal_id"
+    t.index ["trip_availability_id"], name: "index_trips_on_trip_availability_id"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
@@ -113,7 +123,7 @@ ActiveRecord::Schema.define(version: 2022_03_02_112736) do
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
-  add_foreign_key "availabilities", "trips"
+  add_foreign_key "availabilities", "trip_availabilities"
   add_foreign_key "availabilities", "users"
   add_foreign_key "messages", "trips"
   add_foreign_key "messages", "users"
@@ -123,6 +133,7 @@ ActiveRecord::Schema.define(version: 2022_03_02_112736) do
   add_foreign_key "subscriptions", "users"
   add_foreign_key "tasks", "trips"
   add_foreign_key "tasks", "users"
+  add_foreign_key "trips", "trip_availabilities"
   add_foreign_key "votes", "place_proposals"
   add_foreign_key "votes", "users"
 end

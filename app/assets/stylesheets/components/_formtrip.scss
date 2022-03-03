@@ -1,18 +1,23 @@
-.form-trip-title {
-  justify-content: space-between;
-  align-items: center;
-}
 .form-global {
   justify-content: center;
   align-items: center;
 }
 .form {
-  margin-top: 2rem;
-  width: 800px;
-  height: 500px;
-  background-color: #8A97FE;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  margin-bottom: 3rem;
+  width: 65%;
+  background-color: rgba(138,	151,	254, 0.3);
+  border-radius: 10px;
   text-align: center;
-  input {
-    width: 50%;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  .datepicker {
+    display: none;
   }
+}
+.username-header-form {
+  display: flex;
+  justify-content: space-around;
 }
