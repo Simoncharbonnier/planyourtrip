@@ -3,20 +3,17 @@
   align-items: center;
 }
 .form {
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding-top: 1rem;
-  width: 800px;
-  height: 500px;
-  background-color: #8A97FE;
+  margin-bottom: 3rem;
+  width: 65%;
+  background-color: rgba(138,	151,	254, 0.3);
+  border-radius: 10px;
   text-align: center;
   flex-direction: column;
   justify-content: start;
   align-items: center;
-
-  input {
-    // width: 50%;
-  }
   .datepicker {
-
+    display: none;
   }
 }
