@@ -3,10 +3,14 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :trips, only: [:index, :show, :create, :update] do
     resources :subscriptions, only: [:create, :update, :destroy]
-    resources :availabilities, only: [:new, :create]
+    resources :trip_availabilities, only: [:new, :create]
     resources :place_proposals, only: :create
     resources :votes, only: :create
     resources :messages, only: :create
     resources :tasks, only: [:create, :update]
+  end
+
+  resources :trip_availabilities, only: [] do
+    resources :availabilities, only: [:create, :update]
   end
 end
