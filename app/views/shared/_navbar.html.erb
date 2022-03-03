@@ -21,9 +21,9 @@
                   <i class="close far fa-times-circle"></i>
                 </div>
                 <%= simple_form_for(@trip) do |f| %>
-                  <%= f.input :name %>
-                  <%= f.input :month %>
-                  <%= f.collection_check_boxes :time_span, [["WE", 'Week-end'], ["Week", 'Week']], :first, :last %>
+                  <%= f.input :name, label: false, placeholder: "Nom" %>
+                  <%= f.input :month, collection: (1..12), label: false, placeholder: "Mois" %>
+                  <%= f.input :time_span, collection: ["Week", "Weekend"], label: false %>
                   <%= f.submit %>
                 <% end %>
               </div>

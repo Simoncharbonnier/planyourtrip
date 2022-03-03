@@ -44,8 +44,8 @@ p "Users seed done !"
 # trips
 # trip1 = Trip.create!(name: "trip 1", user_id: simon, month: 4, status: "confirmed", time_span: "week")
 # trip2 = Trip.create!(name: "trip 2", user_id: simon, month: 4, status: "passed", time_span: "week")
-trip3 = Trip.create!(name: "Weekend des familles", user_id: simon, month: 4, status: "voting", time_span: "weekend")
-trip4 = Trip.create!(name: "Voyage entre potes", user_id: simon, month: 4, status: "voting", time_span: "week")
+trip3 = Trip.create!(name: "Weekend des familles", user_id: simon.id, month: 4, status: "voting", time_span: "weekend")
+trip4 = Trip.create!(name: "Voyage entre potes", user_id: simon.id, month: 4, status: "voting", time_span: "week")
 p "Trips seed done !"
 
 # subscriptions
