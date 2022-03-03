@@ -63,10 +63,11 @@
 // Affichage et redimensionnement image pour fit la card
 .card-img {
   overflow: hidden;
+  position: relative;
 }
 
 .card-img > img {
-  width: 95%;
+  width: 97%;
   object-fit: cover;
   border-radius: 10px;
 }
