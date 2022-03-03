@@ -9,8 +9,8 @@ PlaceProposal.destroy_all
 Place.destroy_all
 Task.destroy_all
 Message.destroy_all
-TripAvailability.destroy_all
 Trip.destroy_all
+TripAvailability.destroy_all
 User.destroy_all
 Vote.destroy_all
 
@@ -80,14 +80,13 @@ trip_availability_5 = TripAvailability.create!(trip: trip4, start_at: "2022-4-18
 trip_availability_6 = TripAvailability.create!(trip: trip4, start_at: "2022-4-25", end_at: "2022-5-1")
 
 # availabilities
-availabilities_5 = Availability.create!(user: fabien, trip_availability: trip_availability_4)
-availabilities_1 = Availability.create!(user: fabien, trip_availability: trip_availability_5)
-availabilities_6 = Availability.create!(user: fabien, trip_availability: trip_availability_6)
-availabilities_2 = Availability.create!(user: valentin, trip_availability: trip_availability_5)
-availabilities_3 = Availability.create!(user: herve, trip_availability: trip_availability_5)
-availabilities_4 = Availability.create!(user: herve, trip_availability: trip_availability_6)
-availabilities_7 = Availability.create!(user: simon, trip_availability: trip_availability_5)
-availabilities_8 = Availability.create!(user: simon, trip_availability: trip_availability_6)
+availabilities_5 = Availability.create!(user: fabien, available: "true", trip_availability: trip_availability_4)
+availabilities_1 = Availability.create!(user: fabien, available: "false", trip_availability: trip_availability_5)
+availabilities_6 = Availability.create!(user: fabien, available: "true", trip_availability: trip_availability_6)
+availabilities_2 = Availability.create!(user: valentin, available: "false", trip_availability: trip_availability_5)
+availabilities_3 = Availability.create!(user: herve, available: "true", trip_availability: trip_availability_5)
+availabilities_4 = Availability.create!(user: herve, available: "true", trip_availability: trip_availability_6)
+
 
 # availabilities_1 = Availabilities.create!(user_id: fabien , trip_availability_id:)
 
