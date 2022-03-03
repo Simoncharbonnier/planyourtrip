@@ -87,6 +87,7 @@ availabilities_8 = Availability.create!(user: simon, trip_availability: trip_ava
 
 # availabilities_1 = Availabilities.create!(user_id: fabien , trip_availability_id:)
 
+
 # place_proposals
 place_proposal1 = PlaceProposal.create!(place: copenhague, trip: trip4, user: valentin)
 place_proposal2 = PlaceProposal.create!(place: paris, trip: trip4, user: fabien)

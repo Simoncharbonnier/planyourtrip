@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   end
 
   resources :trip_availabilities, only: [] do
-    resources :availabilities, only: [:create, :update]
+    resources :availabilities, only: [:create, :destroy]
   end
 end
