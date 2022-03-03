@@ -12,7 +12,7 @@
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="pending-trips" role="tabpanel" aria-labelledby="pending-trips-tab">
+      <div class="tab-pane fade " id="pending-trips" role="tabpanel" aria-labelledby="pending-trips-tab">
         <div class=" p-4">
           <div class="row g-3">
             <% @my_pending_trips.each do |trip| %>
@@ -24,7 +24,7 @@
                   <% end %>
                   <div class="img" style="background-image: url('https://photos.mandarinoriental.com/is/image/MandarinOriental/paris-2017-home?wid=2880&hei=1280&fmt=jpeg&crop=9,336,2699,1200&anchor=1358,936&qlt=75,0&fit=wrap&op_sharpen=0&resMode=sharp2&op_usm=0,0,0,0&iccEmbed=0&printRes=72')"></div>
                   <div class="d-flex justify-content-center">
-                    <%= link_to "Foobar", "#", class: "btn button-border-blue w-100" %>
+                    <%= link_to "trip", "#", class: "btn button-border-blue w-100" %>
                   </div>
                 </div>
               </div>
@@ -32,23 +32,23 @@
           </div>
         </div>
       </div>
-      <div class="tab-pane fade" id="confirmed-trips" role="tabpanel" aria-labelledby="confirmed-trips-tab">
+      <div class="tab-pane fade show active" id="confirmed-trips" role="tabpanel" aria-labelledby="confirmed-trips-tab">
         <div class="p-4">
           <div class="row g-3">
             <% @my_confirmed_trips.each do |trip| %>
               <div class="col-sm-6">
                 <div class="index-trips-card-confirmed">
                   <% if false %>
-                    <%# à utiliser avec un trip.place_proposals.first.place.photo.key %>
+                    <%# à utiliser avec un trip.place_proposal.first.place.photo.key %>
                     <div class="img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%#= cl_image_path @article.photo.key, height: 300, crop: :fill %>')"></div>
                   <% end %>
                   <div class="img" style="background-image: url('https://photos.mandarinoriental.com/is/image/MandarinOriental/paris-2017-home?wid=2880&hei=1280&fmt=jpeg&crop=9,336,2699,1200&anchor=1358,936&qlt=75,0&fit=wrap&op_sharpen=0&resMode=sharp2&op_usm=0,0,0,0&iccEmbed=0&printRes=72')"></div>
                   <div class="body-trips-cards-confirmed">
-                    <h5><strong><%= trip.place_proposals.first.place.city.upcase %></strong></h5>
-                    <p id="date"><i class="fas fa-calendar-alt"></i> <%= "#{trip_availabilities.start_at.day}/#{trip_availabilities.start_at.month}/#{trip_availabilities.start_at.year} - #{trip_availabilities.end_at.day}/#{trip_availabilities.end_at.month}/#{trip_availabilities.end_at.year}" %></p>
+                    <h5><strong><%= trip.place_proposal.place.city.upcase %></strong></h5>
+                    <p id="date"><i class="fas fa-calendar-alt"></i> <%= trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %></p>
                   </div>
                   <div class="footer-index-trips-cards-confirmed">
-                    <%= link_to trip.place_proposals.first.place.city %>
+                    <%= link_to trip.place_proposal.place.city %>
                   </div>
                 </div>
               </div>
@@ -68,11 +68,11 @@
                     <% end %>
                     <div class="img" style="background-image: url('https://photos.mandarinoriental.com/is/image/MandarinOriental/paris-2017-home?wid=2880&hei=1280&fmt=jpeg&crop=9,336,2699,1200&anchor=1358,936&qlt=75,0&fit=wrap&op_sharpen=0&resMode=sharp2&op_usm=0,0,0,0&iccEmbed=0&printRes=72')"></div>
                     <div class="body-trips-cards">
-                      <h5><strong><%= trip.place_proposals.first.place.city.upcase %></strong></h5>
-                      <p id="date"><i class="fas fa-calendar-alt"></i> <%= "#{trip_availabilities.start_at.day}/#{trip_availabilities.start_at.month}/#{trip_availabilities.start_at.year} - #{trip_availabilities.end_at.day}/#{trip_availabilities.end_at.month}/#{trip_availabilities.end_at.year}" %></p>
+                      <h5><strong><%= trip.place_proposal.place.city.upcase %></strong></h5>
+                      <p id="date"><i class="fas fa-calendar-alt"></i> <%= trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y')%> - <%= trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %></p>
                     </div>
                   <div class="footer-index-trips-cards">
-                    <%= link_to "Foobar" %>
+                    <%= link_to trip.place_proposal.place.city %>
                   </div>
                 </div>
               </div>
