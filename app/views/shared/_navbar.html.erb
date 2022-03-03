@@ -23,10 +23,14 @@
                   <i class="close far fa-times-circle"></i>
                 </div>
                 <%= simple_form_for(@trip) do |f| %>
-                  <%= f.input :name, label: false, placeholder: "Nom" %>
-                  <%= f.input :month, collection: (1..12), label: false, placeholder: "Mois" %>
-                  <%= f.input :time_span, collection: ["Week", "Weekend"], label: false %>
-                  <%= f.submit %>
+                  <%= f.input :name, label: false, placeholder: "Nom du voyage", class: "input" %>
+                  <div class="flex">
+                  <%= f.input :month, collection: (1..12), label: false, placeholder: "Mois", class: "input" %>
+                  <%= f.input :time_span, collection: ["Week", "Weekend"], label: false, class: "input" %>
+                  </div>
+                  <div class="center">
+                    <%= f.submit class: "button-orange"%>
+                  </div>
                 <% end %>
               </div>
             </div>

@@ -1,0 +1,94 @@
+.button-vote{
+  color: white;
+  text-decoration: none;
+  background-color: #F78764;
+  padding: 0px 4px 0px 4px;
+  border-radius: 15px;
+  text-align: center;
+  width: 160px;
+  font-size: 20px;
+}
+.button-orange{
+  color: white;
+  text-decoration: none;
+  background-color: #F78764;
+  padding: 0px 4px 0px 4px;
+  border-radius: 5px;
+  text-align: center;
+  width: 160px;
+  font-size: 22px;
+
+  &:hover {
+    background-color: white;
+    color: #F78764;
+    border: 1px solid  #F78764;
+  }
+}
+.button-orange-xl {
+  color: white;
+  text-decoration: none;
+  background-color: #F78764;
+  padding: 0px 4px 0px 4px;
+  border-radius: 5px;
+  text-align: center;
+  width: 220px;
+  font-size: 24px;
+  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
+
+  &:hover {
+    background-color: white;
+    color: #F78764;
+    border: 1px solid  #F78764;
+  }
+}
+.button-border-blue {
+  color: $purple-blue;
+  text-decoration: none;
+  padding: 0px 4px 0px 4px;
+  margin-bottom: 8px;
+  border: 1px solid  $purple-blue;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.2em;
+
+
+  &:hover {
+    background-color: $purple-blue;
+    color: white;
+  }
+}
+.button-blue {
+  color: white;
+  text-decoration: none;
+  background-color: #8A97FE;
+  padding: 0px 4px 0px 4px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  text-align: center;
+  width: 260px;
+  font-size: 20px;
+
+  &:hover {
+    background-color: white;
+    color: #8A97FE;
+    border: 1px solid  $purple-blue;
+  }
+}
+
+.button-blue-xl {
+  color: white;
+  text-decoration: none;
+  background-color: #8A97FE;
+  padding: 0px 4px 0px 4px;
+  border-radius: 5px;
+  text-align: center;
+  width: 180px;
+  font-size: 24px;
+  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
+
+  &:hover {
+    background-color: white;
+    color: #8A97FE;
+    border: 1px solid  $purple-blue;
+  }
+}

@@ -53,7 +53,7 @@
     <% if current_user.id == @trip.user_id %>
       <p>tu es le créateur de ce trip</p>
       <% @trip_availabilities.each do |ta, index| %>
-        <div>
+        <div class="flex">
           <p>Créneau <%= ta.start_at.strftime("%d-%m-%Y") %>/<%= ta.end_at.strftime("%d-%m-%Y") %></p>
           <% avs = Availability.where(trip_availability_id: ta.id) %>
           <% avs.each do |av| %>
