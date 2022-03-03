@@ -43,20 +43,20 @@ p "Users seed done !"
 trip1 = Trip.create(name: "trip 1", user_id: simon, start_at: "2022-4-4", end_at: "2022-4-10", status: "confirmed", duration: 7)
 trip2 = Trip.create(name: "trip 2", user_id: simon, start_at: "2021-9-20", end_at: "2021-9-26", status: "passed", duration: 7)
 trip3 = Trip.create(name: "trip 3", user_id: simon, start_at: "2021-2-4", end_at: "2021-2-14", status: "passed", duration: 11)
+trip4 = Trip.create(name: "trip 4", user_id: simon, start_at: "2022-4-12", end_at: "2022-4-18", status: "voting", duration: 7)
 p "Trips seed done !"
 
 # place_proposals
-place_proposal1 = PlaceProposal.create(place: copenhague, trip: trip1)
-place_proposal2 = PlaceProposal.create(place: paris, trip: trip2)
-place_proposal3 = PlaceProposal.create(place: rome, trip: trip3)
-p "Place proposals seed done !"
-
+place_proposal1 = PlaceProposal.create(place: copenhague, trip: trip1, user: simon)
+place_proposal2 = PlaceProposal.create(place: paris, trip: trip2, user: fabien)
+place_proposal3 = PlaceProposal.create(place: rome, trip: trip3, user: herve)
 trip1.place_proposal_id = place_proposal1.id
 trip1.save
 trip2.place_proposal_id = place_proposal2.id
 trip2.save
 trip3.place_proposal_id = place_proposal3.id
 trip3.save
+p "Place proposals seed done !"
 
 #subscriptions
 subscription1 = Subscription.create(status: "accepted", user: simon, trip: trip1)
@@ -71,6 +71,10 @@ subscription9 = Subscription.create(status: "accepted", user: simon, trip: trip3
 subscription10 = Subscription.create(status: "accepted", user: valentin, trip: trip3)
 subscription11 = Subscription.create(status: "accepted", user: herve, trip: trip3)
 subscription12 = Subscription.create(status: "accepted", user: fabien, trip: trip3)
+subscription13 = Subscription.create(status: "accepted", user: simon, trip: trip4)
+subscription14 = Subscription.create(status: "accepted", user: valentin, trip: trip4)
+subscription15 = Subscription.create(status: "accepted", user: herve, trip: trip4)
+subscription16 = Subscription.create(status: "accepted", user: fabien, trip: trip4)
 p "Subscriptions seed done !"
 
 # tasks
