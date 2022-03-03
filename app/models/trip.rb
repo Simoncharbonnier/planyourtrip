@@ -5,5 +5,8 @@ class Trip < ApplicationRecord
   has_many :messages
   has_many :place_proposals
 
+  belongs_to :place_proposal, optional: true
+
   validates :name, presence: true
+  validates :time_span, presence: true
 end
