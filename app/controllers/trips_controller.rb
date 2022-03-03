@@ -29,7 +29,7 @@ class TripsController < ApplicationController
     @trip.user_id = current_user.id
     @trip.save
 
-    redirect_to new_trip_availability_path(@trip)
+    redirect_to new_trip_trip_availability_path(@trip)
   end
 
   private
