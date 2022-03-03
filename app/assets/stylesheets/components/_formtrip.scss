@@ -1,21 +1,19 @@
-form {
-  a {
-    text-decoration: none;
-    color:grey;
-  }
-  a:hover {
-    color: black;
-  }
+.form-global {
+  justify-content: center;
+  align-items: center;
 }
-.form-title {
-  margin-top: 2rem;
-}
-.form-element {
+.form {
   margin-top: 1rem;
-}
-label {
-  padding-right: 10px;
-}
-.hide {
-  display: none;
+  padding-top: 1rem;
+  margin-bottom: 3rem;
+  width: 65%;
+  background-color: rgba(138,	151,	254, 0.3);
+  border-radius: 10px;
+  text-align: center;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  .datepicker {
+    display: none;
+  }
 }

@@ -1,0 +1,39 @@
+.container-trips {
+  margin-top: 1em;
+  display: flex;
+}
+
+.cards-grid-wrapper {
+  width: 60vw;
+}
+
+.trips-tabs {
+  width: 100%;
+  background-color: $white;
+  border-bottom: 2px solid $purple-blue;
+
+  .trips-tab {
+    .nav-link {
+      color: $purple-blue;
+
+      border: none;
+      &:hover {
+        border: none;
+      }
+
+      &.active {
+        background-color: $purple-blue;
+        color: white;
+      }
+    }
+  }
+}
+
+#map{
+  height: 100vh;
+  top: 0;
+  width: 40vw;
+  position: sticky;
+  margin-left: 10px;
+  border-radius: 10px;
+}

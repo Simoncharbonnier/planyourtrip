@@ -1,51 +1,100 @@
-<div class="container">
-  <div class="layout">
-    <input name="nav" type="radio" class="nav home-radio" id="pending" checked="checked" />
-    <div class="page pending-page">
-      <div class="page-contents flex">
-        <% @my_pending_trips.each do |trip| %>
-          <div class="index-trips-card">
-            <div class="img"></div>
-            <div class="infos">
-              <h5><strong><%= Place.where(id: PlaceProposal.where(id: trip.place_proposal_id).first.place_id).first.city.upcase %></strong></h5>
-              <p><%= "#{trip.start_at.day}/#{trip.start_at.month}/#{trip.start_at.year} - #{trip.end_at.day}/#{trip.end_at.month}/#{trip.end_at.year}" %></p>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <label class="nav" for="pending"><span>En attente</span></label>
+ <div class="container-trips">
+  <div class="cards-grid-wrapper">
+    <ul class="nav nav-tabs nav-fill trips-tabs" id="myTab" role="tablist">
+      <li class="nav-item trips-tab" role="presentation">
+        <button class="nav-link active" id="pending-trips-tab" data-bs-toggle="tab" data-bs-target="#pending-trips" type="button" role="tab" aria-controls="pending-trips" aria-selected="true">En attente</button>
+      </li>
+      <li class="nav-item trips-tab" role="presentation">
+        <button class="nav-link" id="confirmed-trips-tab" data-bs-toggle="tab" data-bs-target="#confirmed-trips" type="button" role="tab" aria-controls="confirmed-trips" aria-selected="false">Confirmés</button>
+      </li>
+      <li class="nav-item trips-tab" role="presentation">
+        <button class="nav-link" id="passed-trips-tab" data-bs-toggle="tab" data-bs-target="#passed-trips" type="button" role="tab" aria-controls="passed-trips" aria-selected="false">Passés</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="pending-trips" role="tabpanel" aria-labelledby="pending-trips-tab">
+        <div class=" p-4">
+          <div class="row g-3">
+            <% @my_pending_trips.each do |trip| %>
+              <div class="col-sm-6">
+                <div class="index-trips-card">
+                  <% if false %>
+                    <%# à utiliser avec un trip.place_proposals.first.place.photo.key %>
+                    <div class="img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%#= cl_image_path @article.photo.key, height: 300, crop: :fill %>')"></div>
+                  <% end %>
 
-    <input name="nav" type="radio" class="confirmed-radio" id="confirmed" />
-    <div class="page confirmed-page">
-      <div class="page-contents flex">
-        <% @my_confirmed_trips.each do |trip| %>
-          <div class="index-trips-card">
-            <div class="img"></div>
-            <div class="infos">
-              <h5><strong><%= Place.where(id: PlaceProposal.where(id: trip.place_proposal_id).first.place_id).first.city.upcase %></strong></h5>
-              <p><%= "#{trip.start_at.day}/#{trip.start_at.month}/#{trip.start_at.year} - #{trip.end_at.day}/#{trip.end_at.month}/#{trip.end_at.year}" %></p>
-            </div>
+                  <div class="img" style="background-image: url('https://photos.mandarinoriental.com/is/image/MandarinOriental/paris-2017-home?wid=2880&hei=1280&fmt=jpeg&crop=9,336,2699,1200&anchor=1358,936&qlt=75,0&fit=wrap&op_sharpen=0&resMode=sharp2&op_usm=0,0,0,0&iccEmbed=0&printRes=72')"></div>
+                  <div class="body-trips-cards">
+                    <h5><strong><%= trip.place_proposals.first.place.city.upcase %></strong></h5>
+                    <p id="date"><i class="fas fa-calendar-alt"></i><%= " #{trip.start_at.day}/#{trip.start_at.month}/#{trip.start_at.year} - #{trip.end_at.day}/#{trip.end_at.month}/#{trip.end_at.year}" %></p>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <%= link_to "Foobar", "#", class: "btn button-border-blue w-100" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           </div>
-        <% end %>
+        </div>
       </div>
-    </div>
-    <label class="nav" for="confirmed"><span>Confirmés</span></label>
+      <div class="tab-pane fade" id="confirmed-trips" role="tabpanel" aria-labelledby="confirmed-trips-tab">
+        <div class="p-4">
+          <div class="row g-3">
+            <% @my_confirmed_trips.each do |trip| %>
+              <div class="col-sm-6">
+                <div class="index-trips-card-confirmed">
+                  <% if false %>
+                    <%# à utiliser avec un trip.place_proposals.first.place.photo.key %>
+                    <div class="img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%#= cl_image_path @article.photo.key, height: 300, crop: :fill %>')"></div>
+                  <% end %>
 
-    <input name="nav" type="radio" class="passed-radio" id="passed" />
-    <div class="page passed-page">
-      <div class="page-contents flex">
-        <% @my_passed_trips.each do |trip| %>
-          <div class="index-trips-card">
-            <div class="img"></div>
-            <div class="infos">
-              <h5><strong><%= Place.where(id: PlaceProposal.where(id: trip.place_proposal_id).first.place_id).first.city.upcase %></strong></h5>
-              <p><%= "#{trip.start_at.day}/#{trip.start_at.month}/#{trip.start_at.year} - #{trip.end_at.day}/#{trip.end_at.month}/#{trip.end_at.year}" %></p>
-            </div>
+                  <div class="img" style="background-image: url('https://photos.mandarinoriental.com/is/image/MandarinOriental/paris-2017-home?wid=2880&hei=1280&fmt=jpeg&crop=9,336,2699,1200&anchor=1358,936&qlt=75,0&fit=wrap&op_sharpen=0&resMode=sharp2&op_usm=0,0,0,0&iccEmbed=0&printRes=72')"></div>
+                  <div class="body-trips-cards-confirmed">
+                    <h5><strong><%= trip.place_proposals.first.place.city.upcase %></strong></h5>
+                    <p id="date"><i class="fas fa-calendar-alt"></i> <%= "#{trip.start_at.day}/#{trip.start_at.month}/#{trip.start_at.year} - #{trip.end_at.day}/#{trip.end_at.month}/#{trip.end_at.year}" %></p>
+                  </div>
+                  <div class="footer-index-trips-cards-confirmed">
+                    <%= link_to trip.place_proposals.first.place.city %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           </div>
-        <% end %>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="passed-trips" role="tabpanel" aria-labelledby="passed-trips-tab">
+        <div class=" p-4">
+          <div class="row g-6">
+            <% @my_passed_trips.each do |trip| %>
+              <div class="col-sm-6">
+                <div class="index-trips-card">
+
+                    <% if false %>
+                    <%# à utiliser avec un trip.place_proposals.first.place.photo.key %>
+                      <div class="img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%#= cl_image_path @article.photo.key, height: 300, crop: :fill %>')"></div>
+                   <% end %>
+
+                   <div class="img" style="background-image: url('https://photos.mandarinoriental.com/is/image/MandarinOriental/paris-2017-home?wid=2880&hei=1280&fmt=jpeg&crop=9,336,2699,1200&anchor=1358,936&qlt=75,0&fit=wrap&op_sharpen=0&resMode=sharp2&op_usm=0,0,0,0&iccEmbed=0&printRes=72')"></div>
+                   <div class="body-trips-cards">
+                     <h5><strong><%= trip.place_proposals.first.place.city.upcase %></strong></h5>
+                     <p id="date"><i class="fas fa-calendar-alt"></i> <%= "#{trip.start_at.day}/#{trip.start_at.month}/#{trip.start_at.year} - #{trip.end_at.day}/#{trip.end_at.month}/#{trip.end_at.year}" %></p>
+                    </div>
+
+                  <div class="footer-index-trips-cards">
+                    <%= link_to "Foobar" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
-    <label class="nav" for="passed"><span>Passés</span></label>
   </div>
+
+  <div id="map"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
 </div>

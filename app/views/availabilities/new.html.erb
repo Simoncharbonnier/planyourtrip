@@ -1,0 +1,26 @@
+<div class="container flex form-global">
+  <div class="form flex">
+    <h3>Donne nous ta destination de rêve et tes disponibilités !</h3>
+    <h5><%= "Trip : #{@trip.name} (#{@trip.duration} jours)" %></h5>
+    <% if PlaceProposal.where(user_id: current_user.id, trip_id: @trip.id).first %>
+      <%= "Ton choix de destination est #{PlaceProposal.where(user_id: current_user.id, trip_id: @trip.id).first.place.city}" %>
+    <% else %>
+      <%= simple_form_for([@trip, @place_proposal]) do |f| %>
+        <%= f.association :place, label: false, :label_method => lambda { |place| "#{place.city}" }, placeholder: "Destination" %>
+        <%= f.submit "Ajoute ta destination préférée !", class: "btn button-border-blue" %>
+      <% end %>
+    <% end %>
+    <hr>
+    <% if Availability.where(user_id: current_user.id, trip_id: @trip.id).first %>
+      <p>Tes dispos sont</p>
+      <% Availability.where(user_id: current_user.id, trip_id: @trip.id).each do |av| %>
+        <%= "#{av.availability}" %><br>
+      <% end %>
+    <% end %>
+    <%= simple_form_for([@trip, @availabilities]) do |f| %>
+      <%= f.input :availability, as: :string, label: false, placeholder: "Dates", input_html: { class: "datepicker" } %>
+      <%= f.submit "Ajoute tes disponibilités !", class: "btn button-border-blue" %>
+    <% end %>
+    <%= link_to "Next", trips_path, class:"btn button-blue" %>
+  </div>
+</div>
