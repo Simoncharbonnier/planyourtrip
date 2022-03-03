@@ -4,15 +4,19 @@
 
       <div class="card-infos-show">
         <h2>CITY, country</h2>
+       </div>
        <div class="card-totem-show">
-         <div class="mini-card-show">
-            <p><i class="fas fa-bed"></i> 75€</p>
+         <div class="mini-card-show-1">
+            <p><i class="fas fa-bed"></i><p id="logement">Logement</p><p id="price-place">75€</p>
           </div>
-          <div class="mini-card-show">
-            <p><i class="fas fa-thermometer-half"></i><P id="meteo">Meteo</P> 10°C</p>
+          <div class="mini-card-show-2">
+            <p><i class="fas fa-thermometer-half"></i><P id="meteo">Meteo</p><P id="temperature">10°C</p>
           </div>
-          <div class="mini-card-show">
-           <p><i class="fas fa-beer"></i><br>6€</p>
+          <div class="mini-card-show-3">
+           <p><i class="fas fa-beer"></i><p id="beer">Bière</p><p id="price-beer">6€</p>
+         </div>
+         <div class="button-show-card">
+          <%= link_to "Vote", "#", class: "btn button-vote" %>
          </div>
        </div>
   </div>
