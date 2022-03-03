@@ -6,5 +6,4 @@ class Trip < ApplicationRecord
   has_many :place_proposals
 
   validates :name, presence: true
-  validates :duration, presence: true
 end

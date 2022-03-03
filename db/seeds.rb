@@ -40,10 +40,10 @@ fabien = User.create(username: "fabien", email: "fabien.alexandre@gmail.com", pa
 p "Users seed done !"
 
 # trips
-trip1 = Trip.create(name: "trip 1", user_id: simon, start_at: "2022-4-4", end_at: "2022-4-10", status: "confirmed", duration: 7)
-trip2 = Trip.create(name: "trip 2", user_id: simon, start_at: "2021-9-20", end_at: "2021-9-26", status: "passed", duration: 7)
-trip3 = Trip.create(name: "trip 3", user_id: simon, start_at: "2021-2-4", end_at: "2021-2-14", status: "passed", duration: 11)
-trip4 = Trip.create(name: "trip 4", user_id: simon, start_at: "2022-4-12", end_at: "2022-4-18", status: "voting", duration: 7)
+trip1 = Trip.create(name: "trip 1", user_id: simon, status: "confirmed")
+trip2 = Trip.create(name: "trip 2", user_id: simon, status: "passed")
+trip3 = Trip.create(name: "trip 3", user_id: simon, status: "passed")
+trip4 = Trip.create(name: "trip 4", user_id: simon, status: "voting")
 p "Trips seed done !"
 
 # place_proposals
