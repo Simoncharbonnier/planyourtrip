@@ -1,9 +1,9 @@
-.index-trips-card {
-  width: 380px;
+.index-trips-card-confirmed {
+  // width: 320px;
   background-color: white;
   border-radius: 10px;
   box-shadow:  0 4px 8px 0 rgba(0,0,0,0.2);
-  border: 3px solid #8A97FE;
+  border: 3px solid #F78764;
 
   .img {
     width: 95%;
@@ -29,8 +29,8 @@
     }
   }
 
-  .footer-index-trips-cards{
-    background-color: #8A97FE;
+  .footer-index-trips-cards-confirmed{
+    background-color: #F78764;
     padding-top: 9px;
     height: 3em;
     text-align: center;
