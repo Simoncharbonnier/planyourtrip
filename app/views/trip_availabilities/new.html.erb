@@ -23,14 +23,20 @@
     <% end %>
     <%= link_to "Next", trip_subscriptions_path, method: "post", class:"btn button-blue" %>
 
+
+
     <% if current_user.id == @trip.user_id %>
       <p>tu es le créateur de ce trip</p>
       <% @trip_availabilities.each do |ta, index| %>
-      <div>
-        <p>Créneau <%= ta.start_at.strftime("%d-%m-%Y") %>/<%= ta.end_at.strftime("%d-%m-%Y") %></p>
-        <% avs = Availability.where(trip_availability_id: ta.id) %>
-        <%= avs.each { |av| av.user.username } %>
-      </div>
+        <div>
+          <p>Créneau <%= ta.start_at.strftime("%d-%m-%Y") %>/<%= ta.end_at.strftime("%d-%m-%Y") %></p>
+          <% avs = Availability.where(trip_availability_id: ta.id) %>
+          <% avs.each do |av| %>
+            <%= av.user.username %>
+          <% end %>
+          <%= link_to "BOOKER", set_availability_trip_path(@trip, ta_id: ta.id), method: :patch %>
+          <hr>
+        </div>
       <% end %>
     <% end %>
   </div>

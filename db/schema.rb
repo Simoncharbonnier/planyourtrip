@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_03_113736) do
+ActiveRecord::Schema.define(version: 2022_03_03_145740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,7 +95,9 @@ ActiveRecord::Schema.define(version: 2022_03_03_113736) do
     t.string "status", default: "created"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "trip_availability_id"
     t.index ["place_proposal_id"], name: "index_trips_on_place_proposal_id"
+    t.index ["trip_availability_id"], name: "index_trips_on_trip_availability_id"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
@@ -131,6 +133,7 @@ ActiveRecord::Schema.define(version: 2022_03_03_113736) do
   add_foreign_key "subscriptions", "users"
   add_foreign_key "tasks", "trips"
   add_foreign_key "tasks", "users"
+  add_foreign_key "trips", "trip_availabilities"
   add_foreign_key "votes", "place_proposals"
   add_foreign_key "votes", "users"
 end

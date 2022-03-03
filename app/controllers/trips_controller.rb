@@ -32,9 +32,26 @@ class TripsController < ApplicationController
     redirect_to new_trip_trip_availability_path(@trip)
   end
 
+  def set_availability
+    @trip = Trip.find(params[:id])
+    @trip.trip_availability = TripAvailability.find(params[:ta_id])
+    @trip.status = "voting"
+    @trip.save
+
+    redirect_to trips_path
+  end
+
+  def set_place
+    @trip = Trip.find(params[:id])
+    @trip.place_proposal = PlaceProposal.find(params[:ta_id])
+    @trip.save
+
+    redirect_to new_trip_trip_availability_path(@trip)
+  end
+
   private
 
   def trip_params
-    params.require(:trip).permit(:name, :duration)
+    params.require(:trip).permit(:name, :month, :time_span)
   end
 end

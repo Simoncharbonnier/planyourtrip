@@ -8,7 +8,8 @@ class Trip < ApplicationRecord
   has_many :place_proposals
 
   belongs_to :place_proposal, optional: true
+  belongs_to :trip_availability, optional: true
 
   validates :name, presence: true
-  validates :time_span, presence: true, inclusion: { in: ["weekend", "week"] }
+  validates :time_span, presence: true
 end
