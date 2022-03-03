@@ -9,9 +9,11 @@ PlaceProposal.destroy_all
 Place.destroy_all
 Task.destroy_all
 Message.destroy_all
+TripAvailability.destroy_all
 Trip.destroy_all
 User.destroy_all
 Vote.destroy_all
+
 
 p "Finished !"
 
@@ -40,16 +42,16 @@ fabien = User.create(username: "fabien", email: "fabien.alexandre@gmail.com", pa
 p "Users seed done !"
 
 # trips
-trip1 = Trip.create(name: "trip 1", user_id: simon, month: "july", status: "confirmed", time_span: 7)
-trip2 = Trip.create(name: "trip 2", user_id: simon, month: "july", status: "passed", time_span: 7)
-trip3 = Trip.create(name: "trip 3", user_id: simon, month: "july", status: "passed", time_span: 11)
-trip4 = Trip.create(name: "trip 4", user_id: simon, month: "july", status: "voting", time_span: 7)
+trip1 = Trip.create(name: "trip 1", user_id: simon, month: 4, status: "confirmed", time_span: 7)
+trip2 = Trip.create(name: "trip 2", user_id: simon, month: 4, status: "passed", time_span: 7)
+trip3 = Trip.create(name: "trip 3", user_id: simon, month: 4, status: "passed", time_span: 11)
+trip4 = Trip.create(name: "trip 4", user_id: simon, month: 4, status: "voting", time_span: 7)
 p "Trips seed done !"
 
 # trip_availabilities
-trip_availability_1 = TripAvailability.create(trip_id: 4, start_at: "2022-4-4", end_at: "2022-4-10")
-trip_availability_1 = TripAvailability.create(trip_id: 4, start_at: "2021-9-20", end_at: "2021-9-26")
-trip_availability_1 = TripAvailability.create(trip_id: 4, start_at: "2021-2-4", end_at: "2021-2-14")
+trip_availability_1 = TripAvailability.create(trip_id: 1, start_at: "2022-4-4", end_at: "2022-4-10")
+trip_availability_1 = TripAvailability.create(trip_id: 2, start_at: "2021-9-20", end_at: "2021-9-26")
+trip_availability_1 = TripAvailability.create(trip_id: 3, start_at: "2021-2-4", end_at: "2021-2-14")
 trip_availability_1 = TripAvailability.create(trip_id: 4, start_at: "2022-4-12", end_at: "2022-4-18")
 
 # place_proposals
