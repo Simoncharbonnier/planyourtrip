@@ -42,21 +42,21 @@ fabien = User.create!(username: "fabien", email: "fabien.alexandre@gmail.com", p
 p "Users seed done !"
 
 # trips
-trip1 = Trip.create!(name: "trip 1", user_id: simon, month: 4, status: "confirmed", time_span: "week")
-trip2 = Trip.create!(name: "trip 2", user_id: simon, month: 4, status: "passed", time_span: "week")
-trip3 = Trip.create!(name: "trip 3", user_id: simon, month: 4, status: "passed", time_span: "weekend")
+# trip1 = Trip.create!(name: "trip 1", user_id: simon, month: 4, status: "confirmed", time_span: "week")
+# trip2 = Trip.create!(name: "trip 2", user_id: simon, month: 4, status: "passed", time_span: "week")
+trip3 = Trip.create!(name: "Weekend des familles", user_id: simon, month: 4, status: "voting", time_span: "weekend")
 trip4 = Trip.create!(name: "Voyage entre potes", user_id: simon, month: 4, status: "voting", time_span: "week")
 p "Trips seed done !"
 
 # subscriptions
-subscription1 = Subscription.create!(status: "accepted", user: simon, trip: trip1)
-subscription2 = Subscription.create!(status: "accepted", user: valentin, trip: trip1)
-subscription3 = Subscription.create!(status: "accepted", user: herve, trip: trip1)
-subscription4 = Subscription.create!(status: "accepted", user: fabien, trip: trip1)
-subscription5 = Subscription.create!(status: "accepted", user: simon, trip: trip2)
-subscription6 = Subscription.create!(status: "accepted", user: valentin, trip: trip2)
-subscription7 = Subscription.create!(status: "accepted", user: herve, trip: trip2)
-subscription8 = Subscription.create!(status: "accepted", user: fabien, trip: trip2)
+# subscription1 = Subscription.create!(status: "accepted", user: simon, trip: trip1)
+# subscription2 = Subscription.create!(status: "accepted", user: valentin, trip: trip1)
+# subscription3 = Subscription.create!(status: "accepted", user: herve, trip: trip1)
+# subscription4 = Subscription.create!(status: "accepted", user: fabien, trip: trip1)
+# subscription5 = Subscription.create!(status: "accepted", user: simon, trip: trip2)
+# subscription6 = Subscription.create!(status: "accepted", user: valentin, trip: trip2)
+# subscription7 = Subscription.create!(status: "accepted", user: herve, trip: trip2)
+# subscription8 = Subscription.create!(status: "accepted", user: fabien, trip: trip2)
 subscription9 = Subscription.create!(status: "accepted", user: simon, trip: trip3)
 subscription10 = Subscription.create!(status: "accepted", user: valentin, trip: trip3)
 subscription11 = Subscription.create!(status: "accepted", user: herve, trip: trip3)
@@ -68,8 +68,12 @@ subscription16 = Subscription.create!(status: "accepted", user: fabien, trip: tr
 p "Subscriptions seed done !"
 
 # trip_availabilities
-trip_availability_1 = TripAvailability.create!(trip: trip1, start_at: "2022-4-4", end_at: "2022-4-10")
-trip_availability_2 = TripAvailability.create!(trip: trip2, start_at: "2021-9-20", end_at: "2021-9-26")
+trip_availability_7 = TripAvailability.create!(trip: trip3, start_at: "2022-4-1", end_at: "2022-4-3")
+trip_availability_8 = TripAvailability.create!(trip: trip3, start_at: "2022-4-8", end_at: "2022-4-10")
+trip_availability_9 = TripAvailability.create!(trip: trip3, start_at: "2022-4-15", end_at: "2022-4-17")
+trip_availability_10 = TripAvailability.create!(trip: trip3, start_at: "2022-4-22", end_at: "2022-4-24")
+trip_availability_11 = TripAvailability.create!(trip: trip3, start_at: "2022-4-29", end_at: "2022-5-1")
+
 trip_availability_3 = TripAvailability.create!(trip: trip4, start_at: "2022-4-4", end_at: "2022-4-10")
 trip_availability_4 = TripAvailability.create!(trip: trip4, start_at: "2022-4-11", end_at: "2022-4-17")
 trip_availability_5 = TripAvailability.create!(trip: trip4, start_at: "2022-4-18", end_at: "2022-4-24")
@@ -102,21 +106,21 @@ place_proposal4 = PlaceProposal.create!(place: rome, trip: trip4, user: simon)
 p "Place proposals seed done !"
 
 # tasks
-task1 = Task.create!(name: "Réserve ton billet d'avion", user: simon, trip: trip1)
-task2 = Task.create!(name: "Réserve ton billet d'avion", user: fabien, trip: trip1)
-task3 = Task.create!(name: "Réserve ton billet d'avion", user: herve, trip: trip1)
-task4 = Task.create!(name: "Réserve ton billet d'avion", user: valentin, trip: trip1)
-task5 = Task.create!(name: "Réserver le logement", user: simon, trip: trip1)
-task6 = Task.create!(name: "Réserver le logement", user: fabien, trip: trip1)
-task7 = Task.create!(name: "Réserver le logement", user: herve, trip: trip1)
-task8 = Task.create!(name: "Réserver le logement", user: valentin, trip: trip1)
+task1 = Task.create!(name: "Réserve ton billet d'avion", user: simon, trip: trip4)
+task2 = Task.create!(name: "Réserve ton billet d'avion", user: fabien, trip: trip4)
+task3 = Task.create!(name: "Réserve ton billet d'avion", user: herve, trip: trip4)
+task4 = Task.create!(name: "Réserve ton billet d'avion", user: valentin, trip: trip4)
+task5 = Task.create!(name: "Réserver le logement", user: simon, trip: trip4)
+task6 = Task.create!(name: "Réserver le logement", user: fabien, trip: trip4)
+task7 = Task.create!(name: "Réserver le logement", user: herve, trip: trip4)
+task8 = Task.create!(name: "Réserver le logement", user: valentin, trip: trip4)
 p "Tasks seed done !"
 
 # messages
-message1 = Message.create!(content: "Tous prêts ?", user: simon, trip: trip1)
-message2 = Message.create!(content: "Tu as bien pris ton maillot Hervé ?", user: valentin, trip: trip1)
-message3 = Message.create!(content: "J'espère que tu y as pensé !", user: fabien, trip: trip1)
-message4 = Message.create!(content: "J'ai pris ma combinaison !", user: herve, trip: trip1)
+message1 = Message.create!(content: "Tous prêts ?", user: simon, trip: trip4)
+message2 = Message.create!(content: "Tu as bien pris ton maillot Hervé ?", user: valentin, trip: trip4)
+message3 = Message.create!(content: "J'espère que tu y as pensé !", user: fabien, trip: trip4)
+message4 = Message.create!(content: "J'ai pris ma combinaison !", user: herve, trip: trip4)
 p "Messages seed done !"
 
 
