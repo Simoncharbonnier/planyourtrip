@@ -40,16 +40,22 @@ fabien = User.create(username: "fabien", email: "fabien.alexandre@gmail.com", pa
 p "Users seed done !"
 
 # trips
-trip1 = Trip.create(name: "trip 1", user_id: simon, start_at: "2022-4-4", end_at: "2022-4-10", status: "confirmed", duration: 7)
-trip2 = Trip.create(name: "trip 2", user_id: simon, start_at: "2021-9-20", end_at: "2021-9-26", status: "passed", duration: 7)
-trip3 = Trip.create(name: "trip 3", user_id: simon, start_at: "2021-2-4", end_at: "2021-2-14", status: "passed", duration: 11)
-trip4 = Trip.create(name: "trip 4", user_id: simon, start_at: "2022-4-12", end_at: "2022-4-18", status: "voting", duration: 7)
+trip1 = Trip.create(name: "trip 1", user_id: simon, month: "july", status: "confirmed", time_span: 7)
+trip2 = Trip.create(name: "trip 2", user_id: simon, month: "july", status: "passed", time_span: 7)
+trip3 = Trip.create(name: "trip 3", user_id: simon, month: "july", status: "passed", time_span: 11)
+trip4 = Trip.create(name: "trip 4", user_id: simon, month: "july", status: "voting", time_span: 7)
 p "Trips seed done !"
 
+# trip_availabilities
+trip_availability_1 = TripAvailability.create(trip_id: 4, start_at: "2022-4-4", end_at: "2022-4-10")
+trip_availability_1 = TripAvailability.create(trip_id: 4, start_at: "2021-9-20", end_at: "2021-9-26")
+trip_availability_1 = TripAvailability.create(trip_id: 4, start_at: "2021-2-4", end_at: "2021-2-14")
+trip_availability_1 = TripAvailability.create(trip_id: 4, start_at: "2022-4-12", end_at: "2022-4-18")
+
 # place_proposals
-place_proposal1 = PlaceProposal.create(place: copenhague, trip: trip1, user: simon)
-place_proposal2 = PlaceProposal.create(place: paris, trip: trip2, user: fabien)
-place_proposal3 = PlaceProposal.create(place: rome, trip: trip3, user: herve)
+place_proposal1 = PlaceProposal.create(place_id: copenhague, trip_id: trip1, user_id: simon)
+place_proposal2 = PlaceProposal.create(place_id: paris, trip_id: trip2, user_id: fabien)
+place_proposal3 = PlaceProposal.create(place_id: rome, trip_id: trip3, user_id: herve)
 trip1.place_proposal_id = place_proposal1.id
 trip1.save
 trip2.place_proposal_id = place_proposal2.id
@@ -58,7 +64,7 @@ trip3.place_proposal_id = place_proposal3.id
 trip3.save
 p "Place proposals seed done !"
 
-#subscriptions
+# subscriptions
 subscription1 = Subscription.create(status: "accepted", user: simon, trip: trip1)
 subscription2 = Subscription.create(status: "accepted", user: valentin, trip: trip1)
 subscription3 = Subscription.create(status: "accepted", user: herve, trip: trip1)
