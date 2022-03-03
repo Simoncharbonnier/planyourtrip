@@ -2,13 +2,12 @@ class TripsController < ApplicationController
   def index
     @trip = Trip.new
     @my_trips = current_user.trips
-
-    @my_pending_trips   = @my_trips.select { |trip| (trip.status == "pending") || (trip.status == "created") }
+    @my_pending_trips   = @my_trips.select { |trip| trip.status == "created" || trip.status == "voting" }
     @my_confirmed_trips = @my_trips.select { |trip| trip.status == "confirmed" }
     @my_passed_trips    = @my_trips.select { |trip| trip.status == "passed" }
 
     @markers = []
-    @my_trips.each do |trip|
+    @my_confirmed_trips.each do |trip|
       place_proposal = PlaceProposal.where(id: trip.place_proposal_id).first
       place = Place.where(id: place_proposal.place_id).first
       @markers << {
