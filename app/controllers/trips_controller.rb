@@ -53,6 +53,15 @@ class TripsController < ApplicationController
     redirect_to new_trip_trip_availability_path(@trip)
   end
 
+  def book
+    @trip = Trip.find(params[:id])
+    @trip.trip_availability_id = TripAvailability.find(params[:trip_av])
+    # @trip.status = "voting"
+    @trip.save
+
+    redirect_to trip_path(@trip)
+  end
+
   private
 
   def trip_params

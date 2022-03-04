@@ -44,18 +44,6 @@
     color: #F78764;
   }
 }
-.button-orange-xl-none {
-  color: white;
-  text-decoration: none;
-  background-color: #F78764;
-  padding: 0px 4px 0px 4px;
-  border-radius: 5px;
-  text-align: center;
-  width: 140px;
-  height: 40px;
-  font-size: 24px;
-  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
-}
 .button-border-blue {
   color: $purple-blue;
   text-decoration: none;
@@ -101,11 +89,12 @@
   height: 40px;
   font-size: 24px;
   box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
-
+  border: 1px solid  $purple-blue;
+  display: inline-block;
+  margin: 0 8px;
   &:hover {
     background-color: white;
     color: #8A97FE;
-    border: 1px solid  $purple-blue;
   }
 }
 .button-blue-xl-none {
@@ -119,4 +108,15 @@
   height: 40px;
   font-size: 24px;
   box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
+  margin: 0 8px;
+}
+
+.button-blank {
+  width: 140px;
+  height: 40px;
+  background-color: white;
+  color: white;
+  border-radius: 5px;
+  margin: 0 8px;
+  display: inline-block;
 }

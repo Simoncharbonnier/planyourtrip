@@ -12,20 +12,46 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  .content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 .username-header-form {
   display: flex;
   justify-content: space-around;
 }
 .header-name {
+  align-items: center;
+  .name {
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 195px;
+    height: 50px;
+    margin-left: 30px;
+  }
   .names {
-    p {
-    width: 140px;
-    }
+    margin: 10px 38px;
   }
 }
 .week {
-  .av {
-
+  padding: 0 8px;
+  border-left: 6px solid #F78764;
+  border-right: 6px solid #F78764;
+  color: #F78764;
+  padding-right: 15px;
+  margin-right: 15px;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 180px;
+  height: 50px;
+  p {
+    margin-bottom: 0;
   }
+}
+.ta {
+  margin-bottom: 15px;
+  align-items: center;
+  margin-right: 30px;
+  margin-left: 30px;
 }
