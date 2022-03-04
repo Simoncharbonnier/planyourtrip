@@ -11,44 +11,44 @@
       <% end %>
     <% end %>
     <hr>
-    <table>
-      <tr>
-        <td><strong>Participants</strong></td>
+    <div class="flex header-name">
+      <strong>Participants</strong>
+      <div class="flex names">
         <% @trip.subscriptions.each do |sub| %>
           <% if current_user == sub.user %>
-            <td>Toi</td>
+          <p>Toi</p>
           <% else %>
-            <td><%= sub.user.username.capitalize %></td>
+            <p><%= sub.user.username.capitalize %></p>
           <% end %>
         <% end %>
-      </tr>
-      <% @trip_availabilities.each_with_index do |ta, index| %>
-        <tr>
-          <td class="week">
-            <p>Semaine <%= index + 1 %></p>
-            <p><%= ta.start_at.strftime("%d-%m-%Y") %>/<%= ta.end_at.strftime("%d-%m-%Y") %></p>
-          </td>
-          <% @trip.subscriptions.each do |sub| %>
-            <td>
-              <% av = Availability.where(user_id: sub.user.id, trip_availability_id: ta.id).first %>
-              <% if av.is_a?(Availability) && av.available == "true" %>
-                <% if current_user.id == sub.user.id %>
-                  <%= link_to "Dispo", trip_availability_availability_path(ta, av), method: :delete, class: "button-blue-xl" %>
-                <% else %>
-                  <p class="button-blue-xl-none">Dispo</p>
-                <% end %>
+      </div>
+    </div>
+    <% @trip_availabilities.each_with_index do |ta, index| %>
+      <div class="flex week">
+        <div>
+          <p>Semaine <%= index + 1 %></p>
+          <p><%= ta.start_at.strftime("%d-%m-%Y") %>/<%= ta.end_at.strftime("%d-%m-%Y") %></p>
+        </div>
+        <% @trip.subscriptions.each do |sub| %>
+          <div class="flex av">
+            <% av = Availability.where(user_id: sub.user.id, trip_availability_id: ta.id).first %>
+            <% if av.is_a?(Availability) && av.available == "true" %>
+              <% if current_user.id == sub.user.id %>
+                <%= link_to "Dispo", trip_availability_availability_path(ta, av), method: :delete, class: "button-blue-xl" %>
               <% else %>
-                <% if current_user.id == sub.user.id %>
-                  <%= link_to "Pas dispo", trip_availability_availabilities_path(ta), method: :post, class: "button-orange-xl" %>
-                <% else %>
-                  <p class="button-orange-xl-none">Pas dispo</p>
-                <% end %>
+                <p class="button-blue-xl-none">Dispo</p>
               <% end %>
-            </td>
-          <% end %>
-        </tr>
-      <% end %>
-    </table>
+            <% else %>
+              <% if current_user.id == sub.user.id %>
+                <%= link_to "Pas dispo", trip_availability_availabilities_path(ta), method: :post, class: "button-orange-xl" %>
+              <% else %>
+                <p class="button-orange-xl-none">Pas dispo</p>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
     <%= link_to "Suite", trip_subscriptions_path, method: "post", class:"btn button-blue" %>
 
