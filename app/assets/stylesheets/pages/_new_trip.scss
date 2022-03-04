@@ -1,0 +1,40 @@
+.category-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.category-item {
+  flex: 0 0 20%;
+}
+
+.category-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+label {
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  font-size: 0;
+  &:hover {
+    font-size: 25px;
+    text-align: center;
+    color: white;
+    opacity: 0.8;
+  }
+}
+
+.category-selector + label {
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 10px 10px 30px 10px;
+  border: 1px solid #EAEAEA;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.category-selector:checked + label {
+  border: 1px solid #F78764;
+}

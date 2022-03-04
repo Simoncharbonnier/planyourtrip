@@ -1,20 +1,43 @@
 import { Controller } from "stimulus"
+import { csrfToken } from "@rails/ujs"
 
 export default class extends Controller {
-  static targets = [ "input", "availabilities" ]
+  static targets = [ "container" ]
 
-  add() {
-    const range = this.inputTarget.value
-    const start_at = range.split(" to ")[0]
-    const end_at = range.split(" to ")[1]
-
-    const html = this.availabilitiesTarget.innerHTML
-    this.availabilitiesTarget.innerHTML = html + "<br>" + range
-
-    this.inputTarget.value = ""
+  connect() {
+    console.log("AvailabilitiesController connected")
   }
 
-  remove() {
-    this.inputTarget.value = ""
+  add(event) {
+    event.preventDefault()
+    const tripAvId = event.currentTarget.dataset.tripId
+    const url = `/trip_availabilities/${tripAvId}/availabilities`
+
+    fetch(url, {
+      method: "POST",
+      headers: { "Accept": "text/plain", "X-CSRF-Token": csrfToken() }
+    })
+      .then(response => response.text())
+      .then((data) => {
+        console.log(data)
+        this.containerTarget.innerHTML = data
+      })
+  }
+
+  remove(event) {
+    event.preventDefault()
+    const tripAvId = event.currentTarget.dataset.tripId
+    const avId = event.currentTarget.dataset.avId
+    const url = `/trip_availabilities/${tripAvId}/availabilities/${avId}`
+
+    fetch(url, {
+      method: "DELETE",
+      headers: { "Accept": "text/plain", "X-CSRF-Token": csrfToken() }
+    })
+      .then(response => response.text())
+      .then((data) => {
+        console.log(data)
+        this.containerTarget.innerHTML = data
+      })
   }
 }
