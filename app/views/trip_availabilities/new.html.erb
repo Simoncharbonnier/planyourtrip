@@ -54,7 +54,25 @@
           </div>
         <% end %>
       </div>
-      <%= link_to "Suite", trip_subscriptions_path, method: "post", class:"btn button-blue" %>
+    <% end %>
+
+    <%= link_to "Suivant", trip_subscriptions_path, method: "post", class:"btn button-blue" %>
+
+    <div class="place-proposal">
+      <h3><%= "#{@trip.name}" %></h3>
+      <h5>Proposez la prochaine destination</h5>
+      <%= simple_form_for([@trip, @place_proposal]) do |f| %>
+        <div class="category-wrapper">
+          <input type="hidden" name="place_proposal[place_id]" value="">
+          <% Place.all.each do |place| %>
+            <div class="category-item">
+              <input class="form-check-input radio_buttons required category-selector" type="radio" value="<%= place.id %>" name="place_proposal[place_id]" id="place_proposal_place_id_<%= place.id %>">
+              <label class="form-check-label collection_radio_buttons" style="background-image: url('<%= cl_image_path place.photo.key %>'); background-size: cover; background-repeat: no-repeat)" for="place_proposal_place_id_<%= place.id %>"><%= place.city %></label>
+            </div>
+          <% end %>
+        </div>
+        <%= f.submit "Valider", class: "button-orange" %>
+      <% end %>
     </div>
   </div>
 </div>

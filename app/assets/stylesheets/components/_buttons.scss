@@ -13,10 +13,12 @@
   text-decoration: none;
   background-color: #F78764;
   padding: 0px 4px 0px 4px;
+  border: 1px solid  #F78764;
   border-radius: 5px;
   text-align: center;
   width: 160px;
   font-size: 22px;
+  margin-bottom: 5px;
 
   &:hover {
     background-color: white;
