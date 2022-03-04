@@ -1,0 +1,16 @@
+.mini-avatar{
+  width: 55px;
+  height: 60px;
+  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+
+  .mini-avatar-img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+}

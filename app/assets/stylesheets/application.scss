@@ -12,7 +12,13 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+
+@import "mapbox-gl/dist/mapbox-gl";
+
 @import "pages/new_trip";
+
 
 
 // @import "flatpickr/dist/flatpickr"
