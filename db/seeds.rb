@@ -81,8 +81,8 @@ p "Users seed done !"
 # trips
 trip1 = Trip.create!(name: "Voyage confirmé!", user_id: simon, month: 4, status: "confirmed", time_span: "weekend")
 # trip2 = Trip.create!(name: "trip 2", user_id: simon, month: 4, status: "passed", time_span: "week")
-trip3 = Trip.create!(name: "Weekend des familles", user_id: simon.id, month: 4, status: "voting", time_span: "weekend")
-trip4 = Trip.create!(name: "Voyage entre potes", user_id: simon.id, month: 4, status: "voting", time_span: "week")
+trip3 = Trip.create!(name: "Weekend des familles", user_id: simon.id, month: 4, status: "created", time_span: "weekend")
+trip4 = Trip.create!(name: "Voyage entre potes", user_id: simon.id, month: 4, status: "created", time_span: "week")
 p "Trips seed done !"
 
 # subscriptions
@@ -121,12 +121,20 @@ trip_availability_5 = TripAvailability.create!(trip: trip4, start_at: "2022-4-18
 trip_availability_6 = TripAvailability.create!(trip: trip4, start_at: "2022-4-25", end_at: "2022-5-1")
 
 # availabilities
+availabilities_9 = Availability.create!(user: fabien, trip_availability: trip_availability_7)
+availabilities_9 = Availability.create!(user: fabien, trip_availability: trip_availability_9)
+availabilities_9 = Availability.create!(user: valentin, trip_availability: trip_availability_8)
+availabilities_9 = Availability.create!(user: valentin, trip_availability: trip_availability_9)
+availabilities_9 = Availability.create!(user: simon, trip_availability: trip_availability_7)
+availabilities_9 = Availability.create!(user: simon, trip_availability: trip_availability_10)
 availabilities_5 = Availability.create!(user: fabien, trip_availability: trip_availability_4)
 availabilities_1 = Availability.create!(user: fabien, trip_availability: trip_availability_5)
 availabilities_6 = Availability.create!(user: fabien, trip_availability: trip_availability_6)
 availabilities_2 = Availability.create!(user: valentin, trip_availability: trip_availability_5)
 availabilities_3 = Availability.create!(user: herve, trip_availability: trip_availability_5)
 availabilities_4 = Availability.create!(user: herve, trip_availability: trip_availability_6)
+availabilities_3 = Availability.create!(user: simon, trip_availability: trip_availability_3)
+availabilities_4 = Availability.create!(user: simon, trip_availability: trip_availability_6)
 
 
 # availabilities_1 = Availabilities.create!(user_id: fabien , trip_availability_id:)

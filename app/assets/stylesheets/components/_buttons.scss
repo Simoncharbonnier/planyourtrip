@@ -99,3 +99,19 @@ a {
   margin: 0 8px;
   display: inline-block;
 }
+.button-orange-xxl {
+  color: white;
+  text-decoration: none;
+  background-color: #F78764;
+  padding: 6px 15px;
+  border-radius: 5px;
+  text-align: center;
+  width: 240px;
+  font-size: 18px;
+  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
+  &:hover {
+    background-color: white;
+    color: #F78764;
+    border: 1px solid  #F78764;
+  }
+}
