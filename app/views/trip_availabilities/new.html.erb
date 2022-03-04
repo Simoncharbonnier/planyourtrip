@@ -11,44 +11,46 @@
       <% end %>
     <% end %>
     <hr>
-    <table>
-      <tr>
-        <td>Participants</td>
+    <div class="flex header-name">
+      <strong>Participants</strong>
+      <div class="flex names">
         <% @trip.subscriptions.each do |sub| %>
-          <td><%= sub.user.username %></td>
-        <% end %>
-      </tr>
-      <% @trip_availabilities.each_with_index do |ta, index| %>
-        <tr>
-          <div class="week">
-            <td>
-              <p>Semaine <%= index + 1 %></p>
-              <p><%= ta.start_at.strftime("%d-%m-%Y") %>/<%= ta.end_at.strftime("%d-%m-%Y") %></p>
-            </td>
-          </div>
-          <% @trip.subscriptions.each do |sub| %>
-            <td>
-              <% av = Availability.where(user_id: sub.user.id, trip_availability_id: ta.id).first %>
-              <% if av.is_a?(Availability) && av.available == "true" %>
-                <% if current_user.id == sub.user.id %>
-                  <%= link_to "Pas dispo", trip_availability_availability_path(ta, av), method: :delete %>
-                <% else %>
-                  <p>Dispo</p>
-                <% end %>
-              <% else %>
-                <% if current_user.id == sub.user.id %>
-                  <%= link_to "Dispo", trip_availability_availabilities_path(ta), method: :post %>
-                <% else %>
-                  <p>Pas dispo</p>
-                <% end %>
-              <% end %>
-            </td>
+          <% if current_user == sub.user %>
+          <p>Toi</p>
+          <% else %>
+            <p><%= sub.user.username.capitalize %></p>
           <% end %>
-        </tr>
-      <% end %>
-    </table>
+        <% end %>
+      </div>
+    </div>
+    <% @trip_availabilities.each_with_index do |ta, index| %>
+      <div class="flex week">
+        <div>
+          <p>Semaine <%= index + 1 %></p>
+          <p><%= ta.start_at.strftime("%d-%m-%Y") %>/<%= ta.end_at.strftime("%d-%m-%Y") %></p>
+        </div>
+        <% @trip.subscriptions.each do |sub| %>
+          <div class="flex av">
+            <% av = Availability.where(user_id: sub.user.id, trip_availability_id: ta.id).first %>
+            <% if av.is_a?(Availability) && av.available == "true" %>
+              <% if current_user.id == sub.user.id %>
+                <%= link_to "Dispo", trip_availability_availability_path(ta, av), method: :delete, class: "button-blue-xl" %>
+              <% else %>
+                <p class="button-blue-xl-none">Dispo</p>
+              <% end %>
+            <% else %>
+              <% if current_user.id == sub.user.id %>
+                <%= link_to "Pas dispo", trip_availability_availabilities_path(ta), method: :post, class: "button-orange-xl" %>
+              <% else %>
+                <p class="button-orange-xl-none">Pas dispo</p>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
-    <%= link_to "Next", trip_subscriptions_path, method: "post", class:"btn button-blue" %>
+    <%= link_to "Suite", trip_subscriptions_path, method: "post", class:"btn button-blue" %>
 
     <% if current_user.id == @trip.user_id %>
       <p>tu es le créateur de ce trip</p>

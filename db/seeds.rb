@@ -35,10 +35,10 @@ copenhague = Place.create!(city: "Copenhague")
 p "Places seed done !"
 
 # users
-simon = User.create!(username: "simon", email: "simon.charbonnier@gmail.com", password: "secret")
-valentin = User.create!(username: "valentin", email: "valentin.derrien@gmail.com", password: "secret")
-herve = User.create!(username: "herve", email: "herve.criaud@gmail.com", password: "secret")
-fabien = User.create!(username: "fabien", email: "fabien.alexandre@gmail.com", password: "secret")
+simon = User.create!(username: "simon", email: "simon.charbonnier@gmail.com", ghname: "simoncharbonnier", password: "secret")
+valentin = User.create!(username: "valentin", email: "valentin.derrien@gmail.com", ghname: "valdrn",password: "secret")
+herve = User.create!(username: "hervé", email: "herve.criaud@gmail.com", ghname: "criaudh", password: "secret")
+fabien = User.create!(username: "fabien", email: "fabien.alexandre@gmail.com", ghname: "drptitlu", password: "secret")
 p "Users seed done !"
 
 # trips
