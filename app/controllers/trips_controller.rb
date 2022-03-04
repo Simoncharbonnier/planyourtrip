@@ -2,7 +2,8 @@ class TripsController < ApplicationController
   def index
     @trip = Trip.new
     @my_trips = current_user.trips
-    @my_pending_trips   = @my_trips.select { |trip| trip.status == "created" || trip.status == "voting" }
+    @my_pending_trips   = @my_trips.select { |trip| trip.status == "created" }
+    @my_voting_trips    = @my_trips.select { |trip| trip.status == "voting" }
     @my_confirmed_trips = @my_trips.select { |trip| trip.status == "confirmed" }
     @my_passed_trips    = @my_trips.select { |trip| trip.status == "passed" }
     @markers = []
@@ -56,7 +57,7 @@ class TripsController < ApplicationController
   def book
     @trip = Trip.find(params[:id])
     @trip.trip_availability_id = TripAvailability.find(params[:trip_av])
-    # @trip.status = "voting"
+    @trip.status = "voting"
     @trip.save
 
     redirect_to trip_path(@trip)

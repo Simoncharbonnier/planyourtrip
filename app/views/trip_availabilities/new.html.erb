@@ -6,18 +6,19 @@
       <div class="content flex">
         <div class="flex header-name">
           <div class="name"></div>
-          <div class="flex">
-            <% @trip.subscriptions.each do |sub| %>
-              <div class="card-avatar names">
-                <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{sub.user.ghname}", class:"avatar"  %>
-                  <p class="first-name"><%= sub.user.username.capitalize %></p>
-                <div class="check">
-                  <% if Availability.where(user_id: sub.user.id).first %>
-                    <i class="fas fa-check"></i>
-                  <% end %>
+            <div class="flex">
+              <% @trip.subscriptions.each do |sub| %>
+                <div class="card-avatar names">
+                  <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{sub.user.ghname}", class:"avatar"  %>
+                    <p class="first-name"><%= sub.user.username.capitalize %></p>
+                  <div class="check">
+                    <% if Availability.where(user_id: sub.user.id).first %>
+                      <i class="fas fa-check"></i>
+                    <% end %>
+                  </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+
           </div>
         </div>
         <% @trip_availabilities.each_with_index do |ta, index| %>
