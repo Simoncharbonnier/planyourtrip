@@ -1,0 +1,14 @@
+.title-wrapper {
+  padding-top: 2rem;
+  margin: 0 auto;
+}
+
+.container-trip {
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.show-h2 {
+  font-size: 20px;
+}
