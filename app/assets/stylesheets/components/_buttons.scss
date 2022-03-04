@@ -1,3 +1,8 @@
+a {
+  &:hover {
+    color: white;
+  }
+}
 .button-vote{
   color: white;
   text-decoration: none;
@@ -19,12 +24,6 @@
   width: 160px;
   font-size: 22px;
   margin-bottom: 5px;
-
-  &:hover {
-    background-color: white;
-    color: #F78764;
-    border: 1px solid  #F78764;
-  }
 }
 .button-orange-xl {
   color: white;
@@ -38,11 +37,6 @@
   font-size: 24px;
   box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
   border: 1px solid  #F78764;
-
-  &:hover {
-    background-color: white;
-    color: #F78764;
-  }
 }
 .button-border-blue {
   color: $purple-blue;
@@ -53,12 +47,6 @@
   border-radius: 10px;
   text-align: center;
   font-size: 1.2em;
-
-
-  &:hover {
-    background-color: $purple-blue;
-    color: white;
-  }
 }
 .button-blue {
   color: white;
@@ -71,11 +59,6 @@
   width: 260px;
   font-size: 20px;
   border: 1px solid  $purple-blue;
-
-  &:hover {
-    background-color: white;
-    color: #8A97FE;
-  }
 }
 
 .button-blue-xl {
@@ -92,10 +75,6 @@
   border: 1px solid  $purple-blue;
   display: inline-block;
   margin: 0 8px;
-  &:hover {
-    background-color: white;
-    color: #8A97FE;
-  }
 }
 .button-blue-xl-none {
   color: white;

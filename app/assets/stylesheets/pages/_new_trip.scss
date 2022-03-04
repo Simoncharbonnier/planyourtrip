@@ -14,18 +14,21 @@
 }
 
 label {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   margin: 10px;
+  font-size: 0;
+  &:hover {
+    font-size: 25px;
+    text-align: center;
+    color: white;
+    opacity: 0.8;
+  }
 }
 
 .category-selector + label {
-  display: block;
   cursor: pointer;
   box-sizing: border-box;
-  width: 100%;
-  font-size: 12px;
-  text-align: left;
   padding: 10px 10px 30px 10px;
   border: 1px solid #EAEAEA;
   border-radius: 4px;
