@@ -1,0 +1,55 @@
+.card-index-xl{
+  position: relative;
+  width: 800px;
+  height: 380px;
+  margin-top: 5px;
+
+
+  .card-index-xl-img{
+    width: 700px;
+    height: 380px;
+    border-radius: 10px;
+    background-size: cover;
+    box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
+  }
+
+  #card-index-title{
+    font-size:32px;
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    font-weight: bold;
+    color: white;
+  }
+  #card-index-date{
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    color:white;
+    i{
+      font-size:22px;
+    }
+  }
+  .card-index-texte{
+    font-size: 12px;
+    color:white;
+    position: absolute;
+    top: 120px;
+    left: 20px;
+    width: 220px;
+    height: 48px;
+    text-align: justify;
+  }
+  .footer-card-index-xl{
+    position: absolute;
+    top: 330px;
+    left: 20px;
+  }
+  .card-avatar-orange{
+    position: absolute;
+    top: 90px;
+    right: 70px;
+  }
+
+
+}
