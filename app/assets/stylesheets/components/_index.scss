@@ -1,5 +1,5 @@
 // Import your components CSS files here.
-@import "alert";
+
 @import "avatar";
 @import "navbar";
 @import "card";
@@ -17,6 +17,7 @@
 
 @import "tabs";
 
+
 @import "button_blue";
 @import "button_border_blue";
 @import "button_vote";
@@ -24,9 +25,14 @@
 @import "button_orange";
 @import "button_orange_xl";
 @import "button_orange_xxl";
+
+@import "modal";
+@import "buttons";
+
 @import "map";
 
 @import "formtrip";
+@import "carousel";
 
 .flex {
   display: flex;

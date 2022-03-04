@@ -24,6 +24,10 @@ class TripsController < ApplicationController
     # end
   end
 
+  def show
+    @trip = Trip.find(params[:id])
+  end
+
   def create
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
@@ -47,6 +51,15 @@ class TripsController < ApplicationController
     @trip.save
 
     redirect_to new_trip_trip_availability_path(@trip)
+  end
+
+  def book
+    @trip = Trip.find(params[:id])
+    @trip.trip_availability_id = TripAvailability.find(params[:trip_av])
+    # @trip.status = "voting"
+    @trip.save
+
+    redirect_to trip_path(@trip)
   end
 
   private

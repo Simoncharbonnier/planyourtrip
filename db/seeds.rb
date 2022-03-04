@@ -14,31 +14,68 @@ TripAvailability.destroy_all
 User.destroy_all
 Vote.destroy_all
 
-
 p "Finished !"
-
-
 
 p "Creating places, users, trips, subscriptions, availabilities, placeproposals, tasks, and messages..."
 
 # places
-paris = Place.create!(city: "Paris")
-londres = Place.create!(city: "Londres")
-amsterdam = Place.create!(city: "Amsterdam")
-berlin = Place.create!(city: "Berlin")
-madrid = Place.create!(city: "Madrid")
+rome_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394982/Planyourtrip/rome_fb1mq0.jpg')
 rome = Place.create!(city: "Rome")
+rome.photo.attach(io: rome_url, filename: 'Rome.jpg', content_type: 'jpg')
+rome.save!
+
+paris_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394982/Planyourtrip/paris_cuqo7v.jpg')
+paris = Place.create!(city: "Paris")
+paris.photo.attach(io: paris_url, filename: 'Paris.jpg', content_type: 'jpg')
+paris.save!
+
+londres_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394982/Planyourtrip/london_ogfqnr.jpg')
+londres = Place.create!(city: "Londres")
+londres.photo.attach(io: londres_url, filename: 'Londres.jpg', content_type: 'jpg')
+londres.save!
+
+amsterdam_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394982/Planyourtrip/amsterdam_xykrxh.jpg')
+amsterdam = Place.create!(city: "Amsterdam")
+amsterdam.photo.attach(io: amsterdam_url, filename: 'Amsterdam.jpg', content_type: 'jpg')
+amsterdam.save!
+
+berlin_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394982/Planyourtrip/berlin_mjn5om.jpg')
+berlin = Place.create!(city: "Berlin")
+berlin.photo.attach(io: berlin_url, filename: 'Berlin.jpg', content_type: 'jpg')
+berlin.save!
+
+madrid_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394982/Planyourtrip/madrid_ewghhk.jpg')
+madrid = Place.create!(city: "Madrid")
+madrid.photo.attach(io: madrid_url, filename: 'Madrid.jpg', content_type: 'jpg')
+madrid.save!
+
+lisbonne_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394982/Planyourtrip/lisbonne_m23aax.jpg')
 lisbonne = Place.create!(city: "Lisbonne")
+lisbonne.photo.attach(io: lisbonne_url, filename: 'Lisbonne.jpg', content_type: 'jpg')
+lisbonne.save!
+
+vienne_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394982/Planyourtrip/vienne_ekeaom.jpg')
 vienne = Place.create!(city: "Vienne")
+vienne.photo.attach(io: vienne_url, filename: 'Vienne.jpg', content_type: 'jpg')
+vienne.save!
+
+athenes_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394981/Planyourtrip/athenes_pfwftt.jpg')
 athenes = Place.create!(city: "Athènes")
+athenes.photo.attach(io: athenes_url, filename: 'Athenes.jpg', content_type: 'jpg')
+athenes.save!
+
+copenhague_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394981/Planyourtrip/copenhagen_ypnsu9.jpg')
 copenhague = Place.create!(city: "Copenhague")
+copenhague.photo.attach(io: copenhague_url, filename: 'Copenhague.jpg', content_type: 'jpg')
+copenhague.save!
+
 p "Places seed done !"
 
 # users
-simon = User.create!(username: "simon", email: "simon.charbonnier@gmail.com", password: "secret")
-valentin = User.create!(username: "valentin", email: "valentin.derrien@gmail.com", password: "secret")
-herve = User.create!(username: "herve", email: "herve.criaud@gmail.com", password: "secret")
-fabien = User.create!(username: "fabien", email: "fabien.alexandre@gmail.com", password: "secret")
+simon = User.create!(username: "simon", email: "simon.charbonnier@gmail.com", ghname: "simoncharbonnier", password: "secret")
+valentin = User.create!(username: "valentin", email: "valentin.derrien@gmail.com", ghname: "valdrn",password: "secret")
+herve = User.create!(username: "hervé", email: "herve.criaud@gmail.com", ghname: "criaudh", password: "secret")
+fabien = User.create!(username: "fabien", email: "fabien.alexandre@gmail.com", ghname: "drptitlu", password: "secret")
 p "Users seed done !"
 
 # trips
@@ -84,12 +121,12 @@ trip_availability_5 = TripAvailability.create!(trip: trip4, start_at: "2022-4-18
 trip_availability_6 = TripAvailability.create!(trip: trip4, start_at: "2022-4-25", end_at: "2022-5-1")
 
 # availabilities
-availabilities_5 = Availability.create!(user: fabien, available: "true", trip_availability: trip_availability_4)
-availabilities_1 = Availability.create!(user: fabien, available: "false", trip_availability: trip_availability_5)
-availabilities_6 = Availability.create!(user: fabien, available: "true", trip_availability: trip_availability_6)
-availabilities_2 = Availability.create!(user: valentin, available: "false", trip_availability: trip_availability_5)
-availabilities_3 = Availability.create!(user: herve, available: "true", trip_availability: trip_availability_5)
-availabilities_4 = Availability.create!(user: herve, available: "true", trip_availability: trip_availability_6)
+availabilities_5 = Availability.create!(user: fabien, trip_availability: trip_availability_4)
+availabilities_1 = Availability.create!(user: fabien, trip_availability: trip_availability_5)
+availabilities_6 = Availability.create!(user: fabien, trip_availability: trip_availability_6)
+availabilities_2 = Availability.create!(user: valentin, trip_availability: trip_availability_5)
+availabilities_3 = Availability.create!(user: herve, trip_availability: trip_availability_5)
+availabilities_4 = Availability.create!(user: herve, trip_availability: trip_availability_6)
 
 
 # availabilities_1 = Availabilities.create!(user_id: fabien , trip_availability_id:)

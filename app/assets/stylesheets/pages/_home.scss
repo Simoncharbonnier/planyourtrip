@@ -51,12 +51,13 @@ button {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: rgba(138, 151, 254, 0.10);
 }
 
 .info-card {
   background-color: white;
   border-radius: 20px;
-  border: solid 2px #8A97FE;
+  border: solid 2px #F78764;
   height: 200px;
   width: 280px;
   padding: 20px;
@@ -64,7 +65,7 @@ button {
 }
 
 .info-text {
-  color: #8A97FE;
+  color: #F78764;
   font-size: 20px;
   text-align: center;
 }

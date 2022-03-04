@@ -1,21 +1,16 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-
     <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag "logoPYT.png" %>
     <% end %>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto flex">
         <% if user_signed_in? %>
           <li class="nav-item">
-
             <div id="myBtn" class="nav-link">Nouveau trip</div>
-
             <div id="myModal" class="modal">
               <div class="modal-content">
                 <div class="form-trip-title flex">
@@ -23,10 +18,14 @@
                   <i class="close far fa-times-circle"></i>
                 </div>
                 <%= simple_form_for(@trip) do |f| %>
-                  <%= f.input :name, label: false, placeholder: "Nom" %>
-                  <%= f.input :month, collection: (1..12), label: false, placeholder: "Mois" %>
-                  <%= f.input :time_span, collection: ["Week", "Weekend"], label: false %>
-                  <%= f.submit %>
+                  <%= f.input :name, label: false, placeholder: "Nom du voyage", class: "input" %>
+                  <div class="flex">
+                  <%= f.input :month, collection: (1..12), label: false, placeholder: "Mois", class: "input" %>
+                  <%= f.input :time_span, collection: ["Week", "Weekend"], label: false, class: "input" %>
+                  </div>
+                  <div class="center">
+                    <%= f.submit class: "button-orange"%>
+                  </div>
                 <% end %>
               </div>
             </div>
