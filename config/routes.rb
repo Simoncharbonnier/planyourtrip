@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     member do
       patch :set_availability
       patch :set_place
+      patch :book
     end
     resources :subscriptions, only: [:create, :update, :destroy]
     resources :trip_availabilities, only: [:new, :create]
