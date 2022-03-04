@@ -13,11 +13,20 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  .datepicker {
-    display: none;
-  }
 }
 .username-header-form {
   display: flex;
   justify-content: space-around;
+}
+.header-name {
+  .names {
+    p {
+    width: 140px;
+    }
+  }
+}
+.week {
+  .av {
+
+  }
 }
