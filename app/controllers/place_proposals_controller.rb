@@ -6,7 +6,7 @@ class PlaceProposalsController < ApplicationController
     @place_proposal.user_id = current_user.id
     @place_proposal.save
 
-    redirect_to new_trip_trip_availability_path(@trip)
+    redirect_to trips_path
   end
 
   private

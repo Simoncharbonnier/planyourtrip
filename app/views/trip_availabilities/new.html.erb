@@ -1,15 +1,7 @@
 <div class="container flex form-global">
   <div class="form flex">
-    <h3>Donne nous ta destination de rêve et tes disponibilités !</h3>
-    <h5><%= "Trip : #{@trip.name} (#{@trip.month} jours)" %></h5>
-    <% if PlaceProposal.where(user_id: current_user.id, trip_id: @trip.id).first %>
-      <%= "Ton choix de destination est #{PlaceProposal.where(user_id: current_user.id, trip_id: @trip.id).first.place.city}" %>
-    <% else %>
-      <%= simple_form_for([@trip, @place_proposal]) do |f| %>
-        <%= f.association :place, label: false, :label_method => lambda { |place| "#{place.city}" }, placeholder: "Destination" %>
-        <%= f.submit "Ajoute ta destination préférée !", class: "btn button-border-blue" %>
-      <% end %>
-    <% end %>
+    <h3><%= "#{@trip.name}" %></h3>
+    <h5><%= "Entrez vos disponibilités pour le mois de #{Date::MONTHNAMES[@trip.month]}" %></h5>
     <hr>
     <div class="flex header-name">
       <strong>Participants</strong>
@@ -50,21 +42,23 @@
       </div>
     <% end %>
 
-    <%= link_to "Suite", trip_subscriptions_path, method: "post", class:"btn button-blue" %>
+    <%= link_to "Suivant", trip_subscriptions_path, method: "post", class:"btn button-blue" %>
 
-    <% if current_user.id == @trip.user_id %>
-      <p>tu es le créateur de ce trip</p>
-      <% @trip_availabilities.each do |ta, index| %>
-        <div class="flex">
-          <p>Créneau <%= ta.start_at.strftime("%d-%m-%Y") %>/<%= ta.end_at.strftime("%d-%m-%Y") %></p>
-          <% avs = Availability.where(trip_availability_id: ta.id) %>
-          <% avs.each do |av| %>
-            <%= av.user.username %>
+    <div class="place-proposal">
+      <h3><%= "#{@trip.name}" %></h3>
+      <h5>Proposez la prochaine destination</h5>
+      <%= simple_form_for([@trip, @place_proposal]) do |f| %>
+        <div class="category-wrapper">
+          <input type="hidden" name="place_proposal[place_id]" value="">
+          <% Place.all.each do |place| %>
+            <div class="category-item">
+              <input class="form-check-input radio_buttons required category-selector" type="radio" value="<%= place.id %>" name="place_proposal[place_id]" id="place_proposal_place_id_<%= place.id %>">
+              <label class="form-check-label collection_radio_buttons" style="background-image: url('<%= cl_image_path place.photo.key %>'); background-size: cover; background-repeat: no-repeat)" for="place_proposal_place_id_<%= place.id %>"><%= place.city %></label>
+            </div>
           <% end %>
-          <%= link_to "BOOKER", set_availability_trip_path(@trip, ta_id: ta.id), method: :patch %>
-          <hr>
         </div>
+        <%= f.submit "Valider", class: "button-orange" %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
