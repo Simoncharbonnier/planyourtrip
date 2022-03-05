@@ -79,7 +79,7 @@ fabien = User.create!(username: "fabien", email: "fabien.alexandre@gmail.com", g
 p "Users seed done !"
 
 # trips
-trip1 = Trip.create!(name: "Weekend des familles", user_id: simon, month: 7, status: "confirmed", time_span: "weekend")
+trip1 = Trip.create!(name: "Weekend des familles", user_id: simon.id, month: 7, status: "confirmed", time_span: "weekend")
 # trip2 = Trip.create!(name: "trip 2", user_id: simon, month: 4, status: "passed", time_span: "week")
 trip3 = Trip.create!(name: "Weekend des potos", user_id: valentin.id, month: 4, status: "created", time_span: "weekend")
 trip4 = Trip.create!(name: "Voyage entre potes", user_id: simon.id, month: 9, status: "created", time_span: "week")

@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :trips, only: [:index, :show, :create] do
     member do
-      patch :set_availability
       patch :set_place
       patch :book
     end

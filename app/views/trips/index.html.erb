@@ -34,8 +34,8 @@
                 <%= link_to "En attente des disponibilités", new_trip_trip_availability_path(trip), class: "button-orange-xxl " %>
               </div>
               <div class="card-avatar-orange">
-                <%=  image_tag image_url('https://photos.mandarinoriental.com/is/image/MandarinOriental/paris-2017-home?wid=2880&hei=1280&fmt=jpeg&crop=9,336,2699,1200&anchor=1358,936&qlt=75,0&fit=wrap&op_sharpen=0&resMode=sharp2&op_usm=0,0,0,0&iccEmbed=0&printRes=72'), class:"img-card-avatar-orange"  %>
-                <p class="first-name">Johnny</p>
+                <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{trip.user.ghname}"), class:"img-card-avatar-orange"  %>
+                <p class="first-name"><%= trip.user.username.capitalize %></p>
                 <div class="check">
                   <i class="fas fa-check"></i>
                 </div>
@@ -43,7 +43,6 @@
             </div>
           </div>
         </div>
-
       <% end %>
       <% @my_voting_trips.each do |trip| %>
         <%# CARDS %>
@@ -65,11 +64,10 @@
                 <%= link_to "En attente des votes", new_trip_trip_availability_path(trip), class: "button-orange-xxl " %>
               </div>
               <div class="card-avatar-orange">
-                <%=  image_tag image_url('https://photos.mandarinoriental.com/is/image/MandarinOriental/paris-2017-home?wid=2880&hei=1280&fmt=jpeg&crop=9,336,2699,1200&anchor=1358,936&qlt=75,0&fit=wrap&op_sharpen=0&resMode=sharp2&op_usm=0,0,0,0&iccEmbed=0&printRes=72'), class:"img-card-avatar-orange"  %>
-                <p class="first-name">Johnny</p>
+                <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{trip.user.ghname}"), class:"img-card-avatar-orange"  %>
+                <p class="first-name"><%= trip.user.username.capitalize %></p>
                 <div class="check">
                   <i class="fas fa-check"></i>
-
                 </div>
               </div>
             </div>
@@ -79,7 +77,6 @@
     </div>
 
     <%# CONFIRMED %>
-
     <div class="tab-pane fade" id="confirmed-trips" role="tabpanel" aria-labelledby="confirmed-trips-tab">
       <div class="container-trips">
         <div class="cards-grid-wrapper">
@@ -96,9 +93,8 @@
                   </p>
                   <div class="card-index-new-footer">
                     <div class="mini-avatar">
-                      <%=  image_tag image_url('https://photos.mandarinoriental.com/is/image/MandarinOriental/paris-2017-home?wid=2880&hei=1280&fmt=jpeg&crop=9,336,2699,1200&anchor=1358,936&qlt=75,0&fit=wrap&op_sharpen=0&resMode=sharp2&op_usm=0,0,0,0&iccEmbed=0&printRes=72'), class:"mini-avatar-img"  %>
+                      <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{trip.user.ghname}"), class:"mini-avatar-img"  %>
                     </div>
-
                   </div>
                 </div>
               </div>
