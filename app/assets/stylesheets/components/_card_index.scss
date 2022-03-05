@@ -1,50 +1,44 @@
-.index-trips-card {
-  width: 380px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow:  0 4px 8px 0 rgba(0,0,0,0.2);
-  border: 3px solid #8A97FE;
-
-  .img {
-    width: 95%;
-    height: 200px;
-    border-radius: 10px 10px 0px 0px;
+.card-index{
+  width: 410px;
+  height: 360px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  .card-index-img{
+    width: 310px;
+    height: 360px;
     background-size: cover;
     border-radius: 10px;
-    box-shadow:  0 4px 8px 0 rgba(0,0,0,0.2);
-    margin: 10px;
+    box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
   }
-  h5 {
-    margin-top: 12px;
-    margin-left: 10px;
-    font-size: 16px;
+  #card-index-title{
+    font-size: 28px;
+    position: absolute;
+    top: 20px;
+    left: 65px;
     font-weight: bold;
+    color: white;
   }
-
-  #date {
-    margin-left: 10px;
-    margin-top: 2px;
-    i{
-      font-size: 24px;
-    }
+  #card-index-texte{
+    font-size: 22px;
+    position: absolute;
+    top: 60px;
+    left: 65px;
+    color: white;
   }
-
-  .footer-index-trips-cards{
-    background-color: #8A97FE;
-    padding-top: 9px;
-    height: 3em;
-    text-align: center;
-    text-decoration: none;
-    color:white;
-    a{
-      text-decoration: none;
-      color:white;
-      font-size: 24px;
-
-    }
-
+  #card-index-date{
+    position: absolute;
+    top: 90px;
+    left: 65px;
+    color: white;
+    font-size: 16px;
   }
-
-
-
+  .mini-avatar{
+    position: absolute;
+    top: 270px;
+    left: 20px;
+  }
+  .card-index-footer{
+    display:flex;
+  }
 }

@@ -1,14 +1,42 @@
 .title-wrapper {
-  padding-top: 2rem;
   margin: 0 auto;
 }
-
 .container-trip {
   margin-top: 1em;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: auto auto;
 }
-
+.show-title-text{
+    position: relative;
+    top: 5.4em;
+    left: 2em;
+}
 .show-h2 {
   font-size: 20px;
+}
+.title-show{
+  width: 100%;
+  height: 80px;
+  background-color: #8A97FE;
+  opacity: 0.2;
+  padding: 10px;
+  text-align: left;
+  border-radius: 10px;
+}
+#subtitle-show{
+  color:#F78764;
+  position: relative;
+  left: 1.8em;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+#map{
+  height: 100vh;
+  top: 0;
+  width: 50vw;
+  position: sticky;
+  margin-left: 10px;
+  border-radius: 10px;
+
 }

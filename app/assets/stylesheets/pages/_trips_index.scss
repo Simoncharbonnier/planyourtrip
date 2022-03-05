@@ -4,11 +4,11 @@
 }
 
 .cards-grid-wrapper {
-  width: 60vw;
+  width: 70vw;
 }
 
 .trips-tabs {
-  width: 50%;
+  width: 25%;
   .trips-tab {
     .nav-link {
       font-size: 22px;
@@ -32,7 +32,7 @@
 #map{
   height: 100vh;
   top: 0;
-  width: 40vw;
+  width: 30vw;
   position: sticky;
   margin-left: 10px;
   border-radius: 10px;

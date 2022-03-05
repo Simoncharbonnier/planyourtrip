@@ -60,7 +60,6 @@ a {
   font-size: 20px;
   border: 1px solid  $purple-blue;
 }
-
 .button-blue-xl {
   color: white;
   text-decoration: none;
@@ -89,7 +88,6 @@ a {
   box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
   margin: 0 8px;
 }
-
 .button-blank {
   width: 140px;
   height: 40px;
@@ -110,8 +108,37 @@ a {
   font-size: 18px;
   box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
   &:hover {
-    background-color: white;
-    color: #F78764;
-    border: 1px solid  #F78764;
+    background-color: #F78764;;
+    color: white;
+  }
+}
+.button-blue-xxl {
+  color: white;
+  text-decoration: none;
+  background-color: #8A97FE;
+  padding: 6px 15px;
+  border-radius: 5px;
+  text-align: center;
+  width: 240px;
+  font-size: 18px;
+  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
+  &:hover {
+    background-color: #8A97FE;
+    color: white;
+  }
+}
+.button-grey-xxl {
+  color: black;
+  text-decoration: none;
+  background-color: #DFDFDF;
+  padding: 6px 15px;
+  border-radius: 5px;
+  text-align: center;
+  width: 240px;
+  font-size: 18px;
+  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
+  &:hover {
+    background-color: #DFDFDF;
+    color: black;
   }
 }
