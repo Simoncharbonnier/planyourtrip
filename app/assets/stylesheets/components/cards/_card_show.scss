@@ -1,79 +1,104 @@
 .card-show{
-  width: 300px;
+  width: 320px;
   height: 500px;
   position: relative;
 
   .mini-card-show-1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     border: solid 2px #F78764;
     width: 70px;
     height: 90px;
+<<<<<<< HEAD:app/assets/stylesheets/components/cards/_card_show.scss
     margin: 6px;
     padding-top: 10px;
     text-align: center;
+=======
+    padding: 12px;
+    margin: 6px;
+>>>>>>> 0583b7ecca08c827e1ab7e67f61bfde622cdad47:app/assets/stylesheets/components/_card_show.scss
     border-radius: 10px;
-    justify-content: center;
     position: absolute;
     top: 200px;
     right: 20px;
     background-color: white;
     box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
-    vertical-align: baseline;
-    line-height: 0.3em;
+    line-height: 0.1em;
+    i{
+      font-size: 18px;
+    }
     #logement{
       font-size: 10px;
+<<<<<<< HEAD:app/assets/stylesheets/components/cards/_card_show.scss
       text-align: center;
+=======
+      line-height: 0.1em;
+>>>>>>> 0583b7ecca08c827e1ab7e67f61bfde622cdad47:app/assets/stylesheets/components/_card_show.scss
     }
     #price-place{
       font-weight: bold;
+      line-height: 0.1em;
     }
 
     }
     .mini-card-show-2{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       border: solid 2px #F78764;
       width: 70px;
       height: 90px;
-      padding: 10px;
+      padding: 12px;
       margin: 6px;
-      text-align: center;
-      vertical-align: middle;
       border-radius: 10px;
-      justify-content: center;
       position: absolute;
       top: 300px;
       right: 20px;
       background-color: white;
       box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
-      vertical-align: baseline;
-      line-height: 0.3em;
+      line-height: 0.1em;
+      i{
+        font-size: 20px;
+      }
       #meteo{
         font-size: 10px;
+        line-height: 0.1em;
       }
       #temperature{
         font-weight: bold;
+        line-height: 0.1em;
       }
       }
       .mini-card-show-3{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         border: solid 2px #F78764;
         width: 70px;
         height: 90px;
-        padding: 10px;
+        padding: 12px;
         margin: 6px;
-        vertical-align: middle;
-        text-align: center;
         border-radius: 10px;
-        justify-content: center;
         position: absolute;
         top: 400px;
         right: 20px;
         background-color: white;
         box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
-        vertical-align: baseline;
-        line-height: 0.3em;
+        line-height: 0.1em;
+        i{
+          font-size: 20px;
+        }
         #beer{
           font-size: 10px;
+          line-height: 0.1em;
         }
         #price-beer{
           font-weight: bold;
+          line-height: 0.1em;
         }
         }
 

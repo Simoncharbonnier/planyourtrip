@@ -1,20 +1,18 @@
 .card-index-xl-vote{
   position: relative;
-  width: 800px;
-  height: 380px;
+  width: 850px;
+  height: 350px;
   margin-top: 5px;
 
-
   .card-index-xl-img-vote{
-    width: 700px;
-    height: 380px;
+    width: 750px;
+    height: 350px;
     border-radius: 10px;
     background-size: cover;
     box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
   }
-
   #card-index-xl-vote-title{
-    font-size:32px;
+    font-size:30px;
     position: absolute;
     top: 30px;
     left: 20px;
@@ -42,32 +40,35 @@
   }
   .footer-card-index-xl-vote{
     position: absolute;
-    top: 330px;
+    top: 305px;
     left: 20px;
   }
   .card-avatar-orange{
     position: absolute;
-    top: 90px;
+    top: 70px;
     right: 70px;
   }
-
-  .button-blue-xxl{
-    color: white;
-    text-decoration: none;
-    background-color: #8A97FE;
-    padding: 6px 4px 6px 4px;
-    border-radius: 5px;
-    text-align: center;
-    width: 240px;
-    font-size: 18px;
-    box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
-
-    &:hover {
-      background-color: white;
-      color: #8A97FE;
-      border: 1px solid  #8A97FE;
+  .link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #F78764;
+    border: solid 2px #F78764;
+    border-radius: 10px;
+    color:white;
+    position: absolute;
+    top: 20px;
+    right: 120px;
+    i{
+      color: white;
+      font-size: 14px;
     }
   }
+<<<<<<< HEAD:app/assets/stylesheets/components/cards/_card_index_xl_vote.scss
 
 
+=======
+>>>>>>> 0583b7ecca08c827e1ab7e67f61bfde622cdad47:app/assets/stylesheets/components/_card_index_xl_vote.scss
 }
