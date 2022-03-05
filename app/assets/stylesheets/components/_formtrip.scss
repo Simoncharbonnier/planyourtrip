@@ -2,11 +2,22 @@
   justify-content: center;
   align-items: center;
 }
+.title-form {
+  font-family: 'Vollkorn', 'serif';
+  color: #8A97FE;
+  font-size: 50px;
+  margin-top: 20px;
+}
+.subtitle-form {
+  font-family: 'Vollkorn', 'serif';
+  color: black;
+  font-size: 16px;
+}
 .form {
   margin-top: 1rem;
   padding-top: 1rem;
   margin-bottom: 3rem;
-  background-color: rgba(138,	151,	254, 0.3);
+  background-color: rgba(138,	151,	254, 0.1);
   border-radius: 10px;
   text-align: center;
   flex-direction: column;
