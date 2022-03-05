@@ -1,6 +1,5 @@
 class VotesController < ApplicationController
   def create
-    @trip = Trip.find(place_params[:trip_id])
     @vote = Vote.new()
     @vote.place_proposal_id = place_params[:pp]
     @vote.user = current_user

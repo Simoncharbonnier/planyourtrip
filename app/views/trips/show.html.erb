@@ -1,29 +1,34 @@
-<div class="container title-wrapper">
-  <h2 class="show-h2"><strong><%=@trip.name%></strong></h2>
-  <p>Ca colle pour tout le monde du 10 au 17 avril ! </p>
-</div>
-
-<div class="container container-trip">
-  <% @trip.place_proposals.uniq { |pp| pp.place_id }.each do |place_proposal|%>
-    <div class="card-show">
-      <div class="img-show" style="background-image: url('<%= cl_image_path place_proposal.place.photo.key, crop: :fill, height: 400 %>'); background-size: cover; background-repeat: no-repeat)"></div>
-      <div class="card-infos-show">
-        <h2><%= place_proposal.place.city %></h2>
-      </div>
-      <div class="card-totem-show">
-        <div class="mini-card-show-1">
-          <p><i class="fas fa-bed"></i><p id="logement">LOGEMENT</p><p id="price-place">75€</p>
-        </div>
-        <div class="mini-card-show-2">
-          <p><i class="fas fa-thermometer-half"></i><P id="meteo">METEO</p><p id="temperature">10°C</p>
-        </div>
-        <div class="mini-card-show-3">
-          <p><i class="fas fa-beer"></i><p id="beer">BIERE</p><p id="price-beer">6€</p>
-        </div>
-        <div class="button-show-card">
-          <%= link_to "Vote", trip_votes_path(@trip, pp: place_proposal), method: :post, class: "btn button-vote" %>
-        </div>
-      </div>
+<div class="container">
+  <% if @trip.status == "voting" %>
+    <div class="title-wrapper">
+      <h2 class="show-h2"><strong><%=@trip.name%></strong></h2>
+      <p>Ca colle pour tout le monde du 10 au 17 avril ! </p>
     </div>
-  <% end %>
+    <div class="container container-trip">
+      <% @trip.place_proposals.uniq { |pp| pp.place_id }.each do |place_proposal|%>
+        <div class="card-show">
+          <div class="img-show" style="background-image: url('<%= cl_image_path place_proposal.place.photo.key, crop: :fill, height: 400 %>'); background-size: cover; background-repeat: no-repeat)"></div>
+          <div class="card-infos-show">
+            <h2><%= place_proposal.place.city %></h2>
+          </div>
+          <div class="card-totem-show">
+            <div class="mini-card-show-1">
+              <p><i class="fas fa-bed"></i><p id="logement">LOGEMENT</p><p id="price-place">75€</p>
+            </div>
+            <div class="mini-card-show-2">
+              <p><i class="fas fa-thermometer-half"></i><P id="meteo">METEO</p><p id="temperature">10°C</p>
+            </div>
+            <div class="mini-card-show-3">
+              <p><i class="fas fa-beer"></i><p id="beer">BIERE</p><p id="price-beer">6€</p>
+            </div>
+            <div class="button-show-card">
+              <%= link_to "Vote", trip_votes_path(@trip, pp: place_proposal), method: :post, class: "btn button-vote" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% elsif @trip.status == "confirmed" %>
+    <p>Dashboard trip confirmé</p>
+  <% end%>
 </div>
