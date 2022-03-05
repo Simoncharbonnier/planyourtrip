@@ -24,7 +24,7 @@
               </h5>
               <p id="card-index-date">
                 <i class="fas fa-calendar-alt"></i>
-                <%= trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %>
+                <%= Date::MONTHNAMES[trip.month] %>
               </p>
               <div class="card-index-texte">
                 <p>Découvrez la ville choisie par vous et vos amis puis confirmez votre présence.</p>

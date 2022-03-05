@@ -33,14 +33,8 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
     @trip.save
-
-    redirect_to new_trip_trip_availability_path(@trip)
-  end
-
-  def set_place
-    @trip = Trip.find(params[:id])
-    @trip.place_proposal = PlaceProposal.find(params[:ta_id])
-    @trip.save
+    @subscription = Subscription.new(user_id: current_user.id, trip_id: @trip.id, status: "accepted")
+    @subscription.save
 
     redirect_to new_trip_trip_availability_path(@trip)
   end
@@ -52,6 +46,14 @@ class TripsController < ApplicationController
     @trip.save
 
     redirect_to trip_path(@trip)
+  end
+
+  def set_place
+    @trip = Trip.find(params[:id])
+    @trip.place_proposal = PlaceProposal.find(params[:ta_id])
+    @trip.save
+
+    redirect_to new_trip_trip_availability_path(@trip)
   end
 
   private
