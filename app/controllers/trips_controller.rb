@@ -27,6 +27,16 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+
+    @markers = []
+    @trip.place_proposals.each do |trip|
+      place =  trip.place
+      @markers << {
+        lat: place.latitude,
+        lng: place.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { place: place })
+      }
+    end
   end
 
   def create
