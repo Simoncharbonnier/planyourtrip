@@ -8,48 +8,42 @@
     <p id="subtitle-show">Dépêchez-vous, vos amis attendent votre vote !</p>
   </div>
 
-  <div class="container d-flex ">
+  <div class="container d-flex">
     <div class="container container-trip">
       <% @trip.place_proposals.uniq { |pp| pp.place_id }.each do |place_proposal|%>
-        <div class="card-show">
-          <div class="img-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path place_proposal.place.photo.key, crop: :fill, height: 400 %>'); background-size: cover; background-repeat: no-repeat)"></div>
-          <div class="card-infos-show">
-            <h2><%= place_proposal.place.city %></h2>
-          </div>
-          <div class="card-totem-show">
-            <div class="mini-card-show-1">
-                <p><i class="fas fa-bed"></i><p id="logement">LOGEMENT</p><p id="price-place">75€</p>
+          <div class="card-show">
+            <div class="img-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path place_proposal.place.photo.key, crop: :fill, height: 400 %>'); background-size: cover; background-repeat: no-repeat)"></div>
+           <div class="card-infos-show">
+             <h2><%= place_proposal.place.city %></h2>
+            </div>
+            <div class="card-totem-show">
+                <div class="mini-card-show-1">
+                  <p><i class="fas fa-bed"></i><p id="logement">LOGEMENT</p><p id="price-place">75€</p>
+               </div>
+                <div class="mini-card-show-2">
+                 <p><i class="fas fa-thermometer-half"></i><P id="meteo">METEO</p><P id="temperature">10°C</p>
+                </div>
+                <div class="mini-card-show-3">
+                  <p><i class="fas fa-beer"></i><p id="beer">BIERE</p><p id="price-beer">6€</p>
+                </div>
+              <div class="button-show-card">
+               <%= link_to "Voter", trip_votes_path(@trip, pp: place_proposal), method: :post, class: "btn button-vote" %>
               </div>
-              <div class="mini-card-show-2">
-                <p><i class="fas fa-thermometer-half"></i><P id="meteo">METEO</p><P id="temperature">10°C</p>
+               <div class="footer-card-show">
+                 <div class="footer-card-show-icon">
+                   <i class="fas fa-plane"></i>
+                 </div>
+                  <div class="footer-card-show-text">
+                    <p id="price-footer-text">PRIX</p>
+                    <p id="footer-text">à partir de</p>
+                 </div>
+                 <div class="footer-card-show-price">
+                   <p id="price-plane">60€</p>
+                 </div>
               </div>
-              <div class="mini-card-show-3">
-              <p><i class="fas fa-beer"></i><p id="beer">BIERE</p><p id="price-beer">6€</p>
             </div>
-            <div class="button-show-card">
-              <%= link_to "Vote", trip_votes_path(@trip, pp: place_proposal), method: :post, class: "btn button-vote" %>
-            </div>
-
-            <div class="mini-card-show-3">
-            <p><i class="fas fa-beer"></i><p id="beer">BIERE</p><p id="price-beer">6€</p>
-          </div>
-          <div class="button-show-card">
-            <%= link_to "Voter", "#", class: "btn button-vote" %>
-          </div>
-          <div class="footer-card-show">
-            <div class="footer-card-show-icon">
-              <i class="fas fa-plane"></i>
-            </div>
-            <div class="footer-card-show-text">
-              <p id="price-footer-text">PRIX</p>
-              <p id="footer-text">à partir de</p>
-            </div>
-            <div class="footer-card-show-price">
-              <p id="price-plane">60€</p>
-            </div>
-          </div>
-        </div>
-      <% end %>
+         </div>
+     <% end %>
     </div>
 
     <div id="map"
@@ -58,6 +52,7 @@
           data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
+
 <% elsif @trip.status == "confirmed" %>
   dashboard confirmed trip
 <% end %>
