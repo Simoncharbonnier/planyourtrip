@@ -43,11 +43,28 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
     @trip.save
+
+    weeks = Date.new(2022, @trip.month, 1).week_split
     if @trip.time_span == "Week"
-
+      weeks.each do |week|
+        sa = Date.new(2022, @trip.month, week[0]) unless week[0].nil?
+        ea = Date.new(2022, @trip.month, week[6]) unless week[6].nil?
+        if sa && ea
+          @ta = TripAvailability.new(trip: @trip, start_at: sa, end_at: ea)
+          @ta.save
+        end
+      end
     else
-
+      weeks.each do |week|
+        sa = Date.new(2022, @trip.month, week[4]) unless week[4].nil?
+        ea = Date.new(2022, @trip.month, week[6]) unless week[6].nil?
+        if sa && ea
+          @ta = TripAvailability.new(trip: @trip, start_at: sa, end_at: ea)
+          @ta.save
+        end
+      end
     end
+
     @subscription = Subscription.new(user_id: current_user.id, trip_id: @trip.id, status: "pending")
     @subscription.save
 
