@@ -43,7 +43,12 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
     @trip.save
-    @subscription = Subscription.new(user_id: current_user.id, trip_id: @trip.id, status: "accepted")
+    if @trip.time_span == "Week"
+
+    else
+
+    end
+    @subscription = Subscription.new(user_id: current_user.id, trip_id: @trip.id, status: "pending")
     @subscription.save
 
     redirect_to new_trip_trip_availability_path(@trip)
