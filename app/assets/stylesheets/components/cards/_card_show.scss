@@ -2,6 +2,7 @@
   width: 320px;
   height: 500px;
   position: relative;
+  margin-bottom: 40px;
 
   .mini-card-show-1{
     display: flex;
@@ -112,6 +113,56 @@
     }
   }
   .button-show-card{
-    margin-top: 10px;
+    position: absolute;
+    top: 410px;
+    left: 20px;
+  }
+  .footer-card-show{
+    display: flex;
+    margin-top: 6px;
+    align-items: end;
+    padding-left: 8px;
+  }
+  .footer-card-show-icon{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    background-color: #F78764;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    i{
+      color: white;
+      font-size: 18px;
+    }
+  }
+  .footer-card-show-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: left;
+    margin-left: 6px;
+    margin-bottom: 0px;
+
+    #price-footer-text{
+      font-size: 12px;
+      margin-bottom: 0px;
+    }
+    #footer-text{
+      font-size: 12px;
+      margin-bottom: 0px;
+      font-weight: bold;
+    }
+  }
+  .footer-card-show-price{
+    display: flex;
+    p{
+      font-size: 30px;
+      font-weight: bold;
+      margin-left: 10px;
+      margin-bottom: 0px;
+      line-height: 0.8em;
+      }
   }
 }
