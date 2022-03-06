@@ -129,10 +129,14 @@
                     <i class="fas fa-calendar-alt"></i>
                     <%= trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %>
                   </p>
-                  <div class="card-index-footer">
-                    <div class="mini-avatar">
-                      <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{trip.user.ghname}"), class:"mini-avatar-img"  %>
-                    </div>
+                  <div class="container-mini-avatar">
+                    <%trip.subscriptions.each do |name| %>
+                      <div class="card-index-footer">
+                        <div class="mini-avatar">
+                          <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"mini-avatar-img"  %>
+                        </div>
+                      </div>
+                    <% end %>
                   </div>
                 </div>
               </div>
