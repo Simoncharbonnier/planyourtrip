@@ -1,5 +1,6 @@
 class VotesController < ApplicationController
   def create
+    return if (Vote.where(user: current_user).first)
     @vote = Vote.new()
     @vote.place_proposal_id = place_params[:pp]
     @vote.user = current_user
