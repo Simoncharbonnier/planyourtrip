@@ -27,7 +27,7 @@
               <p><i class="fas fa-beer"></i><p id="beer">BIERE</p><p id="price-beer">6€</p>
             </div>
             <div class="button-show-card">
-              <%= link_to "Vote", trip_votes_path(@trip), method: :post, class: "btn button-vote" %>
+              <%= link_to "Vote", trip_votes_path(@trip, pp: place_proposal), method: :post, class: "btn button-vote" %>
             </div>
           </div>
         </div>
