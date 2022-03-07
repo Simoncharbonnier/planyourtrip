@@ -144,7 +144,22 @@ p "Votes seed done !"
 
 # tasks
 
-# p "Tasks seed done !"
+task1 = Task.create!(name: "Réserve ton billet d'avion", trip: trip4)
+task2 = Task.create!(name: "Réserve ton billet d'avion", trip: trip4)
+task3 = Task.create!(name: "Réserve ton billet d'avion", trip: trip4)
+task4 = Task.create!(name: "Réserve ton billet d'avion", trip: trip4)
+task5 = Task.create!(name: "Réserver le logement", trip: trip4)
+task6 = Task.create!(name: "Réserver le logement", trip: trip4)
+task7 = Task.create!(name: "Réserver le logement", trip: trip4)
+task8 = Task.create!(name: "Réserver le logement", trip: trip4)
+p "Tasks seed done !"
+
+# messages
+message1 = Message.create!(content: "Ça va être dingue !", user: simon, trip: trip1)
+message2 = Message.create!(content: "Tu as bien pris ton appareil Hervé ?", user: valentin, trip: trip1)
+message3 = Message.create!(content: "J'espère que tu y as pensé...", user: fabien, trip: trip1)
+message4 = Message.create!(content: "Yes c'est ok !", user: herve, trip: trip1)
+p "Messages seed done !"
 
 
 
