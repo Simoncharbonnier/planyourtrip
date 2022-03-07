@@ -2,6 +2,9 @@
   justify-content: space-between;
   background: white;
   padding: 10px 40px;
+  .avatar {
+    cursor: pointer;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,4 +17,8 @@
 
 .navbar-nav {
   align-items: center;
+}
+
+.nav-link {
+  cursor: pointer;
 }

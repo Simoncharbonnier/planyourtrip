@@ -275,6 +275,7 @@ DEPENDENCIES
   dotenv-rails
   font-awesome-sass
   geocoder
+  i18n
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
