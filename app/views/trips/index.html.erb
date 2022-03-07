@@ -17,33 +17,46 @@
       <% @my_pending_trips.each do |trip| %>
         <%# CARDS %>
         <div class="col-md-6 offset-md-2 p-4">
-          <div class="card-index-xl">
-            <div class="card-index-xl-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://photos.mandarinoriental.com/is/image/MandarinOriental/paris-2017-home?wid=2880&hei=1280&fmt=jpeg&crop=9,336,2699,1200&anchor=1358,936&qlt=75,0&fit=wrap&op_sharpen=0&resMode=sharp2&op_usm=0,0,0,0&iccEmbed=0&printRes=72')">
-              <h5 id="card-index-title">
+          <div class="card-index-xl-dispo">
+            <div class="card-index-xl-img-dispo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://photos.mandarinoriental.com/is/image/MandarinOriental/paris-2017-home?wid=2880&hei=1280&fmt=jpeg&crop=9,336,2699,1200&anchor=1358,936&qlt=75,0&fit=wrap&op_sharpen=0&resMode=sharp2&op_usm=0,0,0,0&iccEmbed=0&printRes=72')">
+              <h5 id="card-index-xl-dispo-title">
                 <strong><%= trip.name %></strong>
               </h5>
-              <p id="card-index-date">
+              <p id="card-index-xl-dispo-date">
                 <i class="fas fa-calendar-alt"></i>
-                <%= Date::MONTHNAMES[trip.month] %>
+                <%= I18n.t("date.month_names")[trip.month] %>
               </p>
-              <div class="card-index-texte">
-                <p>Découvrez la ville choisie par vous et vos amis puis confirmez votre présence.</p>
-                <p>Vous pourrez ensuite accéder au tableau de bord de votre futur voyage et vous organiser comme des chefs !</p>
+              <div class="card-index-xl-dispo-texte">
+                <p>Nous attentons encore les <br> disponibilités de vos amis et leurs propositions de destination.</p>
               </div>
-              <div class="footer-card-index-xl">
-                <%= link_to "En attente des disponibilités", new_trip_trip_availability_path(trip), class: "button-orange-xxl " %>
+              <div class="footer-card-index-xl-dispo">
+                <%= link_to "En attente des disponibilités", "#", class: "button-grey-xxl " %>
               </div>
               <div class="container-card-avatar-orange">
-                <%trip.subscriptions.each do |name| %>
-                  <div class="card-avatar-orange">
-                   <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"img-card-avatar-orange"  %>
-                   <p class="first-name"><%= name.user.username.capitalize %></p>
-                   <div class="check">
+                <div class="card-avatar-orange">
+                  <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{trip.user.ghname}"), class:"img-card-avatar-orange"  %>
+                  <p class="first-name"><%= trip.user.username.capitalize %></p>
+                  <div class="check">
                     <i class="fas fa-check"></i>
-                   </div>
-                 </div>
-               <% end %>
+                  </div>
+                </div>
+                <% trip.subscriptions.each do |name| %>
+                  <% if name.user != trip.user %>
+                    <div class="card-avatar-orange">
+                      <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"img-card-avatar-orange"  %>
+                      <p class="first-name"><%= name.user.username.capitalize %></p>
+                      <div class="check">
+                        <i class="fas fa-check"></i>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
               </div>
+              <% if current_user == trip.user %>
+                <div class="link">
+                  <i class="fas fa-external-link"></i>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -51,37 +64,55 @@
       <% @my_voting_trips.each do |trip| %>
         <%# CARDS %>
         <div class="col-md-6 offset-md-2 p-4">
-          <div class="card-index-xl">
-            <div class="card-index-xl-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://photos.mandarinoriental.com/is/image/MandarinOriental/paris-2017-home?wid=2880&hei=1280&fmt=jpeg&crop=9,336,2699,1200&anchor=1358,936&qlt=75,0&fit=wrap&op_sharpen=0&resMode=sharp2&op_usm=0,0,0,0&iccEmbed=0&printRes=72')">
-              <h5 id="card-index-title">
+          <div class="card-index-xl-vote">
+            <div class="card-index-xl-img-vote" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://photos.mandarinoriental.com/is/image/MandarinOriental/paris-2017-home?wid=2880&hei=1280&fmt=jpeg&crop=9,336,2699,1200&anchor=1358,936&qlt=75,0&fit=wrap&op_sharpen=0&resMode=sharp2&op_usm=0,0,0,0&iccEmbed=0&printRes=72')">
+              <h5 id="card-index-xl-vote-title">
                 <strong><%= trip.name %></strong>
               </h5>
-              <p id="card-index-date">
+              <p id="card-index-xl-vote-date">
                 <i class="fas fa-calendar-alt"></i>
                 <%= trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %>
               </p>
-              <div class="card-index-texte">
-                <p>Découvrez la ville choisie par vous et vos amis puis confirmez votre présence. <br>
-                    Vous pourrez ensuite accéder au tableau de bord de votre futur voyage et vous organiser comme des chefs !</p>
-              </div>
-              <div class="footer-card-index-xl">
+              <div class="card-index-xl-vote-texte">
                 <% if Vote.where(user: current_user).first %>
-                  <div class="button-orange-xxl">En attente des votes..</div>
+                  <p>Votre choix a bien été pris en compte, nous attendons juste que vos amis votent aussi pour votre prochaine destination... <br>
+                    N’hésitez pas à les secouer un peu !</p>
                 <% else %>
-                  <%= link_to "Vote pour la destination !", trip_path(trip), class: "button-orange-xxl" %>
+                  <p>Dépéchez-vous, vos amis attendent votre vote avec impatience... <br>
+                    Vous n’avez pas hâte de connaitre votre future destination ?!</p>
                 <% end %>
               </div>
+              <div class="footer-card-index-xl-vote">
+                <% if Vote.where(user: current_user).first %>
+                  <%= link_to "En attente de la destination", "#", class: "button-grey-xxl" %>
+                <% else %>
+                  <%= link_to "Voter pour la destination !", trip_path(trip), class: "button-blue-xxl" %>
+                <% end %>              </div>
               <div class="container-card-avatar-orange">
-                <%trip.subscriptions.each do |name| %>
-                  <div class="card-avatar-orange">
-                   <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"img-card-avatar-orange"  %>
-                   <p class="first-name"><%= name.user.username.capitalize %></p>
-                   <div class="check">
+                <div class="card-avatar-orange">
+                  <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{trip.user.ghname}"), class:"img-card-avatar-orange"  %>
+                  <p class="first-name"><%= trip.user.username.capitalize %></p>
+                  <div class="check">
                     <i class="fas fa-check"></i>
-                   </div>
-                 </div>
-               <% end %>
+                  </div>
+                </div>
+                <% trip.subscriptions.each do |name| %>
+                  <% if name.user != trip.user %>
+                    <div class="card-avatar-orange">
+                      <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"img-card-avatar-orange"  %>
+                      <p class="first-name"><%= name.user.username.capitalize %></p>
+                      <div class="check">
+                        <i class="fas fa-check"></i>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
               </div>
+              <% if current_user == trip.user %>
+                <div class="link">
+                  <i class="fas fa-external-link"></i>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -105,20 +136,28 @@
                       Vous pourrez ensuite accéder au tableau de bord de votre futur voyage et vous organiser comme des chefs !</p>
                 </div>
                 <div class="footer-card-index-xl">
-                  <%# ICI C'EST UNE MODAL %>
-                  <div class="button-orange-xxl">Découvre la destination !</div>
+                  <div class="button-orange-xxl" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="w3-button">Découvrir la destination !</div>
                 </div>
                 <div class="container-card-avatar-orange">
-                 <%trip.subscriptions.each do |name| %>
-                    <div class="card-avatar-orange">
-                       <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"img-card-avatar-orange"  %>
-                      <p class="first-name"><%= name.user.username.capitalize %></p>
-                      <div class="check">
+                  <div class="card-avatar-orange">
+                    <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{trip.user.ghname}"), class:"img-card-avatar-orange"  %>
+                    <p class="first-name"><%= trip.user.username.capitalize %></p>
+                    <div class="check">
                       <i class="fas fa-check"></i>
-                     </div>
                     </div>
+                  </div>
+                  <% trip.subscriptions.each do |name| %>
+                    <% if name.user != trip.user %>
+                      <div class="card-avatar-orange">
+                        <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"img-card-avatar-orange"  %>
+                        <p class="first-name"><%= name.user.username.capitalize %></p>
+                        <div class="check">
+                          <i class="fas fa-check"></i>
+                        </div>
+                      </div>
+                    <% end %>
                   <% end %>
-                </div>
+              </div>
               </div>
             </div>
           </div>
@@ -143,18 +182,28 @@
                       <%= trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %>
                     </p>
                     <div class="container-mini-avatar">
-                      <%trip.subscriptions.each do |name| %>
-                        <div class="card-index-footer">
-                          <div class="mini-avatar">
-                            <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"mini-avatar-img"  %>
-                          </div>
+                      <div class="card-index-footer">
+                        <div class="mini-avatar">
+                          <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{trip.user.ghname}"), class:"mini-avatar-img"  %>
                         </div>
+                      </div>
+                      <% trip.subscriptions.each do |name| %>
+                        <% if trip.user != name.user %>
+                          <div class="card-index-footer">
+                            <div class="mini-avatar">
+                              <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"mini-avatar-img"  %>
+                            </div>
+                          </div>
+                        <% end %>
                       <% end %>
                     </div>
                   </div>
                 </div>
               </div>
             <% end %>
+            <div class="footer-card-index-xl">
+              <div class="button-orange-xxl" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= trip.id %>" class="w3-button">Découvrir la destination !</div>
+            </div>
           <% end %>
         </div>
         <%# MAP %>
@@ -167,3 +216,7 @@
     </div>
   </div>
 </div>
+
+<% @my_confirmed_trips.each do |trip| %>
+  <%= render "shared/result", trip: trip %>
+<% end %>

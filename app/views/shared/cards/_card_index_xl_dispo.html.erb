@@ -1,0 +1,32 @@
+          <div class="card-index-xl-dispo">
+            <div class="card-index-xl-img-dispo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://photos.mandarinoriental.com/is/image/MandarinOriental/paris-2017-home?wid=2880&hei=1280&fmt=jpeg&crop=9,336,2699,1200&anchor=1358,936&qlt=75,0&fit=wrap&op_sharpen=0&resMode=sharp2&op_usm=0,0,0,0&iccEmbed=0&printRes=72')">
+              <h5 id="card-index-xl-dispo-title">
+                <strong><%= trip.name %></strong>
+              </h5>
+              <p id="card-index-xl-dispo-date">
+                <i class="fas fa-calendar-alt"></i>
+                <%= Date::MONTHNAMES[trip.month] %>
+              </p>
+              <div class="card-index-xl-dispo-texte">
+                <p>Nous attentons encore les <br> disponibilités de vos amis et leurs propositions de destination.</p>
+              </div>
+              <div class="footer-card-index-xl-dispo">
+                <%= link_to "En attente des disponibilités", new_trip_trip_availability_path(trip), class: "button-grey-xxl " %>
+              </div>
+              <div class="container-card-avatar-orange">
+                <%trip.subscriptions.each do |name| %>
+                  <div class="card-avatar-orange">
+                    <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"img-card-avatar-orange"  %>
+                    <p class="first-name"><%= name.user.username.capitalize %></p>
+                    <div class="check">
+                    <i class="fas fa-check"></i>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+              <div class="link">
+                <i class="fas fa-external-link" data-copytarget="#codemob"></i>
+                <input type="text" id="codemob" value="<%= "http://localhost:3000/trips/#{@trip.id}/trip_availabilities/new" %>" class="d-none">
+              </div>
+            </div>
+          </div>

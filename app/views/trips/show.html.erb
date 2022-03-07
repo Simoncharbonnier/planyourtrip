@@ -2,7 +2,7 @@
   <div class="container title-wrapper">
       <div class="show-title-text">
         <h2 class="show-h2"><strong><%=@trip.name%></strong></h2>
-        <p class="show-tilte-subtitle">Ça colle pour tout le monde du <%= @trip.trip_availabilities.first.start_at.strftime('%d') %> au <%= @trip.trip_availabilities.first.end_at.strftime('%d - %m') %> !</p>
+        <p class="show-tilte-subtitle">Ça colle pour tout le monde du <%= @trip.trip_availabilities.first.start_at.strftime('%d') %> au <%= @trip.trip_availabilities.first.end_at.strftime('%d ') %><%= I18n.t("date.month_names")[@trip.month] %> !</p>
       </div>
     <div class="title-show"></div>
     <p id="subtitle-show">Dépêchez-vous, vos amis attendent votre vote !</p>
@@ -14,17 +14,17 @@
           <div class="card-show">
             <div class="img-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path place_proposal.place.photo.key, crop: :fill, height: 400 %>'); background-size: cover; background-repeat: no-repeat)"></div>
             <div class="card-infos-show">
-              <h2><%= place_proposal.place.city %></h2>
+              <h2><%= place_proposal.place.city %>, <%= place_proposal.place.country %></h2>
             </div>
             <div class="card-totem-show">
               <div class="mini-card-show-1">
-                <p><i class="fas fa-bed"></i><p id="logement">LOGEMENT</p><p id="price-place">75€</p>
+                <p><i class="fas fa-bed"></i><p id="logement">LOGEMENT</p><p id="price-place"><%= place_proposal.place.lodging_cost %></p>
               </div>
               <div class="mini-card-show-2">
-                <p><i class="fas fa-thermometer-half"></i><P id="meteo">METEO</p><P id="temperature">10°C</p>
+                <p><i class="fas fa-thermometer-half"></i><P id="meteo">METEO</p><P id="temperature"><%= place_proposal.place.temperature %></p>
               </div>
               <div class="mini-card-show-3">
-                <p><i class="fas fa-beer"></i><p id="beer">BIERE</p><p id="price-beer">6€</p>
+                <p><i class="fas fa-beer"></i><p id="beer">BIERE</p><p id="price-beer"><%= place_proposal.place.pint_cost %></p>
               </div>
               <div class="button-show-card">
                 <%= link_to "Voter", trip_votes_path(@trip, pp: place_proposal), method: :post, class: "btn button-vote" %>
@@ -38,7 +38,7 @@
                   <p id="footer-text">à partir de</p>
                 </div>
                 <div class="footer-card-show-price">
-                  <p id="price-plane">60€</p>
+                  <p id="price-plane"><%= place_proposal.place.plane_cost %></p>
                 </div>
               </div>
             </div>
@@ -80,13 +80,13 @@
       </div>
       <div class="todo">
         <h1 class="title-dashboard"><strong><%=@trip.place_proposal.place.city%></strong></h1>
-        <p class="date-dashboard"><%= @trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= @trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %></p>
+        <p class="date-dashboard"><%= @trip.trip_availabilities.first.start_at.strftime('%d') %> - <%= @trip.trip_availabilities.first.end_at.strftime("%d #{ I18n.t("date.month_names")[@trip.month] } %Y") %></p>
         <div class="avatar-dashboard">
           <%@trip.subscriptions.each do |name| %>
             <div class="card-avatar">
-             <%=  image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"),class:"avatar"  %>
-              <p class="first-name"><%=name.user.username.capitalize%></p>
+              <%=  image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"),class:"avatar"  %>
 
+              <p class="first-name"><%=name.user.username.capitalize%></p>
               <div class="check">
                 <i class="fas fa-check"></i>
               </div>

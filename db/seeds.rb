@@ -16,7 +16,7 @@ Vote.destroy_all
 
 p "Finished !"
 
-p "Creating places, users, trips, subscriptions, availabilities, placeproposals, tasks, and messages..."
+p "Creating all seeds..."
 
 # places
 rome_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394982/Planyourtrip/rome_fb1mq0.jpg')
@@ -68,98 +68,82 @@ copenhague_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v16
 copenhague = Place.create!(city: "Copenhague", country: "Danemark", pint_cost: "4€", temperature: "16°C", plane_cost: "58€", lodging_cost: "90€")
 copenhague.photo.attach(io: copenhague_url, filename: 'Copenhague.jpg', content_type: 'jpg')
 copenhague.save!
-
 p "Places seed done !"
 
 # users
 simon = User.create!(username: "simon", email: "simon.charbonnier@gmail.com", ghname: "simoncharbonnier", password: "secret")
-valentin = User.create!(username: "valentin", email: "valentin.derrien@gmail.com", ghname: "valdrn",password: "secret")
+valentin = User.create!(username: "valentin", email: "valentin.derrien@gmail.com", ghname: "valdrn", password: "secret")
 herve = User.create!(username: "hervé", email: "herve.criaud@gmail.com", ghname: "criaudh", password: "secret")
 fabien = User.create!(username: "fabien", email: "fabien.alexandre@gmail.com", ghname: "drptitlu", password: "secret")
 p "Users seed done !"
 
 # trips
-trip1 = Trip.create!(name: "Weekend des familles", user_id: simon.id, month: 7, status: "confirmed", time_span: "weekend")
-# trip2 = Trip.create!(name: "trip 2", user_id: simon, month: 4, status: "passed", time_span: "week")
-trip3 = Trip.create!(name: "Weekend des potos", user_id: valentin.id, month: 4, status: "created", time_span: "weekend")
-trip4 = Trip.create!(name: "Voyage entre potes", user_id: simon.id, month: 9, status: "created", time_span: "week")
+trip1 = Trip.create!(name: "Weekend aux Pays-Bas", user: simon, month: 1, status: "confirmed", time_span: "Weekend")
+trip2 = Trip.create!(name: "Après le wagon", user: valentin, month: 3, status: "confirmed", time_span: "weekend")
+trip3 = Trip.create!(name: "Voyage entre potes", user: fabien, month: 8, status: "voting", time_span: "Week")
 p "Trips seed done !"
 
 # subscriptions
-subscription1 = Subscription.create!(status: "accepted", user: simon, trip: trip1)
-subscription2 = Subscription.create!(status: "accepted", user: valentin, trip: trip1)
-subscription3 = Subscription.create!(status: "accepted", user: herve, trip: trip1)
-subscription4 = Subscription.create!(status: "accepted", user: fabien, trip: trip1)
-# subscription5 = Subscription.create!(status: "accepted", user: simon, trip: trip2)
-# subscription6 = Subscription.create!(status: "accepted", user: valentin, trip: trip2)
-# subscription7 = Subscription.create!(status: "accepted", user: herve, trip: trip2)
-# subscription8 = Subscription.create!(status: "accepted", user: fabien, trip: trip2)
-subscription9 = Subscription.create!(status: "accepted", user: simon, trip: trip3)
-subscription10 = Subscription.create!(status: "accepted", user: valentin, trip: trip3)
-subscription11 = Subscription.create!(status: "accepted", user: herve, trip: trip3)
-subscription12 = Subscription.create!(status: "accepted", user: fabien, trip: trip3)
-subscription13 = Subscription.create!(status: "accepted", user: simon, trip: trip4)
-subscription14 = Subscription.create!(status: "accepted", user: valentin, trip: trip4)
-subscription15 = Subscription.create!(status: "accepted", user: herve, trip: trip4)
-subscription16 = Subscription.create!(status: "accepted", user: fabien, trip: trip4)
+Subscription.create!(status: "accepted", user: simon, trip: trip1)
+Subscription.create!(status: "accepted", user: valentin, trip: trip1)
+Subscription.create!(status: "accepted", user: herve, trip: trip1)
+Subscription.create!(status: "accepted", user: fabien, trip: trip1)
+Subscription.create!(status: "accepted", user: simon, trip: trip2)
+Subscription.create!(status: "accepted", user: valentin, trip: trip2)
+Subscription.create!(status: "accepted", user: herve, trip: trip2)
+Subscription.create!(status: "accepted", user: fabien, trip: trip2)
+Subscription.create!(status: "accepted", user: simon, trip: trip3)
+Subscription.create!(status: "accepted", user: valentin, trip: trip3)
+Subscription.create!(status: "accepted", user: herve, trip: trip3)
+Subscription.create!(status: "accepted", user: fabien, trip: trip3)
 p "Subscriptions seed done !"
 
 # trip_availabilities
-trip_availability_7 = TripAvailability.create!(trip: trip3, start_at: "2022-4-1", end_at: "2022-4-3")
-trip_availability_8 = TripAvailability.create!(trip: trip3, start_at: "2022-4-8", end_at: "2022-4-10")
-trip_availability_9 = TripAvailability.create!(trip: trip3, start_at: "2022-4-15", end_at: "2022-4-17")
-trip_availability_10 = TripAvailability.create!(trip: trip3, start_at: "2022-4-22", end_at: "2022-4-24")
-trip_availability_11 = TripAvailability.create!(trip: trip3, start_at: "2022-4-29", end_at: "2022-5-1")
+trip_availability1 = TripAvailability.create!(trip: trip1, start_at: "2022-1-7", end_at: "2022-1-9")
+trip1.trip_availability = trip_availability1
+trip1.save!
+trip_availability2 = TripAvailability.create!(trip: trip2, start_at: "2022-3-18", end_at: "2022-3-20")
+trip2.trip_availability = trip_availability2
+trip2.save!
 
-trip_availability_12 = TripAvailability.create!(trip: trip1, start_at: "2022-7-1", end_at: "2022-7-3")
-# trip1.trip_availability = trip_availability_12
-# trip1.save!
-
-trip_availability_3 = TripAvailability.create!(trip: trip4, start_at: "2022-9-4", end_at: "2022-9-10")
-trip_availability_4 = TripAvailability.create!(trip: trip4, start_at: "2022-9-11", end_at: "2022-9-17")
-trip_availability_5 = TripAvailability.create!(trip: trip4, start_at: "2022-9-18", end_at: "2022-9-24")
-trip_availability_6 = TripAvailability.create!(trip: trip4, start_at: "2022-9-25", end_at: "2022-10-1")
+trip_availability3 = TripAvailability.create!(trip: trip3, start_at: "2022-8-1", end_at: "2022-8-7")
+trip_availability4 = TripAvailability.create!(trip: trip3, start_at: "2022-8-8", end_at: "2022-8-14")
+trip_availability5 = TripAvailability.create!(trip: trip3, start_at: "2022-8-15", end_at: "2022-8-21")
+trip_availability6 = TripAvailability.create!(trip: trip3, start_at: "2022-4-22", end_at: "2022-8-28")
+p "Trip availabilities seed done !"
 
 # availabilities
-availabilities_9 = Availability.create!(user: fabien, trip_availability: trip_availability_7)
-availabilities_9 = Availability.create!(user: fabien, trip_availability: trip_availability_9)
-availabilities_9 = Availability.create!(user: valentin, trip_availability: trip_availability_8)
-availabilities_9 = Availability.create!(user: valentin, trip_availability: trip_availability_9)
-availabilities_5 = Availability.create!(user: fabien, trip_availability: trip_availability_4)
-availabilities_1 = Availability.create!(user: fabien, trip_availability: trip_availability_5)
-availabilities_6 = Availability.create!(user: fabien, trip_availability: trip_availability_6)
-availabilities_2 = Availability.create!(user: valentin, trip_availability: trip_availability_5)
-availabilities_3 = Availability.create!(user: herve, trip_availability: trip_availability_5)
-availabilities_4 = Availability.create!(user: herve, trip_availability: trip_availability_6)
-availabilities_4 = Availability.create!(user: herve, trip_availability: trip_availability_7)
-availabilities_4 = Availability.create!(user: herve, trip_availability: trip_availability_9)
-availabilities_3 = Availability.create!(user: simon, trip_availability: trip_availability_3)
-availabilities_3 = Availability.create!(user: simon, trip_availability: trip_availability_5)
-availabilities_4 = Availability.create!(user: simon, trip_availability: trip_availability_6)
-
-
-# availabilities_1 = Availabilities.create!(user_id: fabien , trip_availability_id:)
-
+Availability.create!(user: fabien, trip_availability: trip_availability4)
+Availability.create!(user: fabien, trip_availability: trip_availability5)
+Availability.create!(user: fabien, trip_availability: trip_availability6)
+Availability.create!(user: simon, trip_availability: trip_availability3)
+Availability.create!(user: simon, trip_availability: trip_availability5)
+Availability.create!(user: valentin, trip_availability: trip_availability5)
+Availability.create!(user: herve, trip_availability: trip_availability4)
+p "Availabilities seed done !"
 
 # place_proposals
-place_proposal1 = PlaceProposal.create!(place: copenhague, trip: trip4, user: valentin)
-place_proposal2 = PlaceProposal.create!(place: paris, trip: trip4, user: fabien)
-place_proposal3 = PlaceProposal.create!(place: rome, trip: trip4, user: herve)
-place_proposal4 = PlaceProposal.create!(place: rome, trip: trip4, user: simon)
-
-place_proposal5 = PlaceProposal.create!(place: rome, trip: trip1, user: simon)
-trip1.place_proposal = place_proposal5
+place_proposal1 = PlaceProposal.create!(place: amsterdam, trip: trip1, user: simon)
+trip1.place_proposal = place_proposal1
 trip1.save!
+place_proposal2 = PlaceProposal.create!(place: athenes, trip: trip2, user: valentin)
+trip2.place_proposal = place_proposal2
+trip2.save!
 
-# trip1.place_proposal = place_proposal1.id
-# trip1.save
-# trip2.place_proposal = place_proposal2.id
-# trip2.save
-# trip3.place_proposal = place_proposal3.id
-# trip3.save
+place_proposal3 = PlaceProposal.create!(place: berlin, trip: trip3, user: valentin)
+place_proposal4 = PlaceProposal.create!(place: copenhague, trip: trip3, user: simon)
+place_proposal5 = PlaceProposal.create!(place: vienne, trip: trip3, user: fabien)
+place_proposal6 = PlaceProposal.create!(place: rome, trip: trip3, user: herve)
 p "Place proposals seed done !"
 
+# votes
+Vote.create!(user: simon, place_proposal: place_proposal4)
+Vote.create!(user: valentin, place_proposal: place_proposal5)
+Vote.create!(user: fabien, place_proposal: place_proposal4)
+p "Votes seed done !"
+
 # tasks
+
 task1 = Task.create!(name: "Réserve ton billet d'avion", trip: trip4)
 task2 = Task.create!(name: "Réserve ton billet d'avion", trip: trip4)
 task3 = Task.create!(name: "Réserve ton billet d'avion", trip: trip4)
@@ -176,6 +160,7 @@ message2 = Message.create!(content: "Tu as bien pris ton appareil Hervé ?", use
 message3 = Message.create!(content: "J'espère que tu y as pensé...", user: fabien, trip: trip1)
 message4 = Message.create!(content: "Yes c'est ok !", user: herve, trip: trip1)
 p "Messages seed done !"
+
 
 
 p "ALL SEEDS DONE !"

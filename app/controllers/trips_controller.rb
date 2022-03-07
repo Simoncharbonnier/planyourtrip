@@ -8,7 +8,6 @@ class TripsController < ApplicationController
     @my_passed_trips    = @my_trips.select { |trip| trip.status == "passed" }
     @markers = []
     @my_confirmed_trips.each do |trip|
-
       place_proposal = PlaceProposal.where(id: trip.place_proposal).first
       place = Place.where(id: place_proposal.place).first
       @markers << {
@@ -17,12 +16,6 @@ class TripsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { place: place })
       }
     end
-
-    # if params[:template] == "new_with_css"
-    #   render "trips/index_with_new_css"
-    # else
-    #   render 'trips/index'
-    # end
   end
 
   def show
@@ -50,7 +43,7 @@ class TripsController < ApplicationController
     Task.create(trip: @trip, user: current_user, name: "Réserver l'hébergement")
 
     weeks = Date.new(2022, @trip.month, 1).week_split
-    if @trip.time_span == "Week"
+    if @trip.time_span == "Semaine"
       weeks.each do |week|
         sa = Date.new(2022, @trip.month, week[0]) unless week[0].nil?
         ea = Date.new(2022, @trip.month, week[6]) unless week[6].nil?
@@ -63,7 +56,7 @@ class TripsController < ApplicationController
       weeks.each do |week|
         sa = Date.new(2022, @trip.month, week[4]) unless week[4].nil?
         ea = Date.new(2022, @trip.month, week[6]) unless week[6].nil?
-        if sa && ea
+        if sa && ea && (sa.month == ea.month)
           @ta = TripAvailability.new(trip: @trip, start_at: sa, end_at: ea)
           @ta.save
         end
