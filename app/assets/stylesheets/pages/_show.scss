@@ -51,7 +51,57 @@
   margin-top: 15px;
 }
 .chat{
-  width: 50vw;
+  width: 40vw;
+  background-color: rgba(138, 151, 254, 0.10);
+  padding: 15px;
+  margin-right: 20px;
+  border-radius: 20px;
+
+  .form-control {
+    background-color: white;
+    color: #F78764;
+    border: 1px solid #F78764;
+    border-radius: 5px 0 0 5px;
+  }
+
+  .btn-send {
+    margin: 0;
+    background-color: #F78764;
+    color: white;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .msg-wrapper {
+    margin-bottom: 0 !important;
+  }
+
+  .message {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .message-infos {
+    margin-left: 10px;
+  }
+
+  .message-author {
+    color: #8A97FE;
+    font-size: 15px;
+    margin-bottom: 0px;
+    font-weight: bold;
+  }
+
+  .message-content {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 10px;
+    font-size: 20px;
+  }
+
+  .fa-paper-plane {
+    color: white;
+  }
 }
 .todo{
   width: 50vw;
