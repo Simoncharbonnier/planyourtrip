@@ -43,11 +43,6 @@
     top: 305px;
     left: 20px;
   }
-  .card-avatar-orange{
-    position: absolute;
-    top: 70px;
-    right: 70px;
-  }
   .link{
     display: flex;
     justify-content: center;
@@ -65,5 +60,15 @@
       color: white;
       font-size: 14px;
     }
+  }
+  .card-avatar-orange{
+    display: flex;
+  }
+  .container-card-avatar-orange{
+    display: flex;
+    top: 70px;
+    right: 70px;
+    height: 140px;
+    position: absolute;
   }
 }

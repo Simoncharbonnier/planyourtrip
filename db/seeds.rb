@@ -86,7 +86,7 @@ trip4 = Trip.create!(name: "Voyage entre potes", user_id: simon.id, month: 9, st
 p "Trips seed done !"
 
 # subscriptions
-subscription1 = Subscription.create!(status: "accepted", user: simon, trip: trip1)
+subscription1 = Subscription.create!(status: "pending", user: simon, trip: trip1)
 subscription2 = Subscription.create!(status: "accepted", user: valentin, trip: trip1)
 subscription3 = Subscription.create!(status: "accepted", user: herve, trip: trip1)
 subscription4 = Subscription.create!(status: "accepted", user: fabien, trip: trip1)
