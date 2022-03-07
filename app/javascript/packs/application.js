@@ -12,9 +12,11 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-import "controllers"
 import "bootstrap"
+import "controllers"
 
 import { initFlatpickr } from "../plugins/flatpickr";
-
 initFlatpickr();
+
+import { initSwiper } from "../plugins/swiper";
+initSwiper();
