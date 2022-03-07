@@ -116,7 +116,7 @@
                       Vous pourrez ensuite accéder au tableau de bord de votre futur voyage et vous organiser comme des chefs !</p>
                 </div>
                 <div class="footer-card-index-xl">
-                  <div class="button-orange-xxl">Découvrir la destination !</div>
+                  <div class="button-orange-xxl" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="w3-button">Découvrir la destination !</div>
                 </div>
                 <div class="container-card-avatar-orange">
                     <%trip.subscriptions.each do |name| %>
@@ -165,6 +165,9 @@
                 </div>
               </div>
             <% end %>
+            <div class="footer-card-index-xl">
+              <div class="button-orange-xxl" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= trip.id %>" class="w3-button">Découvrir la destination !</div>
+            </div>
           <% end %>
         </div>
         <%# MAP %>
@@ -177,3 +180,7 @@
     </div>
   </div>
 </div>
+
+<% @my_confirmed_trips.each do |trip| %>
+  <%= render "shared/result", trip: trip %>
+<% end %>

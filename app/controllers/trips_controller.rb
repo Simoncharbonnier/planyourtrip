@@ -8,7 +8,6 @@ class TripsController < ApplicationController
     @my_passed_trips    = @my_trips.select { |trip| trip.status == "passed" }
     @markers = []
     @my_confirmed_trips.each do |trip|
-
       place_proposal = PlaceProposal.where(id: trip.place_proposal).first
       place = Place.where(id: place_proposal.place).first
       @markers << {
@@ -17,12 +16,6 @@ class TripsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { place: place })
       }
     end
-
-    # if params[:template] == "new_with_css"
-    #   render "trips/index_with_new_css"
-    # else
-    #   render 'trips/index'
-    # end
   end
 
   def show
