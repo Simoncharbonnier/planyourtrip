@@ -67,10 +67,10 @@
         <div class="avatar-dashboard">
           <%@trip.subscriptions.each do |name| %>
             <div class="card-avatar">
-             <%=  image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"),class:"avatar"  %>
+              <%=  image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"),class:"avatar"  %>
               <p class="first-name"><%=name.user.username%></p>
               <div class="check">
-                 <i class="fas fa-check"></i>
+                <i class="fas fa-check"></i>
               </div>
             </div>
           <% end %>
