@@ -8,6 +8,9 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "mapbox-gl/dist/mapbox-gl";
+@import "swiper/swiper";
+@import "swiper/modules/navigation/navigation";
+
 
 // Your CSS partials
 @import "components/index";
@@ -16,7 +19,6 @@
 
 
 @import "mapbox-gl/dist/mapbox-gl";
-
 @import "pages/new_trip";
 
 body {
