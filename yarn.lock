@@ -6612,7 +6612,7 @@ svgo@^1.0.0:
 
 swiper@^8.0.7:
   version "8.0.7"
-  resolved "https://registry.npmjs.org/swiper/-/swiper-8.0.7.tgz"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-8.0.7.tgz#9eefe26c703e627a6dc7237c0109e172ce06e3f6"
   integrity sha512-GHjDfxSZdupfU7LrSVOpaNaT7R1D2zxopPGBFz1UOXOtsYvVJLg0k6NvkTAD7qn0ASl5pTti82qoYwvYvIkg4g==
   dependencies:
     dom7 "^4.0.4"

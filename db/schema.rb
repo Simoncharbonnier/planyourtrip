@@ -77,6 +77,11 @@ ActiveRecord::Schema.define(version: 2022_03_04_132540) do
 
   create_table "places", force: :cascade do |t|
     t.string "city"
+    t.string "country"
+    t.string "pint_cost"
+    t.string "temperature"
+    t.string "plane_cost"
+    t.string "lodging_cost"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"

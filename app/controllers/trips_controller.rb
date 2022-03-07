@@ -27,7 +27,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
-
+    @message = Message.new
     @markers = []
     @trip.place_proposals.each do |trip|
       place =  trip.place
