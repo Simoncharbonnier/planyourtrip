@@ -160,21 +160,21 @@ trip1.save!
 p "Place proposals seed done !"
 
 # tasks
-task1 = Task.create!(name: "Réserve ton billet d'avion", user: simon, trip: trip4)
-task2 = Task.create!(name: "Réserve ton billet d'avion", user: fabien, trip: trip4)
-task3 = Task.create!(name: "Réserve ton billet d'avion", user: herve, trip: trip4)
-task4 = Task.create!(name: "Réserve ton billet d'avion", user: valentin, trip: trip4)
-task5 = Task.create!(name: "Réserver le logement", user: simon, trip: trip4)
-task6 = Task.create!(name: "Réserver le logement", user: fabien, trip: trip4)
-task7 = Task.create!(name: "Réserver le logement", user: herve, trip: trip4)
-task8 = Task.create!(name: "Réserver le logement", user: valentin, trip: trip4)
+task1 = Task.create!(name: "Réserve ton billet d'avion", trip: trip4)
+task2 = Task.create!(name: "Réserve ton billet d'avion", trip: trip4)
+task3 = Task.create!(name: "Réserve ton billet d'avion", trip: trip4)
+task4 = Task.create!(name: "Réserve ton billet d'avion", trip: trip4)
+task5 = Task.create!(name: "Réserver le logement", trip: trip4)
+task6 = Task.create!(name: "Réserver le logement", trip: trip4)
+task7 = Task.create!(name: "Réserver le logement", trip: trip4)
+task8 = Task.create!(name: "Réserver le logement", trip: trip4)
 p "Tasks seed done !"
 
 # messages
-message1 = Message.create!(content: "Tous prêts ?", user: simon, trip: trip4)
-message2 = Message.create!(content: "Tu as bien pris ton maillot Hervé ?", user: valentin, trip: trip4)
-message3 = Message.create!(content: "J'espère que tu y as pensé !", user: fabien, trip: trip4)
-message4 = Message.create!(content: "J'ai pris ma combinaison !", user: herve, trip: trip4)
+message1 = Message.create!(content: "Ça va être dingue !", user: simon, trip: trip1)
+message2 = Message.create!(content: "Tu as bien pris ton appareil Hervé ?", user: valentin, trip: trip1)
+message3 = Message.create!(content: "J'espère que tu y as pensé...", user: fabien, trip: trip1)
+message4 = Message.create!(content: "Yes c'est ok !", user: herve, trip: trip1)
 p "Messages seed done !"
 
 

@@ -111,10 +111,63 @@
 }
 .todo{
   width: 40vw;
+
+  .form-control {
+    background-color: white;
+    color: #F78764;
+    border: 1px solid #F78764;
+    border-radius: 5px 0 0 5px;
+  }
+
+  .btn-send {
+    margin: 0;
+    background-color: #F78764;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .msg-wrapper {
+    margin-bottom: 0 !important;
+  }
+
+  .fa-plus {
+    color: white;
+  }
+
+  .task-infos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(138, 151, 254, 0.10);
+    margin: 10px 0px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    // width: 400px;
+
+    p{
+      font-size: 20px;
+      margin-bottom: 0px;
+    }
+
+    i{
+      font-size: 20px;
+    }
+
+    .task-name {
+      width: 200px;
+    }
+
+    .task-done-status {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 }
 .title-dashboard{
   font-size: 60px;
   line-height: 0.8em;
+  font-family: 'Vollkorn', serif;
+
 }
 .date-dashboard{
   color:#F78764;
@@ -126,4 +179,5 @@
 .title-todo-dashboard{
   font-size: 32px;
   margin-top: 20px;
+  font-family: 'Vollkorn', serif;
 }
