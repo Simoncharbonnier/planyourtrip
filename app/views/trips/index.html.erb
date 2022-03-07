@@ -33,19 +33,30 @@
                 <%= link_to "En attente des disponibilités", "#", class: "button-grey-xxl " %>
               </div>
               <div class="container-card-avatar-orange">
-                <% trip.subscriptions.each do |name| %>
-                  <div class="card-avatar-orange">
-                    <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"img-card-avatar-orange"  %>
-                    <p class="first-name"><%= name.user.username.capitalize %></p>
-                    <div class="check">
+                <div class="card-avatar-orange">
+                  <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{trip.user.ghname}"), class:"img-card-avatar-orange"  %>
+                  <p class="first-name"><%= trip.user.username.capitalize %></p>
+                  <div class="check">
                     <i class="fas fa-check"></i>
-                    </div>
                   </div>
+                </div>
+                <% trip.subscriptions.each do |name| %>
+                  <% if name.user != trip.user %>
+                    <div class="card-avatar-orange">
+                      <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"img-card-avatar-orange"  %>
+                      <p class="first-name"><%= name.user.username.capitalize %></p>
+                      <div class="check">
+                        <i class="fas fa-check"></i>
+                      </div>
+                    </div>
+                  <% end %>
                 <% end %>
               </div>
-              <div class="link">
-                <i class="fas fa-external-link"></i>
-              </div>
+              <% if current_user == trip.user %>
+                <div class="link">
+                  <i class="fas fa-external-link"></i>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -78,21 +89,30 @@
                   <%= link_to "Voter pour la destination !", trip_path(trip), class: "button-blue-xxl" %>
                 <% end %>              </div>
               <div class="container-card-avatar-orange">
-                <% trip.subscriptions.each do |name| %>
-                  <div class="card-avatar-orange">
-                    <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"img-card-avatar-orange"  %>
-                    <p class="first-name"><%= name.user.username.capitalize %></p>
-                    <div class="check">
+                <div class="card-avatar-orange">
+                  <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{trip.user.ghname}"), class:"img-card-avatar-orange"  %>
+                  <p class="first-name"><%= trip.user.username.capitalize %></p>
+                  <div class="check">
                     <i class="fas fa-check"></i>
-                    </div>
                   </div>
+                </div>
+                <% trip.subscriptions.each do |name| %>
+                  <% if name.user != trip.user %>
+                    <div class="card-avatar-orange">
+                      <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"img-card-avatar-orange"  %>
+                      <p class="first-name"><%= name.user.username.capitalize %></p>
+                      <div class="check">
+                        <i class="fas fa-check"></i>
+                      </div>
+                    </div>
+                  <% end %>
                 <% end %>
               </div>
-              <div class="link">
-                <%= link_to "" do %>
+              <% if current_user == trip.user %>
+                <div class="link">
                   <i class="fas fa-external-link"></i>
-                <% end %>
-              </div>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -119,16 +139,25 @@
                   <div class="button-orange-xxl">Découvrir la destination !</div>
                 </div>
                 <div class="container-card-avatar-orange">
-                    <%trip.subscriptions.each do |name| %>
+                  <div class="card-avatar-orange">
+                    <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{trip.user.ghname}"), class:"img-card-avatar-orange"  %>
+                    <p class="first-name"><%= trip.user.username.capitalize %></p>
+                    <div class="check">
+                      <i class="fas fa-check"></i>
+                    </div>
+                  </div>
+                  <% trip.subscriptions.each do |name| %>
+                    <% if name.user != trip.user %>
                       <div class="card-avatar-orange">
-                          <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"img-card-avatar-orange"  %>
+                        <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"img-card-avatar-orange"  %>
                         <p class="first-name"><%= name.user.username.capitalize %></p>
                         <div class="check">
-                        <i class="fas fa-check"></i>
+                          <i class="fas fa-check"></i>
                         </div>
                       </div>
                     <% end %>
-                  </div>
+                  <% end %>
+              </div>
               </div>
             </div>
           </div>
@@ -153,12 +182,19 @@
                       <%= trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %>
                     </p>
                     <div class="container-mini-avatar">
-                      <%trip.subscriptions.each do |name| %>
-                        <div class="card-index-footer">
-                          <div class="mini-avatar">
-                            <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"mini-avatar-img"  %>
-                          </div>
+                      <div class="card-index-footer">
+                        <div class="mini-avatar">
+                          <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{trip.user.ghname}"), class:"mini-avatar-img"  %>
                         </div>
+                      </div>
+                      <% trip.subscriptions.each do |name| %>
+                        <% if trip.user != name.user %>
+                          <div class="card-index-footer">
+                            <div class="mini-avatar">
+                              <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"mini-avatar-img"  %>
+                            </div>
+                          </div>
+                        <% end %>
                       <% end %>
                     </div>
                   </div>
