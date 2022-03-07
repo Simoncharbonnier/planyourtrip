@@ -54,12 +54,29 @@
   </div>
 
 <% elsif @trip.status == "confirmed" %>
-  dashboard confirmed trip
   <div class="container">
     <div class="img-show-dashboard" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @trip.place_proposal.place.photo.key %>'); background-size: cover; background-repeat: no-repeat)"></div>
     <div class="container-chat-todo">
       <div class="chat">
-      <h2 class="show-h2"><strong>chat</strong></h2>
+        <%= simple_form_for([@trip, @message], remote: true, html: {class: "d-flex"}) do |f| %>
+          <div class="input-group">
+            <%= f.input :content, label: false, class: "form-control", placeholder: "Rédiger un nouveau message", wrapper_html: {class: "flex-grow-1 msg-wrapper"} %>
+            <button class= "btn btn-send">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        <% end %>
+          <div class="messages">
+            <% @trip.messages.each do |message| %>
+              <div class="message">
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{current_user.ghname}", class: "avatar-chat" %>
+                <div class="message-infos">
+                  <p class="message-author"><%= message.user.username.capitalize %></p>
+                  <p class="message-content"><%= message.content %></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
       </div>
       <div class="todo">
         <h1 class="title-dashboard"><strong><%=@trip.name%></strong></h1>
