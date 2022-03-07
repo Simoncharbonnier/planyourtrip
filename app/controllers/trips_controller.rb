@@ -58,7 +58,7 @@ class TripsController < ApplicationController
       weeks.each do |week|
         sa = Date.new(2022, @trip.month, week[4]) unless week[4].nil?
         ea = Date.new(2022, @trip.month, week[6]) unless week[6].nil?
-        if sa && ea
+        if sa && ea && (sa.month == ea.month)
           @ta = TripAvailability.new(trip: @trip, start_at: sa, end_at: ea)
           @ta.save
         end
