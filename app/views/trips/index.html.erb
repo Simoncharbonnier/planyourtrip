@@ -29,7 +29,11 @@
               <div class="card-index-xl-dispo-texte">
                 <p>Nous attentons encore les <br> disponibilités de vos amis et leurs propositions de destination.</p>
               </div>
+
               <div class="footer-card-index-xl-dispo">
+                <% if trip.user == current_user %>
+                  <%= link_to "Booker", new_trip_trip_availability_path(trip), class: "button-grey-xxl " %>
+                <% end %>
                 <%= link_to "En attente des disponibilités", "#", class: "button-grey-xxl " %>
               </div>
               <div class="container-card-avatar-orange">
@@ -74,7 +78,7 @@
                 <%= trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %>
               </p>
               <div class="card-index-xl-vote-texte">
-                <% if Vote.where(user: current_user).first %>
+                <% if trip.votes.find_by(user: current_user) %>
                   <p>Votre choix a bien été pris en compte, nous attendons juste que vos amis votent aussi pour votre prochaine destination... <br>
                     N’hésitez pas à les secouer un peu !</p>
                 <% else %>
@@ -83,7 +87,7 @@
                 <% end %>
               </div>
               <div class="footer-card-index-xl-vote">
-                <% if Vote.where(user: current_user).first %>
+                <% if trip.votes.find_by(user: current_user) %>
                   <%= link_to "En attente de la destination", "#", class: "button-grey-xxl" %>
                 <% else %>
                   <%= link_to "Voter pour la destination !", trip_path(trip), class: "button-blue-xxl" %>
@@ -136,7 +140,7 @@
                       Vous pourrez ensuite accéder au tableau de bord de votre futur voyage et vous organiser comme des chefs !</p>
                 </div>
                 <div class="footer-card-index-xl">
-                  <div class="button-orange-xxl" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="w3-button">Découvrir la destination !</div>
+                  <div class="button-orange-xxl" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= trip.id %>" class="w3-button">Découvrir la destination !</div>
                 </div>
                 <div class="container-card-avatar-orange">
                   <div class="card-avatar-orange">
