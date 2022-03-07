@@ -1,0 +1,27 @@
+.swiper-slide {
+  background-color: rgba(138, 151, 254, 0.10);
+  border-radius: 10px;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+.swiper-button-next {
+  top: 90%;
+  &:after {
+    content: none;
+  }
+}
+.swiper-button-prev {
+  top: 90%;
+  &:after {
+    content: none;
+  }
+}
+#validate-button {
+  position: absolute;
+  top: 80%;
+  right: 10px;
+  left: auto;
+}

@@ -20,52 +20,52 @@ p "Creating places, users, trips, subscriptions, availabilities, placeproposals,
 
 # places
 rome_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394982/Planyourtrip/rome_fb1mq0.jpg')
-rome = Place.create!(city: "Rome")
+rome = Place.create!(city: "Rome", country: "Italie", pint_cost: "3.5€", temperature: "28°C", plane_cost: "67€", lodging_cost: "47€")
 rome.photo.attach(io: rome_url, filename: 'Rome.jpg', content_type: 'jpg')
 rome.save!
 
 paris_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394982/Planyourtrip/paris_cuqo7v.jpg')
-paris = Place.create!(city: "Paris")
+paris = Place.create!(city: "Paris", country: "France", pint_cost: "8€", temperature: "22°C", plane_cost: "46€", lodging_cost: "82€")
 paris.photo.attach(io: paris_url, filename: 'Paris.jpg', content_type: 'jpg')
 paris.save!
 
 londres_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394982/Planyourtrip/london_ogfqnr.jpg')
-londres = Place.create!(city: "Londres")
+londres = Place.create!(city: "Londres", country: "Royaume-Uni", pint_cost: "6€", temperature: "19°C", plane_cost: "89€", lodging_cost: "74€")
 londres.photo.attach(io: londres_url, filename: 'Londres.jpg', content_type: 'jpg')
 londres.save!
 
 amsterdam_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394982/Planyourtrip/amsterdam_xykrxh.jpg')
-amsterdam = Place.create!(city: "Amsterdam")
+amsterdam = Place.create!(city: "Amsterdam", country: "Pays-Bas", pint_cost: "4€", temperature: "18°C", plane_cost: "45€", lodging_cost: "43€")
 amsterdam.photo.attach(io: amsterdam_url, filename: 'Amsterdam.jpg', content_type: 'jpg')
 amsterdam.save!
 
 berlin_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394982/Planyourtrip/berlin_mjn5om.jpg')
-berlin = Place.create!(city: "Berlin")
+berlin = Place.create!(city: "Berlin", country: "Allemagne", pint_cost: "4.5€", temperature: "20°C", plane_cost: "69€", lodging_cost: "51€")
 berlin.photo.attach(io: berlin_url, filename: 'Berlin.jpg', content_type: 'jpg')
 berlin.save!
 
 madrid_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394982/Planyourtrip/madrid_ewghhk.jpg')
-madrid = Place.create!(city: "Madrid")
+madrid = Place.create!(city: "Madrid", country: "Espagne", pint_cost: "3€", temperature: "31°C", plane_cost: "44€", lodging_cost: "39€")
 madrid.photo.attach(io: madrid_url, filename: 'Madrid.jpg', content_type: 'jpg')
 madrid.save!
 
 lisbonne_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394982/Planyourtrip/lisbonne_m23aax.jpg')
-lisbonne = Place.create!(city: "Lisbonne")
+lisbonne = Place.create!(city: "Lisbonne", country: "Portugal", pint_cost: "3€", temperature: "29°C", plane_cost: "41€", lodging_cost: "55€")
 lisbonne.photo.attach(io: lisbonne_url, filename: 'Lisbonne.jpg', content_type: 'jpg')
 lisbonne.save!
 
 vienne_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394982/Planyourtrip/vienne_ekeaom.jpg')
-vienne = Place.create!(city: "Vienne")
+vienne = Place.create!(city: "Vienne", country: "Autriche", pint_cost: "4.5€", temperature: "25°C", plane_cost: "69€", lodging_cost: "60€")
 vienne.photo.attach(io: vienne_url, filename: 'Vienne.jpg', content_type: 'jpg')
 vienne.save!
 
 athenes_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394981/Planyourtrip/athenes_pfwftt.jpg')
-athenes = Place.create!(city: "Athènes")
+athenes = Place.create!(city: "Athènes", country: "Grèce", pint_cost: "3.5€", temperature: "36°C", plane_cost: "92€", lodging_cost: "53€")
 athenes.photo.attach(io: athenes_url, filename: 'Athenes.jpg', content_type: 'jpg')
 athenes.save!
 
 copenhague_url = URI.open('https://res.cloudinary.com/dtrdvotn4/image/upload/v1646394981/Planyourtrip/copenhagen_ypnsu9.jpg')
-copenhague = Place.create!(city: "Copenhague")
+copenhague = Place.create!(city: "Copenhague", country: "Danemark", pint_cost: "4€", temperature: "16°C", plane_cost: "58€", lodging_cost: "90€")
 copenhague.photo.attach(io: copenhague_url, filename: 'Copenhague.jpg', content_type: 'jpg')
 copenhague.save!
 
@@ -86,7 +86,7 @@ trip4 = Trip.create!(name: "Voyage entre potes", user_id: simon.id, month: 9, st
 p "Trips seed done !"
 
 # subscriptions
-subscription1 = Subscription.create!(status: "accepted", user: simon, trip: trip1)
+subscription1 = Subscription.create!(status: "pending", user: simon, trip: trip1)
 subscription2 = Subscription.create!(status: "accepted", user: valentin, trip: trip1)
 subscription3 = Subscription.create!(status: "accepted", user: herve, trip: trip1)
 subscription4 = Subscription.create!(status: "accepted", user: fabien, trip: trip1)
