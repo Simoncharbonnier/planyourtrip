@@ -16,6 +16,14 @@ export default class extends Controller {
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+
+    const map = this.map
+    this.map.on("load", function() {
+      const tabEl = document.querySelector('button[data-bs-target="#confirmed-trips"]')
+      tabEl.addEventListener('shown.bs.tab', function (event) {
+        map.resize()
+      })
+    })
   }
 
   #addMarkersToMap() {

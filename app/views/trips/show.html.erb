@@ -2,7 +2,7 @@
   <div class="container title-wrapper">
       <div class="show-title-text">
         <h2 class="show-h2"><strong><%=@trip.name%></strong></h2>
-        <p>Ça colle pour tout le monde du 10 au 17 Juillet !</p>
+        <p class="show-tilte-subtitle">Ça colle pour tout le monde du <%= @trip.trip_availabilities.first.start_at.strftime('%d') %> au <%= @trip.trip_availabilities.first.end_at.strftime('%d - %m') %> !</p>
       </div>
     <div class="title-show"></div>
     <p id="subtitle-show">Dépêchez-vous, vos amis attendent votre vote !</p>
@@ -54,7 +54,6 @@
   </div>
 
 <% elsif @trip.status == "confirmed" %>
-  dashboard confirmed trip
   <div class="container">
     <div class="img-show-dashboard" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @trip.place_proposal.place.photo.key %>'); background-size: cover; background-repeat: no-repeat)"></div>
     <div class="container-chat-todo">
@@ -62,7 +61,7 @@
       <h2 class="show-h2"><strong>chat</strong></h2>
       </div>
       <div class="todo">
-        <h1 class="title-dashboard"><strong><%=@trip.name%></strong></h1>
+        <h1 class="title-dashboard"><strong><%=@trip.place_proposal.place.city%></strong></h1>
         <p class="date-dashboard"><%= @trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= @trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %></p>
         <div class="avatar-dashboard">
           <%@trip.subscriptions.each do |name| %>
