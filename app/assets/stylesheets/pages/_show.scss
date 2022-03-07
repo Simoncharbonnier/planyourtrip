@@ -30,7 +30,6 @@
   margin-top: 10px;
   font-size: 18px;
 }
-
 #map{
   height: 100vh;
   top: 0;
@@ -38,5 +37,36 @@
   position: sticky;
   margin-left: 10px;
   border-radius: 10px;
+}
 
+//dashboard
+.img-show-dashboard{
+  width: 100%;
+  border-radius: 20px;
+  height: 450px;
+  background-size: cover;
+}
+.container-chat-todo{
+  display: flex;
+  margin-top: 15px;
+}
+.chat{
+  width: 50vw;
+}
+.todo{
+  width: 50vw;
+}
+.title-dashboard{
+  font-size: 42px;
+}
+.date-dashboard{
+  color:#F78764;
+  font-size: 22px
+}
+.avatar-dashboard{
+  display:flex;
+}
+.title-todo-dashboard{
+  font-size: 32px;
+  margin-top: 20px;
 }
