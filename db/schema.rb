@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_04_132540) do
+ActiveRecord::Schema.define(version: 2022_03_07_153712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,12 +102,10 @@ ActiveRecord::Schema.define(version: 2022_03_04_132540) do
     t.string "name"
     t.string "description"
     t.boolean "done", default: false
-    t.bigint "user_id", null: false
     t.bigint "trip_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["trip_id"], name: "index_tasks_on_trip_id"
-    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "trip_availabilities", force: :cascade do |t|
@@ -132,6 +130,16 @@ ActiveRecord::Schema.define(version: 2022_03_04_132540) do
     t.index ["place_proposal_id"], name: "index_trips_on_place_proposal_id"
     t.index ["trip_availability_id"], name: "index_trips_on_trip_availability_id"
     t.index ["user_id"], name: "index_trips_on_user_id"
+  end
+
+  create_table "user_tasks", force: :cascade do |t|
+    t.boolean "done", default: false
+    t.bigint "task_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["task_id"], name: "index_user_tasks_on_task_id"
+    t.index ["user_id"], name: "index_user_tasks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -168,8 +176,9 @@ ActiveRecord::Schema.define(version: 2022_03_04_132540) do
   add_foreign_key "subscriptions", "trips"
   add_foreign_key "subscriptions", "users"
   add_foreign_key "tasks", "trips"
-  add_foreign_key "tasks", "users"
   add_foreign_key "trips", "trip_availabilities"
+  add_foreign_key "user_tasks", "tasks"
+  add_foreign_key "user_tasks", "users"
   add_foreign_key "votes", "place_proposals"
   add_foreign_key "votes", "users"
 end

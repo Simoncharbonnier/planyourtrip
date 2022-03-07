@@ -11,7 +11,13 @@ Rails.application.routes.draw do
     resources :place_proposals, only: :create
     resources :votes, only: :create
     resources :messages, only: :create
-    resources :tasks, only: [:create, :update]
+    resources :tasks, only: :create
+  end
+
+  resources :user_tasks, only: [] do
+    member do
+      patch :done
+    end
   end
 
   resources :trip_availabilities, only: [] do

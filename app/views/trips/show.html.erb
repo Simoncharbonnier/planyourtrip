@@ -69,7 +69,7 @@
           </div>
         <% end %>
           <div class="messages">
-            <% @trip.messages.each do |message| %>
+            <% @messages.each do |message| %>
               <div class="message">
                 <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{message.user.ghname}", class: "avatar-chat" %>
                 <div class="message-infos">
@@ -96,6 +96,38 @@
           <% end %>
         </div>
         <h2 class="title-todo-dashboard"><strong>To do list</strong></h2>
+        <div class="to-do-list">
+          <%= simple_form_for([@trip, @task], remote: true, html: {class: "d-flex"}) do |f| %>
+            <div class="input-group">
+              <%= f.input :name, label: false, class: "form-control", placeholder: "Ajouter un To-Do",  wrapper_html: {class: "flex-grow-1 msg-wrapper"} %>
+              <button class= "btn btn-send">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          <% end %>
+          <div class="to-do-item">
+            <% @trip.tasks.each do |task| %>
+              <div class="task">
+                <div class="task-infos">
+                  <p class="task-name"><%= task.name.capitalize %></p>
+                  <% user_task = UserTask.find_by(user: current_user, task: task) %>
+                  <% if user_task.done %>
+                    <% task.user_tasks.each do |user_task| %>
+                      <div class="task-done-status">
+                        <p><%=  image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{user_task.user.ghname}"),class:"avatar"  %></p>
+                        <p><%= icon_for(user_task.done?) %> </p>
+                      </div>
+                    <% end %>
+                  <% else %>
+                    <%= link_to done_user_task_path(user_task), method: :patch do %>
+                      <i class="fas fa-square to-check"></i>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
