@@ -1,0 +1,11 @@
+fr:
+  defaults: &defaults
+    month_names:
+      [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
+    formats:
+      default: "%d. %B %Y"
+      short: "%d.%m.%Y"
+  date:
+    <<: *defaults
+  time:
+    <<: *defaults
