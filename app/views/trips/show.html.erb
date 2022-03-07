@@ -116,10 +116,9 @@
                         <p><%= icon_for(user_task.done?) %> </p>
                       </div>
                     <% end %>
-                    <%# <i class="fas fa-check-square task-done"></i> %>
                   <% else %>
                     <%= link_to done_user_task_path(user_task), method: :patch do %>
-                      <i class="fas fa-square"></i>
+                      <i class="fas fa-square to-check"></i>
                     <% end %>
                   <% end %>
                 </div>
