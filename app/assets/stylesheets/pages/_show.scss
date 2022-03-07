@@ -2,17 +2,22 @@
   margin: 0 auto;
 }
 .container-trip {
+  width: 60vw;
   margin-top: 1em;
   display: grid;
   grid-template-columns: auto auto;
 }
 .show-title-text{
     position: relative;
-    top: 5.4em;
+    top: 5.5em;
     left: 2em;
 }
 .show-h2 {
   font-size: 24px;
+  line-height: 0.4em;
+}
+.show-tilte-subtitle{
+  font-size: 20px;
 }
 .title-show{
   width: 100%;
@@ -33,7 +38,7 @@
 #map{
   height: 100vh;
   top: 0;
-  width: 50vw;
+  width: 40vw;
   position: sticky;
   margin-left: 10px;
   border-radius: 10px;
@@ -108,11 +113,12 @@
   width: 40vw;
 }
 .title-dashboard{
-  font-size: 42px;
+  font-size: 60px;
+  line-height: 0.8em;
 }
 .date-dashboard{
   color:#F78764;
-  font-size: 22px
+  font-size: 28px
 }
 .avatar-dashboard{
   display:flex;
