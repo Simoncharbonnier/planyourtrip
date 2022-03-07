@@ -24,7 +24,7 @@
               </h5>
               <p id="card-index-xl-dispo-date">
                 <i class="fas fa-calendar-alt"></i>
-                <%= Date::MONTHNAMES[trip.month] %>
+                <%= I18n.t("date.month_names")[trip.month] %>
               </p>
               <div class="card-index-xl-dispo-texte">
                 <p>Nous attentons encore les <br> disponibilités de vos amis et leurs propositions de destination.</p>
