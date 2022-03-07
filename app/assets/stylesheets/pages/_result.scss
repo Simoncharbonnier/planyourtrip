@@ -1,8 +1,14 @@
+.modal-result-dialog{
+  max-width: fit-content;
+  border-radius: 10px;
+}
+
+.modal-container{
+  border-radius: 10px;
+}
+
 .container-big{
   width: 700px;
-  border: solid 2px #8A97FE;
-  padding: 10px;
-  border-radius: 10px;
 }
 .container-buttons{
   display: flex;
@@ -23,7 +29,7 @@
   margin: 5px;
   width: 16rem;
   font-size: 18px;
-  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
+  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.8);
   &:hover {
     background-color: #F78764;;
     color: white;
@@ -41,10 +47,11 @@
   margin: 5px;
   width: 20rem;
   font-size: 18px;
-  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
+  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.8);
   &:hover {
-    background-color: #F78764;;
-    color: white;
+    background-color: white;;
+    border: solid 2px #F78764;
+    color: #F78764;
   }
 }
 
@@ -57,11 +64,11 @@
   width: 80px;
   height: 140px;
   margin: 6px;
-  padding-top: 10px;
+  padding-top: 12px;
   text-align: center;
   border-radius: 10px;
   background-color: white;
-  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
+  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.8);
   line-height: 0.1em;
   i{
     font-size: 20px;
@@ -89,7 +96,7 @@
   margin: 6px;
   border-radius: 10px;
   background-color: white;
-  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
+  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.8);
   line-height: 0.1em;
   i{
     font-size: 20px;
@@ -115,7 +122,7 @@
   margin: 6px;
   border-radius: 10px;
   background-color: white;
-  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
+  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.8);
   line-height: 0.1em;
   i{
     font-size: 20px;
@@ -142,7 +149,7 @@
   margin: 6px;
   border-radius: 10px;
   background-color: white;
-  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
+  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.8);
   line-height: 0.1em;
   i{
     font-size: 20px;
