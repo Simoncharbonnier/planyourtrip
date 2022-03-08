@@ -9,12 +9,15 @@
 
 .container-big{
   width: 700px;
+  margin-left: -14px;
 }
 .container-buttons{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+
+
 }
 
 .button_inverse{
@@ -28,11 +31,13 @@
   text-align: center;
   margin: 5px;
   width: 16rem;
-  font-size: 18px;
-  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.8);
+  font-size: 14px;
+  box-shadow: 0 0px 0px 0 rgba(255, 255, 255, 0.8);
+  position: absolute;
+  bottom: 10px;
   &:hover {
-    background-color: #F78764;;
-    color: white;
+    background-color: white;;
+    color: #F78764;
   }
 }
 
@@ -46,13 +51,11 @@
   text-align: center;
   margin: 5px;
   width: 20rem;
-  font-size: 18px;
-  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.8);
-  &:hover {
-    background-color: white;;
-    border: solid 2px #F78764;
-    color: #F78764;
-  }
+  height: 45px;
+  font-size: 20px;
+  margin-top: 20px;
+  justify-content: center;
+  text-shadow: 3px;
 }
 
 .mini-card-result-show-1{
@@ -64,18 +67,17 @@
   width: 80px;
   height: 140px;
   margin: 6px;
-  padding-top: 12px;
-  text-align: center;
+  padding: 12px;
   border-radius: 10px;
   background-color: white;
-  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.8);
+  box-shadow:  0 0 0px 0 rgba(139, 122, 122, 0.8);
   line-height: 0.1em;
   i{
     font-size: 20px;
   }
   #logement{
     font-size: 10px;
-    text-align: center;
+
     line-height: 0.1em;
   }
   #price-place{
@@ -96,7 +98,7 @@
   margin: 6px;
   border-radius: 10px;
   background-color: white;
-  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.8);
+  box-shadow:  0 0 0px 0 rgba(139, 122, 122, 0.8);
   line-height: 0.1em;
   i{
     font-size: 20px;
@@ -122,7 +124,7 @@
   margin: 6px;
   border-radius: 10px;
   background-color: white;
-  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.8);
+  box-shadow:  0 0 0px 0 rgba(139, 122, 122, 0.8);
   line-height: 0.1em;
   i{
     font-size: 20px;
@@ -149,7 +151,7 @@
   margin: 6px;
   border-radius: 10px;
   background-color: white;
-  box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.8);
+  box-shadow:  0 0 0px 0 rgba(139, 122, 122, 0.8);
   line-height: 0.1em;
   i{
     font-size: 20px;
