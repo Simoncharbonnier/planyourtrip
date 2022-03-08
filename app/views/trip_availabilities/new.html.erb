@@ -10,7 +10,7 @@
     <% if current_user == @trip.user %>
       <section>
         <% url = "http://localhost:3000/trips/#{@trip.id}/trip_availabilities/new" %>
-        <button class="button-orange" onclick="setClipboard(`<%= url %>`)">Copier le lien</button>
+        <button class="button-orange" onclick="setClipboard(`<%= url %>`)">Invitez vos amis</button>
       </section>
     <% end %>
   </div>
