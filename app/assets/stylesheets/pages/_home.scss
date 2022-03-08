@@ -51,6 +51,7 @@ button {
   justify-content: space-around;
   align-items: center;
   background-color: rgba(138, 151, 254, 0.10);
+  margin-bottom: 30px;
 }
 
 .info-card {
@@ -67,4 +68,49 @@ button {
   color: #F78764;
   font-size: 20px;
   text-align: center;
+}
+
+.strength-card {
+  display: flex;
+  padding: 30px;
+  justify-content: space-around;
+  height: 500px;
+  margin-bottom: 30px;
+}
+
+.reverse-card {
+  flex-direction: row-reverse;
+  background-color: rgba(138, 151, 254, 0.10);
+}
+.strength-info-text {
+width: 20vw;
+
+h2 {
+  font-family: 'Vollkorn', serif;
+  font-size: 40px;
+  font-weight: bolder;
+}
+p {
+  font-size: 20px;
+}
+}
+
+.strenght-img {
+  border-radius: 20px;
+  background-size: cover;
+  width: 60vw;
+}
+
+.dates-img {
+  background-image: url('dates.png');
+}
+
+.location-img {
+  background-image: url('location.png');
+  background-position: bottom;
+}
+
+.dashboard-img {
+  background-image: url('dashboard.png');
+  background-position: top;
 }
