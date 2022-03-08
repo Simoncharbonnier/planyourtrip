@@ -81,7 +81,7 @@
           </div>
       </div>
       <div class="todo">
-        <h1 class="title-dashboard"><strong><%=@trip.place_proposal.place.city%></strong>, <%= @trip.place_proposal.place.country %></h1>
+        <h1 class="title-dashboard"><strong><%=@trip.place_proposal.place.city%></strong></h1>
         <p class="date-dashboard"><%= @trip.trip_availabilities.first.start_at.strftime('%d') %> - <%= @trip.trip_availabilities.first.end_at.strftime("%d #{ I18n.t("date.month_names")[@trip.month] } %Y") %></p>
         <div class="avatar-dashboard">
           <%@trip.subscriptions.each do |name| %>
