@@ -2,34 +2,8 @@
   <div class="img">
     <h1 id="hero-title">Organisez votre voyage <br>SIM-PLE-MENT !</h1>
   </div>
-  <button id="Btn" class="button-orange-xxl mt-4">Nouveau voyage</button>
-    <div id="Modal" class="modal-new-trip">
-      <div class="modal-content-new-trip">
-        <div class="form-trip-title flex">
-          <h1>Crée ton meilleur trip !</h1>
-          <i class="Close far fa-times-circle"></i>
-        </div>
-        <%= simple_form_for(@trip) do |f| %>
-          <div class="flex" id="name-month">
-            <%= f.input :name, label: false, placeholder: "Nom du voyage", class: "input", id: "name-trip-input"%>
-            <%= f.input :month, collection: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
-              label: false, prompt: "Mois", class: "input" %>
-          </div>
-          <div class="flex" id="button-form-week">
-            <div>
-              <%= f.input :time_span,
-                as: :radio_buttons,
-                collection_wrapper_tag: 'div',
-                collection_wrapper_class: 'category-wrapper-1',
-                item_wrapper_class: 'category-item-1',
-                input_html: {class: 'category-selector-1'},
-                collection: ["Semaine", "Week-end"] %>
-            </div>
-            <%= f.submit "Valider", class: "button-orange"%>
-          </div>
-        <% end %>
-      </div>
-    </div>
+  <button id="Btn" class="button-orange-xxl mt-4" >Nouveau voyage</button>
+
   <h3>Explorez comme jamais auparavant</h3>
 </div>
 
@@ -47,9 +21,9 @@
 </div>
 
 <script>
-  var modal = document.getElementById("Modal");
+  var modal = document.getElementById("myModal");
   var btn = document.getElementById("Btn");
-  var span = document.getElementsByClassName("Close")[0];
+  var span = document.getElementsByClassName("close")[0];
 
   btn.onclick = function() {
     modal.style.display = "block";
