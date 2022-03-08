@@ -9,8 +9,8 @@
     <% end %>
     <% if current_user == @trip.user %>
       <section>
-        <input type="text" id="codemob" value="<%= "http://localhost:3000/trips/#{@trip.id}/trip_availabilities/new" %>" readonly>
-        <button class="button-orange" data-copytarget="#codemob">Copier</b>
+        <% url = "http://localhost:3000/trips/#{@trip.id}/trip_availabilities/new" %>
+        <button class="button-orange" onclick="setClipboard(`<%= url %>`)">Copier le lien</button>
       </section>
     <% end %>
   </div>
@@ -101,29 +101,16 @@
     <div class="swiper-button-next button-orange-xxl" data-action="click->button#next" data-button-target="next">Suivant</div>
     <div class="swiper-button-prev button-grey-xxl d-none" data-action="click->button#previous" data-button-target="previous">Précédent</div>
   </div>
-
-  <script>
-    (function() {
-      'use strict';
-      document.body.addEventListener('click', copy, true);
-      function copy(e) {
-        var
-          t = e.target,
-          c = t.dataset.copytarget,
-          inp = (c ? document.querySelector(c) : null);
-        if (inp && inp.select) {
-          inp.select();
-          try {
-            document.execCommand('copy');
-            inp.focus();
-            t.classList.add('copied');
-            setTimeout(function() { t.classList.remove('copied'); }, 2500);
-          }
-          catch (err) {
-            alert('Une erreur est survenue. Faites un CTRL+C pour copier le code promo ou clique droit puis "copier".');
-          }
-        }
-      }
-    })();
-  </script>
 </div>
+
+<script>
+  function setClipboard(value) {
+    var tempInput = document.createElement("input");
+    tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+    tempInput.value = value;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+  }
+</script>
