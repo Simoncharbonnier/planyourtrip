@@ -1,5 +1,6 @@
 class Trip < ApplicationRecord
   has_many :subscriptions
+  has_many :users, through: :subscriptions
   has_many :trip_availabilities
   has_many :availabilities, through: :trip_availabilities
 

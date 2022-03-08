@@ -27,7 +27,9 @@
                 <p><i class="fas fa-beer"></i><p id="beer">BIERE</p><p id="price-beer"><%= place_proposal.place.pint_cost %></p>
               </div>
               <div class="button-show-card">
-                <%= link_to "Voter", trip_votes_path(@trip, pp: place_proposal), method: :post, class: "btn button-vote" %>
+                <% unless @trip.votes.find_by(user: current_user) %>
+                  <%= link_to "Voter", trip_votes_path(@trip, pp: place_proposal), method: :post, class: "btn button-vote" %>
+                <% end %>
               </div>
               <div class="footer-card-show">
                 <div class="footer-card-show-icon">

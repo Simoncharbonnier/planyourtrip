@@ -1,11 +1,18 @@
 <div class="container">
   <h3 class="title-form"><%= "#{@trip.name}" %></h3>
   <div class="header flex justify-content-between align-items-center">
-    <p class="subtitle-form"><strong><%= "Entrez vos disponibilités pour le mois de #{Date::MONTHNAMES[@trip.month]} et proposez une destination !" %></strong></p>
-    <section>
-      <input type="text" id="codemob" value="<%= "http://localhost:3000/trips/#{@trip.id}/trip_availabilities/new" %>" readonly>
-      <button class="button-orange" data-copytarget="#codemob">Copier</b>
-    </section>
+    <% if @trip.users.include?(current_user) %>
+      <p class="subtitle-form"><strong><%= "Entrez vos disponibilités pour les semaines du mois de #{I18n.t("date.month_names")[@trip.month]} et proposez la prochaine destination !" %></strong></p>
+    <% else %>
+      <p>Rejoignez le voyage</p>
+      <%= link_to "Rejoindre", trip_subscriptions_path(@trip), method: :post %>
+    <% end %>
+    <% if current_user == @trip.user %>
+      <section>
+        <input type="text" id="codemob" value="<%= "http://localhost:3000/trips/#{@trip.id}/trip_availabilities/new" %>" readonly>
+        <button class="button-orange" data-copytarget="#codemob">Copier</b>
+      </section>
+    <% end %>
   </div>
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -15,13 +22,6 @@
             <div class="flex header-name">
               <div class="name"></div>
               <div class="flex">
-                <% if !(Subscription.where(user: current_user, trip: @trip).first) %>
-                  <div class="card-avatar names">
-                    <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{current_user.ghname}", class:"avatar"  %>
-                    <p class="first-name"><%= current_user.username.capitalize %></p>
-                    <div class="check"></div>
-                  </div>
-                <% end %>
                 <% @trip.subscriptions.each do |sub| %>
                   <div class="card-avatar names">
                     <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{sub.user.ghname}", class:"avatar"  %>
@@ -45,13 +45,6 @@
                   <p>Semaine <%= index + 1 %></p>
                   <p><%= "#{ta.start_at.day} - #{ta.end_at.day} #{Date::MONTHNAMES[ta.start_at.month]}" %></p>
                 </div>
-                <% if !(Subscription.where(user: current_user, trip: @trip).first) %>
-                  <div class="flex av">
-                    <div class="flex" data-controller="availabilities" data-availabilities-target="container">
-                      <%= render "add_button", trip_av: ta %>
-                    </div>
-                  </div>
-                <% end %>
                 <% @trip.subscriptions.each do |sub| %>
                   <div class="flex av">
                     <% av = Availability.where(user_id: sub.user.id, trip_availability_id: ta.id).first %>
