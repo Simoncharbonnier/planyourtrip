@@ -1,11 +1,10 @@
 <% if @trip.status == "voting" %>
   <div class="container title-wrapper">
-      <div class="show-title-text">
-        <h2 class="show-h2"><strong><%=@trip.name%></strong></h2>
-        <p class="show-tilte-subtitle">Ça colle pour tout le monde du <%= @trip.trip_availabilities.first.start_at.strftime('%d') %> au <%= @trip.trip_availabilities.first.end_at.strftime('%d ') %><%= I18n.t("date.month_names")[@trip.month] %> !</p>
-      </div>
-    <div class="title-show"></div>
-    <p id="subtitle-show">Dépêchez-vous, vos amis attendent votre vote !</p>
+    <div class="show-title-text">
+      <h2 class="show-h2"><%=@trip.name%></h2>
+      <p class="show-tilte-subtitle">Ça colle pour tout le monde du <strong><%= @trip.trip_availabilities.first.start_at.strftime('%d') %> au <%= @trip.trip_availabilities.first.end_at.strftime('%d ') %><%= I18n.t("date.month_names")[@trip.month] %></strong> !</p>
+    </div>
+    <p id="subtitle-show"><em>Dépêchez-vous, vos amis attendent votre vote !</em></p>
   </div>
 
   <div class="container d-flex">
