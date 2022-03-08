@@ -144,10 +144,12 @@ Vote.create!(user: fabien, place_proposal: place_proposal4)
 p "Votes seed done !"
 
 # tasks
-
-task1 = Task.create!(name: "Réserve ton billet d'avion", trip: trip2)
-task2 = Task.create!(name: "Réserver le logement", trip: trip2)
-
+Task.create!(name: "Billet d'avion", trip: trip1)
+Task.create!(name: "Logement", trip: trip1)
+Task.create!(name: "Billet d'avion", trip: trip2)
+Task.create!(name: "Logement", trip: trip2)
+Task.create!(name: "Billet d'avion", trip: trip3)
+Task.create!(name: "Logement", trip: trip3)
 p "Tasks seed done !"
 
 # messages

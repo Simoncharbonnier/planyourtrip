@@ -82,7 +82,7 @@
           <%= simple_form_for([@trip, @task], remote: true, html: {class: "d-flex"}) do |f| %>
             <div class="input-group">
               <%= f.input :name, label: false, class: "form-control", placeholder: "Ajouter un To-Do",  wrapper_html: {class: "flex-grow-1 msg-wrapper"} %>
-              <button class= "btn btn-send">
+              <button class="btn btn-send">
                 <i class="fas fa-plus"></i>
               </button>
             </div>
@@ -91,12 +91,12 @@
             <div class="task">
               <div class="header-task task-infos">
                 <p class="task-name"></p>
-                  <%@trip.subscriptions.sort_by { |sub| sub.user.username }.each do |name| %>
-                    <div class="to-do-header">
-                      <%=  image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"),class:"avatar"  %>
-                      <p class="first-name"><%=name.user.username.capitalize%></p>
-                    </div>
-                  <% end %>
+                <%@trip.subscriptions.sort_by { |sub| sub.user.username }.each do |name| %>
+                  <div class="to-do-header">
+                    <%=  image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"),class:"avatar"  %>
+                    <p class="first-name"><%=name.user.username.capitalize%></p>
+                  </div>
+                <% end %>
               </div>
             </div>
             <% @trip.tasks.each do |task| %>
