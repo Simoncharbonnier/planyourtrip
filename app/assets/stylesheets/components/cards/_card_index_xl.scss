@@ -1,56 +1,149 @@
-.card-index-xl{
+.card-index-xl {
+  width: 580px;
   position: relative;
-  width: 850px;
-  height: 350px;
-  margin-top: 5px;
 
-  .card-index-xl-img{
-    width: 750px;
-    height: 350px;
+  .card-index-xl-img {
+    padding: 2rem;
     border-radius: 10px;
     background-size: cover;
     box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
   }
-  #card-index-title{
-    font-size:30px;
-    position: absolute;
-    top: 30px;
-    left: 20px;
-    font-weight: bold;
+
+  #card-index-xl-title {
+    font-weight: bolder;
     color: white;
   }
-  #card-index-date{
-    position: absolute;
-    top: 70px;
-    left: 20px;
+
+  #card-index-xl-date {
     color:white;
-    i{
-      font-size:22px;
+    font-weight: lighter;
+
+    i {
+      font-size: 20px;
+      margin-right: 10px;
     }
   }
-  .card-index-texte{
-    font-size: 12px;
+
+  .card-index-xl-texte {
+    color:white;
+    margin-bottom: 2rem;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .link{
+    display: grid;
+    place-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #F78764;
+    border-radius: 10px;
     color:white;
     position: absolute;
-    top: 120px;
-    left: 20px;
-    width: 220px;
-    height: 48px;
-    text-align: justify;
+    top: 0;
+    right: 0;
+    margin: 2rem;
+
+    i {
+      color: white;
+      font-size: 14px;
+    }
   }
-  .footer-card-index-xl{
-    position: absolute;
-    top: 305px;
-    left: 20px;
-  }
-  .card-avatar-orange{
+
+  .card-avatar-orange {
     display: flex;
   }
-  .container-card-avatar-orange{
+
+  .container-card-avatar-orange {
     display: flex;
-    top: 70px;
-    right: 70px;
-    height: 140px;
-    position: absolute;
+    flex-direction: column;
   }
+
+  .no-show {
+    opacity: 0;
+  }
+
+  .footer-card-index-xl {
+    display: flex;
+    justify-content: center;
+  }
+  .mini-avatar {
+    flex-direction: column;
+    height: 80px;
+    color: #F78764;
+    padding: .5rem 2rem;
+    border: 2px solid #F78764;
+    margin-bottom: 10px;
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+// PROGRESS BAR
+#progressbar {
+  overflow: hidden;
+  color: lightgrey;
+  padding: 0;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+#progressbar .active {
+  color: #F78764;
+}
+
+#progressbar li {
+  list-style-type: none;
+  font-size: 15px;
+  z-index: 1;
+  width: 25%;
+  float: left;
+  position: relative;
+  font-weight: 400;
+  text-align: center;
+}
+
+#progressbar #calendar:before {
+  font-family: FontAwesome;
+  content: "\f274";
+}
+
+#progressbar #destination:before {
+  font-family: FontAwesome;
+  content: "\f7a2";
+}
+
+#progressbar li:before {
+  width: 50px;
+  height: 50px;
+  line-height: 45px;
+  display: grid;
+  place-content: center;
+  font-size: 20px;
+  color: #ffffff;
+  background: lightgray;
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+  padding: 2px;
+}
+
+#progressbar li:after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: lightgray;
+  position: absolute;
+  left: 0;
+  top: 25px;
+  z-index: -1;
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+  background: #F78764
 }

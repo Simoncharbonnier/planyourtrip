@@ -5,10 +5,14 @@
 
 .cards-grid-wrapper {
   width: 70vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 10px;
 }
 
 .trips-tabs {
   width: 25%;
+
   .trips-tab {
     .nav-link {
       font-size: 22px;
@@ -42,4 +46,10 @@
   color: #8A97FE;
   font-weight: bold;
   font-family: 'Vollkorn', serif;
+}
+
+.container-card-xl-index{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3rem;
 }
