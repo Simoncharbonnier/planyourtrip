@@ -14,7 +14,7 @@
       </section>
     <% end %>
   </div>
-  <div class="swiper">
+  <div class="swiper" data-controller="button">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
         <div class="form flex">
@@ -98,8 +98,8 @@
         </div>
       </div>
     </div>
-    <div class="swiper-button-next button-orange-xxl">Suivant</div>
-    <div class="swiper-button-prev button-grey-xxl">Précédent</div>
+    <div class="swiper-button-next button-orange-xxl" data-action="click->button#next" data-button-target="next">Suivant</div>
+    <div class="swiper-button-prev button-grey-xxl d-none" data-action="click->button#previous" data-button-target="previous">Précédent</div>
   </div>
 
   <script>
