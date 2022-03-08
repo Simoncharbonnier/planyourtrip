@@ -40,8 +40,10 @@ class TripsController < ApplicationController
     @trip.month = months.index(params[:trip][:month])
     @trip.user_id = current_user.id
 
+
     if @trip.save
       @trip.save
+
 
       weeks = Date.new(2022, @trip.month, 1).week_split
       if @trip.time_span == "Semaine"
