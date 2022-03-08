@@ -74,11 +74,11 @@
   border: 1px solid #EAEAEA;
   border-radius: 4px;
   padding: 10px 10px;
-  margin: 0 10px;
+  margin: 0;
+  margin-right: 15px;
   background-color: white;
   text-align: center;
 }
-
 .category-selector-1:checked + label {
   background-color: rgba(138, 151, 254, 0.10);
   font-weight: bolder;

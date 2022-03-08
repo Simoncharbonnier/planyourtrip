@@ -25,15 +25,13 @@
                         label: false, prompt: "Mois", class: "input" %>
                     </div>
                     <div class="flex" id="button-form-week">
-                      <div>
-                        <%= f.input :time_span,
-                          as: :radio_buttons,
-                          collection_wrapper_tag: 'div',
-                          collection_wrapper_class: 'category-wrapper-1',
-                          item_wrapper_class: 'category-item-1',
-                          input_html: {class: 'category-selector-1'},
-                          collection: ["Semaine", "Week-end"] %>
-                      </div>
+                      <%= f.input :time_span,
+                        as: :radio_buttons,
+                        collection_wrapper_tag: 'div',
+                        collection_wrapper_class: 'category-wrapper-1',
+                        item_wrapper_class: 'category-item-1',
+                        input_html: {class: 'category-selector-1'},
+                        collection: ["Semaine", "Week-end"] %>
                       <%= f.submit "Valider", class: "button-orange"%>
                     </div>
                   <% end %>

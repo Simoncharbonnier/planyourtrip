@@ -24,7 +24,7 @@
               </h5>
               <p id="card-index-xl-dispo-date">
                 <i class="fas fa-calendar-alt"></i>
-                <%= I18n.t("date.month_names")[trip.month] %>
+                &nbsp<%= I18n.t("date.month_names")[trip.month].capitalize %>
               </p>
               <div class="card-index-xl-dispo-texte">
                 <p>Nous attentons encore les <br> disponibilités de vos amis et leurs propositions de destination.</p>
@@ -75,7 +75,7 @@
               </h5>
               <p id="card-index-xl-vote-date">
                 <i class="fas fa-calendar-alt"></i>
-                <%= trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %>
+                &nbsp<%= trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %>
               </p>
               <div class="card-index-xl-vote-texte">
                 <% if trip.votes.find_by(user: current_user) %>
@@ -133,7 +133,7 @@
                 </h5>
                 <p id="card-index-date">
                   <i class="fas fa-calendar-alt"></i>
-                  <%= trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %>
+                  &nbsp<%= trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %>
                 </p>
                 <div class="card-index-texte">
                   <p>Découvrez la ville choisie par vous et vos amis puis confirmez votre présence. <br>
@@ -183,7 +183,7 @@
                     <p id="card-index-texte"><%= trip.name %></p>
                     <p id="card-index-date">
                       <i class="fas fa-calendar-alt"></i>
-                      <%= trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %>
+                      &nbsp<%= trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %>
                     </p>
                     <div class="container-mini-avatar">
                       <div class="card-index-footer">
