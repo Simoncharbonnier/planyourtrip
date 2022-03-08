@@ -5,7 +5,7 @@
   <div class="task-done-status">
     <p><%= icon_for(user_task.done?) %> </p>
   </div>
-<% end %>
+  <% end %>
 <% else %>
   <%= link_to "#", "data-action": "click->complete-task#done", "data-id": user_task.id do %>
     <i class="fas fa-square to-check"></i>

@@ -130,6 +130,12 @@
     color: white;
   }
 }
+.form-control:focus {
+  box-shadow: none;
+}
+.btn-send:focus {
+  box-shadow: none;
+}
 .todo{
   width: 40vw;
 

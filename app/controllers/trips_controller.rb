@@ -39,6 +39,7 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.month = months.index(params[:trip][:month])
     @trip.user_id = current_user.id
+
     if @trip.save
       @trip.save
 
