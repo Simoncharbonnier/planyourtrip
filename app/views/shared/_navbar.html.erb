@@ -14,14 +14,14 @@
             <div id="myModal" class="modal-new-trip">
               <div class="modal-content-new-trip">
                 <div class="form-trip-title flex">
-                  <h1>Crée ton meilleur trip!</h1>
+                  <h1 class= "title-modal-new">Crée ton meilleur trip!</h1>
                   <i class="close far fa-times-circle"></i>
                 </div>
                 <%= simple_form_for(@trip) do |f| %>
                   <%= f.input :name, label: false, placeholder: "Nom du voyage", class: "input" %>
                   <div class="flex">
                   <%= f.input :month, collection: (1..12), label: false, placeholder: "Mois", class: "input" %>
-                  <%= f.input :time_span, collection: ["Semaine", "Week-end"], label: false, class: "input" %>
+                  <%= f.input :time_span, collection: ["Week", "Week-end"], label: false, class: "input" %>
                   </div>
                   <div class="center">
                     <%= f.submit class: "button-orange"%>
