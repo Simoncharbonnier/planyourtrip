@@ -57,11 +57,14 @@
   margin-top: 15px;
 }
 .chat{
+  overflow: auto;
   width: 60vw;
   background-color: rgba(138, 151, 254, 0.10);
   padding: 15px;
   margin-right: 20px;
   border-radius: 20px;
+  max-height: 600px;
+  margin-bottom: 30px;
 
   .form-control {
     background-color: white;
@@ -87,8 +90,16 @@
     align-items: center;
   }
 
+  .reverse {
+    flex-direction: row-reverse;
+  }
+
   .message-infos {
     margin-left: 10px;
+  }
+
+  .current-infos {
+    margin-right: 10px;
   }
 
   .message-author {
@@ -98,11 +109,21 @@
     font-weight: bold;
   }
 
+  .current-author {
+    text-align: right;
+  }
+
   .message-content {
     background-color: white;
     border-radius: 5px;
     padding: 10px 10px;
     font-size: 20px;
+    color: #8A97FE;
+  }
+
+  .current-content {
+    background-color: #8A97FE;
+    color: white;
   }
 
   .fa-paper-plane {
@@ -133,6 +154,23 @@
     color: white;
   }
 
+  .to-do-header {
+    background-color: white;
+    color: #8A97FE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-task {
+    background-color: white !important;
+  }
+
+  .first-name {
+    font-size: 16px !important;
+    text-align: center;
+  }
+
   .task-infos {
     display: flex;
     justify-content: space-between;
@@ -149,11 +187,13 @@
     }
 
     i{
-      font-size: 20px;
+      font-size: 40px;
+      color: #8A97FE;
     }
 
     .to-check {
       font-size: 40px;
+      color: #8A97FE;
     }
 
     .task-name {
@@ -164,6 +204,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 40px;
     }
   }
 }

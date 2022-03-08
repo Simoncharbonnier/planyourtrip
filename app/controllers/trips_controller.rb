@@ -42,9 +42,6 @@ class TripsController < ApplicationController
     if @trip.save
       @trip.save
 
-      Task.create(trip: @trip, name: "Réserver les billets")
-      Task.create(trip: @trip, name: "Réserver l'hébergement")
-
       weeks = Date.new(2022, @trip.month, 1).week_split
       if @trip.time_span == "Semaine"
         weeks.each do |week|
