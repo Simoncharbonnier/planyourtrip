@@ -1,0 +1,17 @@
+<% if message.user == current_user %>
+  <div class="reverse message">
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{message.user.ghname}", class: "avatar-chat" %>
+    <div class="current-infos message-infos">
+      <p class="current-author message-author"><%= message.user.username.capitalize %></p>
+      <p class="current-content message-content"><%= message.content %></p>
+    </div>
+  </div>
+<% else %>
+  <div class="message">
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{message.user.ghname}", class: "avatar-chat" %>
+    <div class="message-infos">
+      <p class="message-author"><%= message.user.username.capitalize %></p>
+      <p class="message-content"><%= message.content %></p>
+    </div>
+  </div>
+<% end %>

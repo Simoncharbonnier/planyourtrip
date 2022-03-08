@@ -70,23 +70,7 @@
         <% end %>
           <div class="messages">
             <% @messages.each do |message| %>
-              <% if message.user == current_user %>
-                <div class="reverse message">
-                  <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{message.user.ghname}", class: "avatar-chat" %>
-                  <div class="current-infos message-infos">
-                    <p class="current-author message-author"><%= message.user.username.capitalize %></p>
-                    <p class="current-content message-content"><%= message.content %></p>
-                  </div>
-                </div>
-              <% else %>
-                <div class="message">
-                  <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{message.user.ghname}", class: "avatar-chat" %>
-                  <div class="message-infos">
-                    <p class="message-author"><%= message.user.username.capitalize %></p>
-                    <p class="message-content"><%= message.content %></p>
-                  </div>
-                </div>
-              <% end %>
+              <%= render "trips/message", message: message %>
             <% end %>
           </div>
       </div>
@@ -117,20 +101,8 @@
             </div>
             <% @trip.tasks.each do |task| %>
               <div class="task">
-                <div class="task-infos">
-                  <p class="task-name"><%= task.name.capitalize %></p>
-                  <% user_task = UserTask.find_by(user: current_user, task: task) %>
-                  <% if user_task.done %>
-                    <% task.user_tasks.sort_by { |utask| utask.user.username }.each do |user_task| %>
-                      <div class="task-done-status">
-                        <p><%= icon_for(user_task.done?) %> </p>
-                      </div>
-                    <% end %>
-                  <% else %>
-                    <%= link_to done_user_task_path(user_task), method: :patch do %>
-                      <i class="fas fa-square to-check"></i>
-                    <% end %>
-                  <% end %>
+                <div class="task-infos" data-controller="complete-task" data-complete-task-target="task">
+                  <%= render "complete_task", task: task %>
                 </div>
               </div>
             <% end %>
