@@ -10,13 +10,15 @@
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-
+#myModal {
+  z-index: 100;
+}
 /* Modal Content/Box */
 .modal-content-new-trip {
   background-color: white;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto;
   padding: 20px;
-  width: 60%; /* Could be more or less, depending on screen size */
+  width: 60%;
   .input {
     border-radius: 10px;
   }
@@ -41,4 +43,57 @@
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.category-wrapper-1 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.trip_time_span {
+  legend {
+    display: none;
+  }
+}
+.category-item-1 {
+  flex: 0 0 30%;
+}
+
+.category-selector-1 {
+  position: absolute;
+  transform: scale(0);
+  padding: 40px 10px;
+}
+
+.category-selector-1 + label {
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 120px;
+  font-size: 15px;
+  text-align: left;
+  border: 1px solid #EAEAEA;
+  border-radius: 4px;
+  padding: 10px 10px;
+  margin: 0 10px;
+  background-color: white;
+  text-align: center;
+}
+
+.category-selector-1:checked + label {
+  background-color: rgba(138, 151, 254, 0.10);
+  font-weight: bolder;
+}
+
+#trip_name {
+  width: 200%;
+}
+#trip_month {
+  width: 200%;
+}
+#name-month {
+  justify-content: space-between;
+  width: 85%;
+}
+#button-form-week {
+  justify-content: space-between;
 }

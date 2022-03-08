@@ -42,7 +42,11 @@
             <% @trip_availabilities.each_with_index do |ta, index| %>
               <div class="flex ta">
                 <div class="flex week">
-                  <p>Semaine <%= index + 1 %></p>
+                  <% if @trip.time_span == "Semaine" %>
+                    <p>Semaine <%= index + 1 %></p>
+                  <% else %>
+                    <p>Week-end <%= index + 1 %></p>
+                  <% end %>
                   <p><%= "#{ta.start_at.day} - #{ta.end_at.day} #{Date::MONTHNAMES[ta.start_at.month]}" %></p>
                 </div>
                 <% @trip.subscriptions.each do |sub| %>
@@ -83,7 +87,7 @@
               <% Place.all.each do |place| %>
                 <div class="category-item">
                   <input class="form-check-input radio_buttons required category-selector" type="radio" value="<%= place.id %>" name="place_proposal[place_id]" id="place_proposal_place_id_<%= place.id %>">
-                  <label class="form-check-label collection_radio_buttons" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path place.photo.key, crop: :fill, height: 400 %>'); background-size: cover; background-repeat: no-repeat)" for="place_proposal_place_id_<%= place.id %>"><p><%= place.city %></p></label>
+                  <label class="form-check-label label-pp collection_radio_buttons" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path place.photo.key, crop: :fill, height: 400 %>'); background-size: cover; background-repeat: no-repeat)" for="place_proposal_place_id_<%= place.id %>"><p><%= place.city %></p></label>
                 </div>
               <% end %>
             </div>
