@@ -4,10 +4,10 @@
   <%# TABS %>
   <ul class="nav nav-tabs nav-fill trips-tabs" id="myTab" role="tablist" >
     <li class="nav-item trips-tab" role="presentation">
-      <button class="nav-link active" id="pending-trips-tab" data-bs-toggle="tab" data-bs-target="#pending-trips" type="button" role="tab" aria-controls="pending-trips" aria-selected="true">En attente</button>
+      <div class="nav-link active" id="pending-trips-tab" data-bs-toggle="tab" data-bs-target="#pending-trips" type="button" role="tab" aria-controls="pending-trips" aria-selected="true">En attente</d>
     </li>
     <li class="nav-item trips-tab" role="presentation">
-      <button class="nav-link" id="confirmed-trips-tab" data-bs-toggle="tab" data-bs-target="#confirmed-trips" type="button" role="tab" aria-controls="confirmed-trips" aria-selected="false">Confirmés</button>
+      <div class="nav-link" id="confirmed-trips-tab" data-bs-toggle="tab" data-bs-target="#confirmed-trips" type="button" role="tab" aria-controls="confirmed-trips" aria-selected="false">Confirmés</div>
     </li>
   </ul>
 
@@ -44,7 +44,7 @@
                     <p id="card-index-texte"><%= trip.name %></p>
                     <p id="card-index-date">
                       <i class="fas fa-calendar-alt"></i>
-                      <%= trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %>
+                      &nbsp<%= trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %>
                     </p>
                     <div class="container-mini-avatar">
                       <div class="card-index-footer">
@@ -81,3 +81,16 @@
 <% @my_confirmed_trips.each do |trip| %>
   <%= render "shared/result", trip: trip %>
 <% end %>
+
+
+<script>
+  function setClipboard(value) {
+    var tempInput = document.createElement("input");
+    tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+    tempInput.value = value;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+  }
+</script>

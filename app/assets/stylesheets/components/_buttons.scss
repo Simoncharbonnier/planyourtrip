@@ -15,6 +15,7 @@ a {
   &:hover {
     background-color: #F78764;
     color: white;
+    box-shadow: none;
   }
 }
 .button-orange{
@@ -111,6 +112,7 @@ a {
   text-align: center;
   width: 240px;
   font-size: 18px;
+  border: none;
   box-shadow: 0 4px 8px 0 rgba(139, 122, 122, 0.2);
   &:hover {
     background-color: #F78764;;
@@ -130,6 +132,7 @@ a {
   &:hover {
     background-color: #8A97FE;
     color: white;
+    box-shadow: none;
   }
 }
 .button-grey-xxl {
@@ -145,5 +148,10 @@ a {
   &:hover {
     background-color: #DFDFDF;
     color: black;
+    box-shadow: none;
   }
+}
+
+.link-button {
+  padding: 0;
 }

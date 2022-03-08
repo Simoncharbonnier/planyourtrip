@@ -11,4 +11,20 @@ class SubscriptionsController < ApplicationController
       render "trip_availabilities/show"
     end
   end
+
+  def update
+    @trip = Trip.find(params[:trip_id])
+    @subscription = Subscription.find(params[:id])
+    @subscription.status = "accepted"
+    @subscription.save
+
+    redirect_to trip_path(@trip)
+  end
+
+  def destroy
+    @subscription = Subscription.find(params[:id])
+    @subscription.destroy
+
+    redirect_to trips_path
+  end
 end

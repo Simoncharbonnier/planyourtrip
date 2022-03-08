@@ -8,32 +8,34 @@
   grid-template-columns: auto auto;
 }
 .show-title-text{
-    position: relative;
-    top: 5.5em;
-    left: 2em;
+  background-color: rgba(138, 151, 254, 0.10);
+  border-radius: 10px;
+  padding: 10px;
 }
 .show-h2 {
-  font-size: 24px;
-  line-height: 0.4em;
+  font-size: 27px;
+  font-family: 'Vollkorn';
+  padding: 10px;
+  margin: 0;
+  font-weight: bolder;
 }
 .show-tilte-subtitle{
-  font-size: 20px;
+  font-size: 25px;
+  font-family: 'Vollkorn';
+  padding: 10px;
+  margin: 0;
 }
 .title-show{
   width: 100%;
   height: 80px;
-  background-color: #8A97FE;
-  opacity: 0.2;
-  padding: 10px;
-  text-align: left;
-  border-radius: 10px;
 }
 #subtitle-show{
   color:#F78764;
-  position: relative;
-  left: 1.8em;
   margin-top: 10px;
-  font-size: 18px;
+  padding-left: 10px;
+  font-size: 22px;
+  font-family: 'Vollkorn';
+  font-weight: bold;
 }
 #map{
   height: 100vh;
@@ -57,11 +59,14 @@
   margin-top: 15px;
 }
 .chat{
+  overflow: auto;
   width: 60vw;
   background-color: rgba(138, 151, 254, 0.10);
   padding: 15px;
   margin-right: 20px;
   border-radius: 20px;
+  max-height: 600px;
+  margin-bottom: 30px;
 
   .form-control {
     background-color: white;
@@ -87,8 +92,16 @@
     align-items: center;
   }
 
+  .reverse {
+    flex-direction: row-reverse;
+  }
+
   .message-infos {
     margin-left: 10px;
+  }
+
+  .current-infos {
+    margin-right: 10px;
   }
 
   .message-author {
@@ -98,16 +111,32 @@
     font-weight: bold;
   }
 
+  .current-author {
+    text-align: right;
+  }
+
   .message-content {
     background-color: white;
     border-radius: 5px;
     padding: 10px 10px;
     font-size: 20px;
+    color: #8A97FE;
+  }
+
+  .current-content {
+    background-color: #8A97FE;
+    color: white;
   }
 
   .fa-paper-plane {
     color: white;
   }
+}
+.form-control:focus {
+  box-shadow: none;
+}
+.btn-send:focus {
+  box-shadow: none;
 }
 .todo{
   width: 40vw;
@@ -133,6 +162,23 @@
     color: white;
   }
 
+  .to-do-header {
+    background-color: white;
+    color: #8A97FE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-task {
+    background-color: white !important;
+  }
+
+  .first-name {
+    font-size: 16px !important;
+    text-align: center;
+  }
+
   .task-infos {
     display: flex;
     justify-content: space-between;
@@ -149,11 +195,13 @@
     }
 
     i{
-      font-size: 20px;
+      font-size: 40px;
+      color: #8A97FE;
     }
 
     .to-check {
       font-size: 40px;
+      color: #8A97FE;
     }
 
     .task-name {
@@ -164,6 +212,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 40px;
     }
   }
 }
@@ -171,7 +220,7 @@
   font-size: 60px;
   line-height: 0.8em;
   font-family: 'Vollkorn', serif;
-
+  margin-top: 1rem;
 }
 .date-dashboard{
   color:#F78764;

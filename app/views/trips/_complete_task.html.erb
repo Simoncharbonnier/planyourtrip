@@ -1,0 +1,13 @@
+<p class="task-name"><%= task.name.capitalize %></p>
+<% user_task = UserTask.find_by(user: current_user, task: task) %>
+<% if user_task.done %>
+  <% task.user_tasks.sort_by { |utask| utask.user.username }.each do |user_task| %>
+  <div class="task-done-status">
+    <p><%= icon_for(user_task.done?) %> </p>
+  </div>
+  <% end %>
+<% else %>
+  <%= link_to "#", "data-action": "click->complete-task#done", "data-id": user_task.id do %>
+    <i class="fas fa-square to-check"></i>
+  <% end %>
+<% end %>

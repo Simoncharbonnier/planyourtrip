@@ -2,7 +2,8 @@
   <div class="img">
     <h1 id="hero-title">Organisez votre voyage <br>SIM-PLE-MENT !</h1>
   </div>
-  <button>Nouveau voyage</button>
+  <button id="Btn" class="button-orange-xxl mt-4" >Nouveau voyage</button>
+
   <h3>Explorez comme jamais auparavant</h3>
 </div>
 
@@ -18,3 +19,16 @@
     <p class="info-text"><i class="fas fa-check"></i><br>Organisez-vous <br>sans stress grâce <br>à une To-Do-List <br>interactive</p>
   </div>
 </div>
+
+<script>
+  var modal = document.getElementById("myModal");
+  var btn = document.getElementById("Btn");
+  var span = document.getElementsByClassName("close")[0];
+
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+</script>

@@ -2,14 +2,13 @@
 <div class="modal fade" id="exampleModal<%= trip.id %>" tabindex="-1" aria-labelledby="exampleModalLabel<%= trip.id %>" aria-hidden="true">
   <div class="modal-dialog modal-result-dialog">
     <div class="modal-content modal-container">
-
       <div class="modal-body">
         <div class="container-big d-flex">
-          <div class="img img-result" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://photos.mandarinoriental.com/is/image/MandarinOriental/paris-2017-home?wid=2880&hei=1280&fmt=jpeg&crop=9,336,2699,1200&anchor=1358,936&qlt=75,0&fit=wrap&op_sharpen=0&resMode=sharp2&op_usm=0,0,0,0&iccEmbed=0&printRes=72', crop: :fill, height: 400 %>'); background-size: cover; background-repeat: no-repeat)">
+          <div class="img img-result" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path trip.place_proposal.place.photo.key, crop: :fill, height: 400 %>'); background-size: cover; background-repeat: no-repeat)">
           </div>
           <div class="container-informations">
-          <h1><strong><%= trip.place_proposal.place.city%></strong>,
-          <%= trip.place_proposal.place.country %></h1>
+            <h1><strong><%= trip.place_proposal.place.city%></strong>,
+            <%= trip.place_proposal.place.country %></h1>
             <div class="container-informations-price d-flex">
               <div class="mini-card-result-show-1">
                 <p><i class="fas fa-bed"></i><p id="logement">LOGEMENT</p><p id="price-place">
@@ -28,23 +27,20 @@
                 <%= trip.place_proposal.place.plane_cost %></p>
               </div>
             </div>
-
-
-          <div class="container-informations-avatar d-flex">
-            <% trip.subscriptions.each do |name| %>
-              <div class="card-avatar card-avatar-blue">
-                <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"img-card-avatar-blue"  %>
-                <p class="first-name"><%= name.user.username.capitalize %></p>
-                <div class="check">
-                  <i class="fas fa-check"></i>
+            <div class="container-informations-avatar d-flex">
+              <% trip.subscriptions.each do |name| %>
+                <div class="card-avatar card-avatar-blue">
+                  <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"img-card-avatar-blue"  %>
+                  <p class="first-name"><%= name.user.username.capitalize %></p>
+                  <div class="check">
+                    <i class="fas fa-check"></i>
+                  </div>
                 </div>
-              </div>
-            <% end %>
-          </div>
-
+              <% end %>
+            </div>
             <div class="container-buttons">
-              <%= link_to "Confirme que tu viens !", trip_path(trip), class: "button-orange-xxl button-special" %>
-              <%= link_to "Je passe mon tour ...", trips_path, class: "button-orange-xxl button_inverse" %>
+              <%= link_to "Confirme que tu viens !", trip_subscription_path(trip, Subscription.find_by(user: current_user, trip: trip).id), method: :patch, class: "button-orange-xxl button-special" %>
+              <%= link_to "Je passe mon tour ...", trip_subscription_path(trip, Subscription.find_by(user: current_user, trip: trip).id), method: :delete, class: "button-orange-xxl button_inverse" %>
             </div>
           </div>
         </div>

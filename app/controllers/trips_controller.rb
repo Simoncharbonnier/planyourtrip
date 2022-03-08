@@ -35,36 +35,40 @@ class TripsController < ApplicationController
   end
 
   def create
+    months = ["0", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
     @trip = Trip.new(trip_params)
+    @trip.month = months.index(params[:trip][:month])
     @trip.user_id = current_user.id
-    @trip.save
 
 
+    if @trip.save
+      @trip.save
 
-    weeks = Date.new(2022, @trip.month, 1).week_split
-    if @trip.time_span == "Semaine"
-      weeks.each do |week|
-        sa = Date.new(2022, @trip.month, week[0]) unless week[0].nil?
-        ea = Date.new(2022, @trip.month, week[6]) unless week[6].nil?
-        if sa && ea
-          @ta = TripAvailability.new(trip: @trip, start_at: sa, end_at: ea)
-          @ta.save
+
+      weeks = Date.new(2022, @trip.month, 1).week_split
+      if @trip.time_span == "Semaine"
+        weeks.each do |week|
+          sa = Date.new(2022, @trip.month, week[0]) unless week[0].nil?
+          ea = Date.new(2022, @trip.month, week[6]) unless week[6].nil?
+          if sa && ea
+            @ta = TripAvailability.new(trip: @trip, start_at: sa, end_at: ea)
+            @ta.save
+          end
+        end
+      else
+        weeks.each do |week|
+          sa = Date.new(2022, @trip.month, week[4]) unless week[4].nil?
+          ea = Date.new(2022, @trip.month, week[6]) unless week[6].nil?
+          if sa && ea && (sa.month == ea.month)
+            @ta = TripAvailability.new(trip: @trip, start_at: sa, end_at: ea)
+            @ta.save
+          end
         end
       end
-    else
-      weeks.each do |week|
-        sa = Date.new(2022, @trip.month, week[4]) unless week[4].nil?
-        ea = Date.new(2022, @trip.month, week[6]) unless week[6].nil?
-        if sa && ea && (sa.month == ea.month)
-          @ta = TripAvailability.new(trip: @trip, start_at: sa, end_at: ea)
-          @ta.save
-        end
-      end
+
+      @subscription = Subscription.new(user_id: current_user.id, trip_id: @trip.id, status: "pending")
+      @subscription.save
     end
-
-    @subscription = Subscription.new(user_id: current_user.id, trip_id: @trip.id, status: "pending")
-    @subscription.save
-
     redirect_to new_trip_trip_availability_path(@trip)
   end
 
