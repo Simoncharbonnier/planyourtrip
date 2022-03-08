@@ -144,14 +144,14 @@ p "Votes seed done !"
 
 # tasks
 
-task1 = Task.create!(name: "Réserve ton billet d'avion", trip: trip4)
-task2 = Task.create!(name: "Réserve ton billet d'avion", trip: trip4)
-task3 = Task.create!(name: "Réserve ton billet d'avion", trip: trip4)
-task4 = Task.create!(name: "Réserve ton billet d'avion", trip: trip4)
-task5 = Task.create!(name: "Réserver le logement", trip: trip4)
-task6 = Task.create!(name: "Réserver le logement", trip: trip4)
-task7 = Task.create!(name: "Réserver le logement", trip: trip4)
-task8 = Task.create!(name: "Réserver le logement", trip: trip4)
+# task1 = Task.create!(name: "Réserve ton billet d'avion", trip: trip4)
+# task2 = Task.create!(name: "Réserve ton billet d'avion", trip: trip4)
+# task3 = Task.create!(name: "Réserve ton billet d'avion", trip: trip4)
+# task4 = Task.create!(name: "Réserve ton billet d'avion", trip: trip4)
+# task5 = Task.create!(name: "Réserver le logement", trip: trip4)
+# task6 = Task.create!(name: "Réserver le logement", trip: trip4)
+# task7 = Task.create!(name: "Réserver le logement", trip: trip4)
+# task8 = Task.create!(name: "Réserver le logement", trip: trip4)
 p "Tasks seed done !"
 
 # messages

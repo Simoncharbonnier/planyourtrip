@@ -39,8 +39,8 @@ class TripsController < ApplicationController
     @trip.user_id = current_user.id
     @trip.save
 
-    Task.create(trip: @trip, user: current_user, name: "Réserver les billets")
-    Task.create(trip: @trip, user: current_user, name: "Réserver l'hébergement")
+    Task.create(trip: @trip, name: "Réserver les billets")
+    Task.create(trip: @trip, name: "Réserver l'hébergement")
 
     weeks = Date.new(2022, @trip.month, 1).week_split
     if @trip.time_span == "Semaine"

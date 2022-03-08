@@ -100,8 +100,6 @@ ActiveRecord::Schema.define(version: 2022_03_07_153712) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "name"
-    t.string "description"
-    t.boolean "done", default: false
     t.bigint "trip_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
