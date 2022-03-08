@@ -5,7 +5,7 @@
 
       <div class="modal-body">
         <div class="container-big d-flex">
-          <div class="img img-result" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://photos.mandarinoriental.com/is/image/MandarinOriental/paris-2017-home?wid=2880&hei=1280&fmt=jpeg&crop=9,336,2699,1200&anchor=1358,936&qlt=75,0&fit=wrap&op_sharpen=0&resMode=sharp2&op_usm=0,0,0,0&iccEmbed=0&printRes=72', crop: :fill, height: 400 %>'); background-size: cover; background-repeat: no-repeat)">
+          <div class="img img-result" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path trip.place_proposal.place.photo.key, crop: :fill, height: 400 %>'); background-size: cover; background-repeat: no-repeat)">
           </div>
           <div class="container-informations">
           <h1><strong><%= trip.place_proposal.place.city%></strong>,

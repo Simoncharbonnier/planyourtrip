@@ -9,27 +9,38 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto flex">
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <div id="myBtn" class="nav-link">Nouveau trip</div>
-            <div id="myModal" class="modal-new-trip">
-              <div class="modal-content-new-trip">
-                <div class="form-trip-title flex">
-                  <h1>Crée ton meilleur trip!</h1>
-                  <i class="close far fa-times-circle"></i>
+          <% if !@trip.id %>
+            <li class="nav-item">
+              <div id="myBtn" class="nav-link">Nouveau trip</div>
+              <div id="myModal" class="modal-new-trip">
+                <div class="modal-content-new-trip">
+                  <div class="form-trip-title flex">
+                    <h1>Crée ton meilleur trip !</h1>
+                    <i class="close far fa-times-circle"></i>
+                  </div>
+                  <%= simple_form_for(@trip) do |f| %>
+                    <div class="flex" id="name-month">
+                      <%= f.input :name, label: false, placeholder: "Nom du voyage", class: "input", id: "name-trip-input"%>
+                      <%= f.input :month, collection: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
+                        label: false, prompt: "Mois", class: "input" %>
+                    </div>
+                    <div class="flex" id="button-form-week">
+                      <div>
+                        <%= f.input :time_span,
+                          as: :radio_buttons,
+                          collection_wrapper_tag: 'div',
+                          collection_wrapper_class: 'category-wrapper-1',
+                          item_wrapper_class: 'category-item-1',
+                          input_html: {class: 'category-selector-1'},
+                          collection: ["Semaine", "Week-end"] %>
+                      </div>
+                      <%= f.submit "Valider", class: "button-orange"%>
+                    </div>
+                  <% end %>
                 </div>
-                <%= simple_form_for(@trip) do |f| %>
-                  <%= f.input :name, label: false, placeholder: "Nom du voyage", class: "input" %>
-                  <div class="flex">
-                  <%= f.input :month, collection: (1..12), label: false, placeholder: "Mois", class: "input" %>
-                  <%= f.input :time_span, collection: ["Semaine", "Week-end"], label: false, class: "input" %>
-                  </div>
-                  <div class="center">
-                    <%= f.submit class: "button-orange"%>
-                  </div>
-                <% end %>
               </div>
-            </div>
-          </li>
+            </li>
+          <% end %>
           <li class="nav-item active">
             <%= link_to "Mes voyages", trips_path, class: "nav-link" %>
           </li>
