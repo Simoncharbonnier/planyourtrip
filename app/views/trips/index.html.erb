@@ -29,7 +29,6 @@
               <div class="card-index-xl-dispo-texte">
                 <p>Nous attentons encore les <br> disponibilités de vos amis et leurs propositions de destination.</p>
               </div>
-
               <div class="footer-card-index-xl-dispo">
                 <% if trip.user == current_user %>
                   <%= link_to "Booker", new_trip_trip_availability_path(trip), class: "button-grey-xxl " %>
@@ -58,7 +57,8 @@
               </div>
               <% if current_user == trip.user %>
                 <div class="link">
-                  <i class="fas fa-external-link"></i>
+                  <% url = "http://localhost:3000/trips/#{trip.id}/trip_availabilities/new" %>
+                  <button class="link-button" onclick="setClipboard(`<%= url %>`)"><i class="fas fa-external-link"></i></button>
                 </div>
               <% end %>
             </div>
@@ -114,7 +114,8 @@
               </div>
               <% if current_user == trip.user %>
                 <div class="link">
-                  <i class="fas fa-external-link"></i>
+                  <% url = "http://localhost:3000/trips/#{trip.id}/trip_availabilities/new" %>
+                  <button class="link-button" onclick="setClipboard(`<%= url %>`)"><i class="fas fa-external-link"></i></button>
                 </div>
               <% end %>
             </div>
@@ -224,3 +225,16 @@
 <% @my_confirmed_trips.each do |trip| %>
   <%= render "shared/result", trip: trip %>
 <% end %>
+
+
+<script>
+  function setClipboard(value) {
+    var tempInput = document.createElement("input");
+    tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+    tempInput.value = value;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+  }
+</script>
