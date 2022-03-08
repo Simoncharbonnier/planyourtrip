@@ -4,7 +4,9 @@
 }
 
 .cards-grid-wrapper {
-  width: 70vw;
+  width: 60vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .trips-tabs {
@@ -42,4 +44,10 @@
   color: #8A97FE;
   font-weight: bold;
   font-family: 'Vollkorn', serif;
+}
+
+.container-card-xl-index{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 10px;
 }
