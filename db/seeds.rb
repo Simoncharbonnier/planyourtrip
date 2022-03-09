@@ -80,7 +80,7 @@ p "Users seed done !"
 
 # trips
 trip1 = Trip.create!(name: "Weekend aux Pays-Bas", user: simon, month: 9, status: "confirmed", time_span: "Weekend")
-trip2 = Trip.create!(name: "Aout chez les Grecs", user: valentin, month: 8, status: "confirmed", time_span: "Semaine")
+trip2 = Trip.create!(name: "Août chez les Grecs", user: valentin, month: 8, status: "confirmed", time_span: "Semaine")
 # trip3 = Trip.create!(name: "Voyage entre potes", user: fabien, month: 8, status: "voting", time_span: "Week")
 trip4 = Trip.create!(name: "Avril 2022", user: fabien, month: 4, status: "voting", time_span: "Weekend")
 

@@ -10,7 +10,7 @@
     <% if current_user == @trip.user %>
       <section>
         <% url = "http://www.planyourtripapp.me/trips/#{@trip.id}/trip_availabilities/new" %>
-        <button id="button" class="button-orange" onclick="setClipboard(`<%= url %>`)" aria-describedby="tooltip">Invitez vos amis</button>
+        <button id="button" class="button-orange" onclick="setClipboard(`<%= url %>`)" aria-describedby="tooltip">Inviter vos amis</button>
         <div id="tooltip" role="tooltip">Copié
           <div id="arrow" data-popper-arrow></div>
         </div>
