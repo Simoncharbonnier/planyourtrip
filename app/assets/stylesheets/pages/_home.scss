@@ -7,7 +7,7 @@
 
 .hero {
   width: 100%;
-  height: 90vh;
+  // height: 90vh;
   background-color: white;
   text-align: center;
 }
@@ -15,33 +15,24 @@
 .img {
   margin: 0 auto;
   background-image: url("test.jpeg");
-  width: 80%;
-  border-radius: 60px;
-  height: 480px;
+  width: 100vw;
+  height: 100vh;
   background-size: cover;
 }
 
 #hero-title {
   font-family: 'Vollkorn', serif;
   color: white;
-  font-size: 40px;
+  font-size: 60px;
   font-weight: bolder;
   padding-top: 90px;
-  padding-left: 400px;
+  padding-left: 600px;
 }
 
-button {
-  color: white;
-  background-color: #F78764;
-  padding: 10px 80px;
-  border: none;
-  border-radius: 10px;
-  margin: 10px auto;
-}
-
-.hero h3 {
-  font-family: 'Vollkorn', serif;
-  padding-top: 20px;
+.home-page-button {
+  margin-top: 250px;
+  width: 300px !important;
+  font-size: 30px !important;
 }
 
 .infos {
@@ -51,14 +42,13 @@ button {
   justify-content: space-around;
   align-items: center;
   background-color: rgba(138, 151, 254, 0.10);
-  margin-bottom: 30px;
 }
 
 .info-card {
   background-color: white;
   border-radius: 20px;
   border: solid 2px #F78764;
-  height: 200px;
+  height: 250px;
   width: 280px;
   padding: 20px;
   box-shadow: 0 4px 4px -2px gray;
@@ -66,32 +56,43 @@ button {
 
 .info-text {
   color: #F78764;
-  font-size: 20px;
+  font-size: 30px;
   text-align: center;
+}
+
+.fafor-home {
+  font-size:40px;
+  margin-bottom: 40px;
 }
 
 .strength-card {
   display: flex;
   padding: 30px;
   justify-content: space-around;
-  height: 100vh;
+  height: 600px;
   margin-bottom: 30px;
 }
 
 .reverse-card {
   flex-direction: row-reverse;
   background-color: rgba(138, 151, 254, 0.10);
+  text-align: right;
+  p {
+    text-align: right !important;
+  }
 }
 .strength-info-text {
 width: 20vw;
 
 h2 {
   font-family: 'Vollkorn', serif;
+  color: #F78764;
   font-size: 40px;
   font-weight: bolder;
 }
 p {
-  font-size: 20px;
+  font-size: 25px;
+  text-align: left;
 }
 }
 
