@@ -4,10 +4,10 @@
   <%# TABS %>
   <ul class="nav nav-tabs nav-fill trips-tabs" id="myTab" role="tablist" >
     <li class="nav-item trips-tab" role="presentation">
-      <div class="nav-link active" id="pending-trips-tab" data-bs-toggle="tab" data-bs-target="#pending-trips" type="button" role="tab" aria-controls="pending-trips" aria-selected="true">En attente</d>
+      <button class="nav-link active" id="pending-trips-tab" data-bs-toggle="tab" data-bs-target="#pending-trips" type="button" role="tab" aria-controls="pending-trips" aria-selected="true">En attente</button>
     </li>
     <li class="nav-item trips-tab" role="presentation">
-      <div class="nav-link" id="confirmed-trips-tab" data-bs-toggle="tab" data-bs-target="#confirmed-trips" type="button" role="tab" aria-controls="confirmed-trips" aria-selected="false">Confirmés</div>
+      <button class="nav-link" id="confirmed-trips-tab" data-bs-toggle="tab" data-bs-target="#confirmed-trips" type="button" role="tab" aria-controls="confirmed-trips" aria-selected="false">Confirmés</button>
     </li>
   </ul>
 
@@ -31,7 +31,7 @@
         <% end %>
       </div>
     </div>
-    <%# TRIP CONFIRMED %>
+    <%# TRIPCONFIRMED %>
     <div class="tab-pane fade" id="confirmed-trips" role="tabpanel" aria-labelledby="confirmed-trips-tab"  >
       <div class="container-trips">
         <div class="cards-grid-wrapper">
@@ -44,7 +44,7 @@
                     <p id="card-index-texte"><%= trip.name %></p>
                     <p id="card-index-date">
                       <i class="fas fa-calendar-alt"></i>
-                      &nbsp<%= trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %>
+                      <%= trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %>
                     </p>
                     <div class="container-mini-avatar">
                       <div class="card-index-footer">
@@ -81,7 +81,6 @@
 <% @my_confirmed_trips.each do |trip| %>
   <%= render "shared/result", trip: trip %>
 <% end %>
-
 
 <script>
   function setClipboard(value) {
