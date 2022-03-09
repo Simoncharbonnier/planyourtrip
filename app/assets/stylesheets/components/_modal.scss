@@ -18,13 +18,29 @@
   background-color: white;
   margin: 15% auto;
   padding: 20px;
-  width: 60%;
+  width: 50%;
   border-radius: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .new_trip {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
   .input {
     border-radius: 10px;
   }
   .form-trip-title {
-    justify-content: space-between;
+    justify-content: center;
+    margin-bottom: 3rem;
     h1 {
       color: #F78764;
       font-weight: bold;
@@ -32,6 +48,10 @@
   }
   .center {
     text-align: center;
+  }
+  .centered-button {
+    margin: 0 auto;
+    margin-top: 3rem;
   }
 }
 
@@ -41,6 +61,8 @@
   float: right;
   font-size: 28px;
   font-weight: bold;
+  position: relative;
+  left: 190px;
 }
 
 .close:hover,
@@ -80,8 +102,7 @@
   border: 1px solid #EAEAEA;
   border-radius: 4px;
   padding: 10px 10px;
-  margin: 0;
-  margin-right: 15px;
+  margin: 0px 10px;
   background-color: white;
   text-align: center;
 }
@@ -91,15 +112,14 @@
 }
 
 #trip_name {
-  width: 200%;
+  width: 100%;
+  margin: 20px 0px;
 }
 #trip_month {
-  width: 200%;
+  width: 100%;
+  margin-bottom: 20px;
 }
-#name-month {
-  justify-content: space-between;
-  width: 85%;
-}
+
 #button-form-week {
   justify-content: space-between;
 }

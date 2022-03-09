@@ -13,17 +13,15 @@
             <li class="nav-item">
               <div id="myBtn" class="nav-link">Nouveau voyage</div>
               <div id="myModal" class="modal-new-trip">
-                <div class="modal-content-new-trip">
+                <div class="modal-content-new-trip flex">
                   <div class="form-trip-title flex">
                     <h1>Créer un voyage</h1>
                     <i class="close far fa-times-circle"></i>
                   </div>
                   <%= simple_form_for(@trip) do |f| %>
-                    <div class="flex" id="name-month">
-                      <%= f.input :name, label: false, placeholder: "Titre", class: "input", id: "name-trip-input"%>
-                      <%= f.input :month, collection: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
-                        label: false, prompt: "Mois", class: "input" %>
-                    </div>
+                    <%= f.input :name, label: false, placeholder: "Titre", class: "input", id: "name-trip-input"%>
+                    <%= f.input :month, collection: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
+                      label: false, prompt: "Mois", class: "input" %>
                     <div class="flex" id="button-form-week">
                       <%= f.input :time_span,
                         as: :radio_buttons,
@@ -32,8 +30,8 @@
                         item_wrapper_class: 'category-item-1',
                         input_html: {class: 'category-selector-1'},
                         collection: ["Semaine", "Week-end"] %>
-                      <%= f.submit "Valider", class: "button-orange"%>
                     </div>
+                    <%= f.submit "Valider", class: "button-orange centered-button"%>
                   <% end %>
                 </div>
               </div>

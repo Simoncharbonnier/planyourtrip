@@ -30,10 +30,11 @@
             <li class="active" id="destination"><strong>Destination</strong></li>
           </ul>
           <% if current_user == trip.user %>
-            <div class="link"> <% url = "http://localhost:3000/trips/#{trip.id}/trip_availabilities/new" %>
-              <button class="link-button" onclick="setClipboard(`<%= url %>`)">
+            <% url = "http://localhost:3000/trips/#{trip.id}/trip_availabilities/new" %>
+            <div class="link" id="button-d" onclick="setClipboard(`<%= url %>`)" aria-describedby="tooltip">
+              <div class="link-button">
                 <i class="fas fa-external-link"></i>
-              </button>
+              </div>
             </div>
           <% end %>
         </div>
