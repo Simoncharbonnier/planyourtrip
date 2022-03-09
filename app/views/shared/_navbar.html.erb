@@ -11,16 +11,16 @@
         <% if user_signed_in? %>
           <% if !@trip.id %>
             <li class="nav-item">
-              <div id="myBtn" class="nav-link">Nouveau trip</div>
+              <div id="myBtn" class="nav-link">Nouveau voyage</div>
               <div id="myModal" class="modal-new-trip">
                 <div class="modal-content-new-trip">
                   <div class="form-trip-title flex">
-                    <h1>Crée ton meilleur trip !</h1>
+                    <h1>Créer un voyage</h1>
                     <i class="close far fa-times-circle"></i>
                   </div>
                   <%= simple_form_for(@trip) do |f| %>
                     <div class="flex" id="name-month">
-                      <%= f.input :name, label: false, placeholder: "Nom du voyage", class: "input", id: "name-trip-input"%>
+                      <%= f.input :name, label: false, placeholder: "Titre", class: "input", id: "name-trip-input"%>
                       <%= f.input :month, collection: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
                         label: false, prompt: "Mois", class: "input" %>
                     </div>

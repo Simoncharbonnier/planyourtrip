@@ -47,7 +47,7 @@
                   <% else %>
                     <p>Week-end <%= index + 1 %></p>
                   <% end %>
-                  <p><%= "#{ta.start_at.day} - #{ta.end_at.day} #{Date::MONTHNAMES[ta.start_at.month]}" %></p>
+                  <p><%= "#{ta.start_at.day} - #{ta.end_at.day} #{I18n.t("date.month_names")[ta.start_at.month].capitalize}" %></p>
                 </div>
                 <% @trip.subscriptions.each do |sub| %>
                   <div class="flex av">

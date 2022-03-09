@@ -19,11 +19,16 @@
   margin: 15% auto;
   padding: 20px;
   width: 60%;
+  border-radius: 20px;
   .input {
     border-radius: 10px;
   }
   .form-trip-title {
     justify-content: space-between;
+    h1 {
+      color: #F78764;
+      font-weight: bold;
+    }
   }
   .center {
     text-align: center;
@@ -69,6 +74,7 @@
   cursor: pointer;
   box-sizing: border-box;
   width: 120px;
+  height: 42px;
   font-size: 15px;
   text-align: left;
   border: 1px solid #EAEAEA;
