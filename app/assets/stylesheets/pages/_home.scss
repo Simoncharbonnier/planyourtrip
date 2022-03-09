@@ -115,6 +115,11 @@ p {
   background-image: url('dashboard.png');
   background-position: top;
 }
+.form-login {
+  a:hover {
+    color: #0a58ca !important;
+  }
+}
 a:hover {
-  color: #0a58ca;
+  color: white;
 }
