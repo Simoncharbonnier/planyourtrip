@@ -82,6 +82,8 @@
   <%= render "shared/result", trip: trip %>
 <% end %>
 
+
+
 <script>
   function setClipboard(value) {
     var tempInput = document.createElement("input");
@@ -92,4 +94,53 @@
     document.execCommand("copy");
     document.body.removeChild(tempInput);
   }
+</script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script>
+  const button = document.querySelector('#button');
+  const tooltip = document.querySelector('#tooltip');
+
+  const popperInstance = Popper.createPopper(button, tooltip, {
+    placement: "bottom",
+    modifiers: [
+      {
+        name: 'offset',
+        options: {
+          offset: [0, 8],
+        },
+      },
+    ],
+  });
+
+  function show() {
+    tooltip.setAttribute('data-show', '');
+    popperInstance.setOptions((options) => ({
+      ...options,
+      modifiers: [
+        ...options.modifiers,
+        { name: 'eventListeners', enabled: true },
+      ],
+    }));
+    popperInstance.update();
+  }
+
+  function hide() {
+    tooltip.removeAttribute('data-show');
+    popperInstance.setOptions((options) => ({
+      ...options,
+      modifiers: [
+        ...options.modifiers,
+        { name: 'eventListeners', enabled: false },
+      ],
+    }));
+  }
+
+  const showEvents = ['mouse', 'click'];
+  const hideEvents = ['mouseleave', 'blur'];
+  showEvents.forEach((event) => {
+    button.addEventListener(event, show);
+  });
+  hideEvents.forEach((event) => {
+    button.addEventListener(event, hide);
+  });
 </script>
