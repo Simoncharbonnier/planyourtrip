@@ -1,5 +1,5 @@
-<div class="container">
-  <h1 id="title-index">Mes trips</h1>
+<div class="container-fluid index-container">
+  <h1 id="title-index">Mes voyages</h1>
 
   <%# TABS %>
   <ul class="nav nav-tabs nav-fill trips-tabs" id="myTab" role="tablist" >
@@ -39,7 +39,7 @@
             <%# CARDS %>
             <%= link_to trip_path(trip) do %>
                 <div class="card-index">
-                  <div class="card-index-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path trip.place_proposal.place.photo.key, crop: :fill, height: 400 %>')">
+                  <div class="card-index-img" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<%= cl_image_path trip.place_proposal.place.photo.key, crop: :fill, height: 400 %>')">
                     <h5 id="card-index-title"><strong><%= trip.place_proposal.place.city.upcase %></strong></h5>
                     <p id="card-index-texte"><%= trip.name %></p>
                     <p id="card-index-date">

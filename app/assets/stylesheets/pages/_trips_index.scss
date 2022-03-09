@@ -1,6 +1,14 @@
+.index-container {
+  background-color: rgba(138, 151, 254, 0.1);
+  padding: 2rem;
+
+}
 .container-trips {
   margin-top: 1em;
   display: flex;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 20px;
 }
 
 .cards-grid-wrapper {
@@ -12,6 +20,7 @@
 
 .trips-tabs {
   width: 25%;
+  border: none;
 
   .trips-tab {
     .nav-link {
@@ -26,7 +35,7 @@
         border: none;
       }
       &.active {
-        background-color: white;
+        background-color: transparent;
         color: black;
         border-bottom: 5px solid #8A97FE;
         opacity: 1;
@@ -36,15 +45,16 @@
 }
 
 #map {
-  top: 0;
+  top: 32px !important;
   position: sticky;
   margin-left: 5px;
   border-radius: 10px;
+
 }
 
 #title-index {
   color: #8A97FE;
-  font-weight: bold;
+  font-weight: 900;
   font-family: 'Vollkorn', serif;
 }
 
