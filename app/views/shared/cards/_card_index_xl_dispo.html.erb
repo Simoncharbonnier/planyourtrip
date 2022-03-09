@@ -30,7 +30,7 @@
             <li id="destination"><strong>Destination</strong></li>
           </ul>
           <% if current_user == trip.user %>
-            <% url = "http://www.planyourtripapp.me/trips/#{@trip.id}/trip_availabilities/neww" %>
+            <% url = "http://www.planyourtripapp.me/trips/#{trip.id}/trip_availabilities/neww" %>
             <div class="link" id="button-dispo" onclick="setClipboard(`<%= url %>`)" aria-describedby="tooltip">
               <div class="link-button">
                 <i class="fas fa-external-link"></i>
