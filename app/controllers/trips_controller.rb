@@ -76,7 +76,7 @@ class TripsController < ApplicationController
 
   def book
     @trip = Trip.find(params[:id])
-    @trip.trip_availability_id = TripAvailability.find(params[:trip_av])
+    @trip.trip_availability = TripAvailability.find(params[:trip_av])
     @trip.status = "voting"
     @trip.save
 
