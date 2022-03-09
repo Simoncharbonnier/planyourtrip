@@ -82,38 +82,43 @@
   }
 }
 .strength-info-text {
-width: 20vw;
+  width: 35vw;
 
-h2 {
-  font-family: 'Vollkorn', serif;
-  color: #F78764;
-  font-size: 40px;
-  font-weight: bolder;
+  h2 {
+    font-family: 'Vollkorn', serif;
+    color: #F78764;
+    font-size: 40px;
+    font-weight: bolder;
+  }
+  p {
+    font-size: 20px;
+    text-align: left;
+  }
 }
-p {
-  font-size: 25px;
-  text-align: left;
+.strength-info-text-last {
+  width: 25vw;
 }
-}
-
 .strenght-img {
   border-radius: 20px;
   background-size: cover;
-  width: 60vw;
+  box-shadow: 4px 4px 10px lightgrey;
 }
 
 .dates-img {
   background-image: url('dates.png');
+  width: 54vw;
 }
 
 .location-img {
   background-image: url('location.png');
   background-position: bottom;
+  width: 46vw;
 }
 
 .dashboard-img {
   background-image: url('dashboard.png');
   background-position: top;
+  width: 67vw;
 }
 .form-login {
   a:hover {

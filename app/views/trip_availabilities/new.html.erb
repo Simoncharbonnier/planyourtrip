@@ -76,7 +76,9 @@
                   </div>
                 <% end %>
                 <% if current_user.id == @trip.user_id %>
-                  <%= link_to "BOOKER", book_trip_path(@trip, trip_av: ta), method: :patch, class: "button-orange-xl" %>
+                  <% if PlaceProposal.find_by(user: current_user, trip: @trip) %>
+                    <%= link_to "BOOKER", book_trip_path(@trip, trip_av: ta), method: :patch, class: "button-orange-xl" %>
+                  <% end %>
                 <% end %>
               </div>
             <% end %>
@@ -104,7 +106,9 @@
         </div>
       </div>
     </div>
-    <div class="swiper-button-next button-orange-xxl" data-action="click->button#next" data-button-target="next">Suivant</div>
+    <% if !PlaceProposal.find_by(user: current_user, trip: @trip) %>
+      <div class="swiper-button-next button-orange-xxl" data-action="click->button#next" data-button-target="next">Suivant</div>
+    <% end %>
     <div class="swiper-button-prev button-grey-xxl d-none" data-action="click->button#previous" data-button-target="previous">Précédent</div>
   </div>
 </div>

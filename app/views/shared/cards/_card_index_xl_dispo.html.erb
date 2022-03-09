@@ -43,10 +43,6 @@
           <strong><%= trip.name %></strong>
           </h2>
         </div>
-        <p id="card-index-xl-date">
-          <i class="fas fa-calendar-alt"></i>
-          <%= trip.trip_availabilities.first.start_at.strftime('%d/%m/%Y') %> - <%= trip.trip_availabilities.first.end_at.strftime('%d/%m/%Y') %>
-        </p>
         <%# MIDDLE %>
         <div>
           <%# DESC %>
@@ -57,7 +53,7 @@
         <%# BOTTOM %>
         <div class="footer-card-index-xl">
           <% if trip.user == current_user %>
-            <%= link_to "Booker", new_trip_trip_availability_path(trip), class: "button-orange-xxl " %>
+            <%= link_to "Booker", new_trip_trip_availability_path(trip), class: "button-orange-xxl mt-5" %>
           <% else %>
             <%= link_to "Booker", new_trip_trip_availability_path(trip), class: "button-orange-xxl no-show" %>
           <% end %>
