@@ -34,9 +34,9 @@ export default class extends Controller {
       const customMarker = document.createElement("div")
       customMarker.className = "marker"
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
-      customMarker.style.backgroundSize = "contain"
-      customMarker.style.width = "60px"
-      customMarker.style.height = "60px"
+      customMarker.style.backgroundSize = "cover"
+      customMarker.style.width = "40px"
+      customMarker.style.height = "40px"
       new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
