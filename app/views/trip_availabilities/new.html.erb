@@ -4,7 +4,7 @@
     <% if @trip.users.include?(current_user) %>
       <p class="subtitle-form"><strong><%= "Entre tes disponibilités pour les semaines du mois de #{I18n.t("date.month_names")[@trip.month]} et proposez la prochaine destination !" %></strong></p>
     <% else %>
-      <p class="subtitle-form"><strong>Clique sur Rejoindre pour renseigner tes disponibilités !</strong></p>
+      <p class="subtitle-form"><strong>Clique pour renseigner tes disponibilités !</strong></p>
       <%= link_to "Viens avec nous", trip_subscriptions_path(@trip), method: :post, class: "button-orange-xl mb-2" %>
     <% end %>
     <% if current_user == @trip.user %>
