@@ -2,11 +2,13 @@
   max-width: fit-content;
   border-radius: 10px;
 }
-
-.modal-container{
-  border-radius: 10px;
-  height: 550px;
+.modal-body{
+  height: 540px;
   width: 1000px;
+  border-radius: 10px;
+}
+.modal-container{
+
 }
 
 .container-buttons{
@@ -163,7 +165,7 @@
 }
 .img-result{
   border-radius: 10px;
-  width: 900px;
+  width: 608px;
   height: 500px;
   margin:5px;
   background-position: center;
@@ -188,4 +190,5 @@
 .container-informations{
   padding-left: 6px;
   margin-top: 1px;
+  height: 510px;
 }
