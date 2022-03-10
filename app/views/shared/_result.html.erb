@@ -4,11 +4,15 @@
     <div class="modal-content modal-container">
       <div class="modal-body">
         <div class="container-big d-flex">
-          <div class="img img-result" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path trip.place_proposal.place.photo.key, crop: :fill, height: 400 %>'); background-size: cover; background-repeat: no-repeat); backgroud-position: center; height: 500px;">
+          <div class="img img-result" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path trip.place_proposal.place.photo.key %>'); background-size: cover; background-repeat: no-repeat)">
           </div>
           <div class="container-informations">
-            <h1><strong><%= trip.place_proposal.place.city%></strong>,
+            <h1 id="title-result"><strong><%= trip.place_proposal.place.city%></strong>,
             <%= trip.place_proposal.place.country %></h1>
+            <p id="result-date">
+                <i class="fas fa-calendar-alt"></i>
+                <%= trip.trip_availability.start_at.strftime('%d/%m/%Y') %> - <%= trip.trip_availability.end_at.strftime('%d/%m/%Y') %>
+            </p>
             <div class="container-informations-price d-flex">
               <div class="mini-card-result-show-1">
                 <p><i class="fas fa-bed"></i><p id="logement">LOGEMENT</p><p id="price-place">
@@ -26,14 +30,6 @@
                 <p><i class="fas fa-plane"></i><p id="plane">VOL</p><p id="price-plane">
                 <%= trip.place_proposal.place.plane_cost %></p>
               </div>
-            </div>
-            <div class="container-informations-avatar d-flex">
-              <% trip.subscriptions.each do |name| %>
-                <div class="card-avatar card-avatar-blue">
-                  <%= image_tag image_url("https://kitt.lewagon.com/placeholder/users/#{name.user.ghname}"), class:"img-card-avatar-blue"  %>
-                  <p class="first-name"><%= name.user.username.capitalize %></p>
-                </div>
-              <% end %>
             </div>
             <div class="container-buttons">
               <%= link_to "Confirme que tu viens !", trip_subscription_path(trip, Subscription.find_by(user: current_user, trip: trip).id), method: :patch, class: "button-orange-xxl button-special" %>
