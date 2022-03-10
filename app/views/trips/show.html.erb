@@ -61,7 +61,7 @@
       <div class="chat">
         <%= simple_form_for([@trip, @message], remote: true, html: {class: "d-flex"}) do |f| %>
           <div class="input-group">
-            <%= f.input :content, label: false, class: "form-control", placeholder: "Rédigez un nouveau message", wrapper_html: {class: "flex-grow-1 msg-wrapper"} %>
+            <%= f.input :content, label: false, class: "form-control", placeholder: "Rédiger un nouveau message", wrapper_html: {class: "flex-grow-1 msg-wrapper"} %>
             <button class= "btn btn-send">
               <i class="fas fa-paper-plane"></i>
             </button>
@@ -80,7 +80,7 @@
         <div class="to-do-list">
           <%= simple_form_for([@trip, @task], remote: true, html: {class: "d-flex"}) do |f| %>
             <div class="input-group">
-              <%= f.input :name, label: false, class: "form-control", placeholder: "Ajoutez un To-Do",  wrapper_html: {class: "flex-grow-1 msg-wrapper"} %>
+              <%= f.input :name, label: false, class: "form-control", placeholder: "Ajouter un To-Do",  wrapper_html: {class: "flex-grow-1 msg-wrapper"} %>
               <button class="btn btn-send">
                 <i class="fas fa-plus"></i>
               </button>
