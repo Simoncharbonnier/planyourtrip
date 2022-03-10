@@ -150,6 +150,8 @@ trip2.save!
 
 place_proposal7 = PlaceProposal.create!(place: berlin, trip: trip4, user: herve)
 place_proposal8 = PlaceProposal.create!(place: lisbonne, trip: trip4, user: simon)
+place_proposal9 = PlaceProposal.create!(place: madrid, trip: trip4, user: fabien)
+place_proposal10 = PlaceProposal.create!(place: vienne, trip: trip4, user: valentin)
 p "Place proposals seed done !"
 
 # votes
