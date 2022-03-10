@@ -2,10 +2,10 @@
   <h3 class="title-form"><%= "#{@trip.name}" %></h3>
   <div class="header flex justify-content-between align-items-center">
     <% if @trip.users.include?(current_user) %>
-      <p class="subtitle-form"><strong><%= "Entrez vos disponibilités pour les semaines du mois de #{I18n.t("date.month_names")[@trip.month]} et proposez la prochaine destination !" %></strong></p>
+      <p class="subtitle-form"><strong><%= "Entre tes disponibilités pour les semaines du mois de #{I18n.t("date.month_names")[@trip.month]} et proposez la prochaine destination !" %></strong></p>
     <% else %>
-      <p class="subtitle-form"><strong>Cliquez sur Rejoindre pour renseigner vos disponibilités !</strong></p>
-      <%= link_to "Rejoindre", trip_subscriptions_path(@trip), method: :post, class: "button-orange-xl mb-2" %>
+      <p class="subtitle-form"><strong>Clique pour renseigner tes disponibilités !</strong></p>
+      <%= link_to "Viens avec nous", trip_subscriptions_path(@trip), method: :post, class: "button-orange-xl mb-2" %>
     <% end %>
     <% if current_user == @trip.user %>
       <section>
@@ -27,15 +27,21 @@
               <div class="name"></div>
               <div class="flex">
                 <% @trip.subscriptions.each do |sub| %>
-                  <div class="card-avatar names">
-                    <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{sub.user.ghname}", class:"avatar"  %>
-                    <p class="first-name"><%= sub.user.username.capitalize %></p>
-                    <div class="check">
-                      <% c = 0 %>
-                      <% TripAvailability.where(trip_id: @trip.id).each do |ta| %>
-                        <% if Availability.where(user_id: sub.user.id, trip_availability_id: ta.id).first && c == 0 %>
-                          <% c += 1 %>
-                          <i class="fas fa-check"></i>
+                  <div class="flex flex-column">
+                    <div class="card-avatar names">
+                      <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{sub.user.ghname}", class:"avatar"  %>
+                      <p class="first-name"><%= sub.user.username.capitalize %></p>
+                      <% if current_user.id == @trip.user_id %>
+                        <% if PlaceProposal.find_by(user: current_user, trip: @trip) %>
+                          <div class="check">
+                            <% c = 0 %>
+                            <% TripAvailability.where(trip_id: @trip.id).each do |ta| %>
+                              <% if Availability.where(user_id: sub.user.id, trip_availability_id: ta.id).first && c == 0 %>
+                                <% c += 1 %>
+                                <i class="fas fa-check"></i>
+                              <% end %>
+                            <% end %>
+                          </div>
                         <% end %>
                       <% end %>
                     </div>
