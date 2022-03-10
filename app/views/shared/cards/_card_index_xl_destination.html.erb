@@ -55,11 +55,11 @@
           <%# DESC %>
           <div class="card-index-xl-texte">
             <% if trip.votes.find_by(user: current_user) %>
-              <p>Votre choix a bien été pris en compte, nous attendons juste que vos amis votent aussi pour votre prochaine destination... <br>
-                N’hésitez pas à les secouer un peu !</p>
+              <p>Ton choix a bien été pris en compte, nous attendons juste que tes amis votent aussi pour votre prochaine destination... <br>
+                N’hésite pas à les secouer un peu !</p>
             <% else %>
-              <p>Dépéchez-vous, vos amis attendent votre vote avec impatience... <br>
-                Vous n’avez pas hâte de connaitre votre future destination ?!</p>
+              <p>Dépêche-toi, tes amis attendent ton vote avec impatience... <br>
+                Tu n’as pas hâte de connaitre votre future destination ?!</p>
             <% end %>
           </div>
         </div>
@@ -67,9 +67,9 @@
         <div class="footer-card-index-xl">
           <%# STATUS %>
           <% if trip.votes.find_by(user: current_user) %>
-            <%= link_to "Voter pour la destination !", trip_path(trip), class: "button-blue-xxl no-show" %>
+            <%= link_to "Vote pour la destination !", trip_path(trip), class: "button-blue-xxl no-show" %>
           <% else %>
-            <%= link_to "Voter pour la destination !", trip_path(trip), class: "button-blue-xxl" %>
+            <%= link_to "Vote pour la destination !", trip_path(trip), class: "button-blue-xxl" %>
           <% end %>
         </div>
       </div>
