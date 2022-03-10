@@ -37,6 +37,7 @@ export default class extends Controller {
       customMarker.style.backgroundSize = "cover"
       customMarker.style.width = "40px"
       customMarker.style.height = "40px"
+      customMarker.style.color = "8A97FE"
       new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)

@@ -14,7 +14,7 @@ class TripsController < ApplicationController
         lat: place.latitude,
         lng: place.longitude,
         info_window: render_to_string(partial: "info_window", locals: { place: place }),
-        image_url: helpers.asset_url("plane.svg")
+        image_url: helpers.asset_url("plane.png")
       }
     end
   end
@@ -31,7 +31,7 @@ class TripsController < ApplicationController
         lat: place.latitude,
         lng: place.longitude,
         info_window: render_to_string(partial: "info_window", locals: { place: place }),
-        image_url: helpers.asset_url("plane.svg")
+        image_url: helpers.asset_url("plane.png")
       }
     end
   end
