@@ -4,7 +4,7 @@
     <div class="modal-content modal-container">
       <div class="modal-body">
         <div class="container-big d-flex">
-          <div class="img img-result" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path trip.place_proposal.place.photo.key %>'); background-size: cover; background-repeat: no-repeat)">
+          <div class="img img-result" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path trip.place_proposal.place.photo.key, height: 500%>'); background-size: cover; background-repeat: no-repeat)">
           </div>
           <div class="container-informations">
             <h1 id="title-result"><strong><%= trip.place_proposal.place.city%></strong>,
