@@ -32,7 +32,7 @@
               </div>
             </div>
             <div class="container-buttons">
-              <%= link_to "Confirme que tu viens !", trip_subscription_path(trip, Subscription.find_by(user: current_user, trip: trip).id), method: :patch, class: "button-orange-xxl button-special" %>
+              <%= link_to "Confirmez que vous venez !", trip_subscription_path(trip, Subscription.find_by(user: current_user, trip: trip).id), method: :patch, class: "button-orange-xxl button-special" %>
               <%= link_to "Je passe mon tour ...", trip_subscription_path(trip, Subscription.find_by(user: current_user, trip: trip).id), method: :delete, class: "button-orange-xxl button_inverse" %>
             </div>
           </div>
