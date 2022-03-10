@@ -67,9 +67,9 @@
         <div class="footer-card-index-xl">
           <%# STATUS %>
           <% if trip.votes.find_by(user: current_user) %>
-            <%= link_to "Voter pour la destination !", trip_path(trip), class: "button-blue-xxl no-show" %>
+            <%= link_to "Voter pour la destination", trip_path(trip), class: "button-blue-xxl no-show" %>
           <% else %>
-            <%= link_to "Voter pour la destination !", trip_path(trip), class: "button-blue-xxl" %>
+            <%= link_to "Voter pour la destination", trip_path(trip), class: "button-blue-xxl" %>
           <% end %>
         </div>
       </div>
