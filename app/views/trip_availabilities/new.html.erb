@@ -2,15 +2,15 @@
   <h3 class="title-form"><%= "#{@trip.name}" %></h3>
   <div class="header flex justify-content-between align-items-center">
     <% if @trip.users.include?(current_user) %>
-      <p class="subtitle-form"><strong><%= "Entre tes disponibilités pour les semaines du mois de #{I18n.t("date.month_names")[@trip.month]} et proposez la prochaine destination !" %></strong></p>
+      <p class="subtitle-form"><strong><%= "Entre tes disponibilités pour les semaines du mois de #{I18n.t("date.month_names")[@trip.month]} et propose la prochaine destination !" %></strong></p>
     <% else %>
       <p class="subtitle-form"><strong>Clique pour renseigner tes disponibilités !</strong></p>
-      <%= link_to "Viens avec nous", trip_subscriptions_path(@trip), method: :post, class: "button-orange-xl mb-2" %>
+      <%= link_to "Rejoindre", trip_subscriptions_path(@trip), method: :post, class: "button-orange-xl mb-2" %>
     <% end %>
     <% if current_user == @trip.user %>
       <section>
         <% url = "http://www.planyourtripapp.me/trips/#{@trip.id}/trip_availabilities/new" %>
-        <button id="button" class="button-orange" onclick="setClipboard(`<%= url %>`)" aria-describedby="tooltip">Inviter vos amis</button>
+        <button id="button" class="button-orange" onclick="setClipboard(`<%= url %>`)" aria-describedby="tooltip">Invite tes amis</button>
         <div id="tooltip" role="tooltip">Copié
           <div id="arrow" data-popper-arrow></div>
         </div>
