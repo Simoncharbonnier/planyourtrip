@@ -5,17 +5,19 @@
   align-items: center;
   justify-content: space-around;
   width: 80px;
-  height: 140px;
+  height: auto;
   margin: 6px;
   border-radius: 10px;
   background-color: white;
   box-shadow:  0 4px 8px 0 rgba(139, 122, 122, 0.2);
   img{
     height: 40px;
+    margin: 10px 10px;
   }
   .first-name {
     color:#8A97FE;
     margin: 0;
+    margin-bottom: 5px;
   }
   .check{
     text-align: center;
@@ -25,10 +27,10 @@
     border: solid 2px #8A97FE;
     border-radius: 10px;
     color:white;
+    margin: 10px 10px;
     i{
       color: white;
       font-size: 12px;
     }
   }
-
 }
