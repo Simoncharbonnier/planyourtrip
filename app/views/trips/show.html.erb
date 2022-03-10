@@ -4,7 +4,7 @@
       <h2 class="show-h2"><%=@trip.name%></h2>
       <p class="show-tilte-subtitle">Ça colle pour tout le monde du <strong><%= @trip.trip_availability.start_at.strftime('%d') %> au <%= @trip.trip_availability.end_at.strftime('%d ') %><%= I18n.t("date.month_names")[@trip.month] %></strong> !</p>
     </div>
-    <p id="subtitle-show"><em>Dépêchez-vous, vos amis attendent votre vote !</em></p>
+    <p id="subtitle-show"><em>Dépêche-toi, tes amis attendent ton vote !</em></p>
   </div>
 
   <div class="container d-flex">
@@ -61,7 +61,7 @@
       <div class="chat">
         <%= simple_form_for([@trip, @message], remote: true, html: {class: "d-flex"}) do |f| %>
           <div class="input-group">
-            <%= f.input :content, label: false, class: "form-control", placeholder: "Rédiger un nouveau message", wrapper_html: {class: "flex-grow-1 msg-wrapper"} %>
+            <%= f.input :content, label: false, class: "form-control", placeholder: "Rédige un nouveau message", wrapper_html: {class: "flex-grow-1 msg-wrapper"} %>
             <button class= "btn btn-send">
               <i class="fas fa-paper-plane"></i>
             </button>
@@ -80,7 +80,7 @@
         <div class="to-do-list">
           <%= simple_form_for([@trip, @task], remote: true, html: {class: "d-flex"}) do |f| %>
             <div class="input-group">
-              <%= f.input :name, label: false, class: "form-control", placeholder: "Ajouter un To-Do",  wrapper_html: {class: "flex-grow-1 msg-wrapper"} %>
+              <%= f.input :name, label: false, class: "form-control", placeholder: "Ajoute un To-Do",  wrapper_html: {class: "flex-grow-1 msg-wrapper"} %>
               <button class="btn btn-send">
                 <i class="fas fa-plus"></i>
               </button>
