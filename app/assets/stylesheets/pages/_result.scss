@@ -6,20 +6,15 @@
 .modal-container{
   border-radius: 10px;
   height: 550px;
-  width: 900px;
+  width: 1000px;
 }
 
-.container-big{
-  width: 700px;
-  margin-left: -14px;
-}
 .container-buttons{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-
-
+  margin-top: 118px;
 }
 
 .button_inverse{
@@ -35,7 +30,6 @@
   width: 16rem;
   font-size: 14px;
   box-shadow: 0 0px 0px 0 rgba(255, 255, 255, 0.8);
-  position: absolute;
   bottom: 10px;
   &:hover {
     background-color: white;;
@@ -67,8 +61,8 @@
   justify-content: center;
   border: solid 2px #F78764;
   width: 80px;
-  height: 140px;
-  margin: 6px;
+  height: 100px;
+  margin-right: 6px;
   padding: 12px;
   border-radius: 10px;
   background-color: white;
@@ -95,9 +89,9 @@
   justify-content: center;
   border: solid 2px #F78764;
   width: 80px;
-  height: 140px;
+  height: 100px;
   padding: 12px;
-  margin: 6px;
+  margin-right: 6px;
   border-radius: 10px;
   background-color: white;
   box-shadow:  0 0 0px 0 rgba(139, 122, 122, 0.8);
@@ -121,9 +115,9 @@
   justify-content: center;
   border: solid 2px #F78764;
   width: 80px;
-  height: 140px;
+  height: 100px;
   padding: 12px;
-  margin: 6px;
+  margin-right: 6px;
   border-radius: 10px;
   background-color: white;
   box-shadow:  0 0 0px 0 rgba(139, 122, 122, 0.8);
@@ -148,9 +142,9 @@
   justify-content: center;
   border: solid 2px #F78764;
   width: 80px;
-  height: 140px;
+  height: 100px;
   padding: 12px;
-  margin: 6px;
+  margin-right: 6px;
   border-radius: 10px;
   background-color: white;
   box-shadow:  0 0 0px 0 rgba(139, 122, 122, 0.8);
@@ -169,5 +163,29 @@
 }
 .img-result{
   border-radius: 10px;
-  width: 600px;
+  width: 900px;
+  height: 500px;
+  margin:5px;
+  background-position: center;
+}
+
+#result-date{
+  font-size: 22px;
+  padding-left: 2px;
+  i {
+    font-size: 24px;
+  }
+}
+
+#title-result{
+  font-size: 36px;
+}
+
+.container-informations-price{
+  margin-top: 90px;
+}
+
+.container-informations{
+  padding-left: 6px;
+  margin-top: 1px;
 }
