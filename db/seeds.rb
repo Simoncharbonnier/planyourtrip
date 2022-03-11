@@ -178,7 +178,6 @@ p "Tasks seed done !"
 # messages
 Message.create!(content: "Ça va être dingue !", user: simon, trip: trip1)
 Message.create!(content: "Tu as bien pris ton appareil Hervé ?", user: valentin, trip: trip1)
-Message.create!(content: "J'espère que tu y as pensé...", user: fabien, trip: trip1)
 Message.create!(content: "Yes c'est ok !", user: herve, trip: trip1)
 p "Messages seed done !"
 
